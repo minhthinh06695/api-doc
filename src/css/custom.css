@@ -1,0 +1,85 @@
+/**
+ * Tùy chỉnh màu sắc cho phù hợp với giao diện Momo
+ */
+
+ :root {
+  --ifm-color-primary: #6a0dad;
+  --ifm-color-primary-dark: #600c9c;
+  --ifm-color-primary-darker: #5b0b92;
+  --ifm-color-primary-darkest: #4b0979;
+  --ifm-color-primary-light: #740ebe;
+  --ifm-color-primary-lighter: #790fc8;
+  --ifm-color-primary-lightest: #8911e1;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #a74deb;
+  --ifm-color-primary-dark: #9a30e8;
+  --ifm-color-primary-darker: #9322e7;
+  --ifm-color-primary-darkest: #7a16c5;
+  --ifm-color-primary-light: #b46aee;
+  --ifm-color-primary-lighter: #bb78f0;
+  --ifm-color-primary-lightest: #d3a2f5;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* API Playground styles */
+.playground {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.requestSection {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+}
+
+.submitButton {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--ifm-global-radius);
+  cursor: pointer;
+}
+
+.responseSection {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 1rem;
+  border-radius: var(--ifm-global-radius);
+}
+
+.responseSection pre {
+  margin-bottom: 0;
+}

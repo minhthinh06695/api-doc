@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+paths:
+  /v3/payments/quick-pay:
+    post:
+      summary: Quick Pay API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                partnerCode:
+                  type: string
+                orderId:
+                  type: string
+                amount:
+                  type: number
+                orderInfo:
+                  type: string
+                redirectUrl:
+                  type: string
+                ipnUrl:
+                  type: string
+                requestType:
+                  type: string
+                extraData:
+                  type: string
+                signature:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  partner

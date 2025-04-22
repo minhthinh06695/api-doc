@@ -148,7 +148,7 @@ Sử dụng để đồng bộ thông tin khách hàng.
 
 ### Danh mục vụ việc (setJob)
 
-Sử dụng để đồng bộ thông tin vụ việc vào bảng `dmvv`.
+Sử dụng để đồng bộ thông tin vụ việc.
 
 #### Các trường dữ liệu
 
@@ -181,7 +181,7 @@ Sử dụng để đồng bộ thông tin vụ việc vào bảng `dmvv`.
 
 ### Danh mục vật tư (setItem)
 
-Sử dụng để đồng bộ thông tin vật tư/hàng hóa vào bảng `dmvt`.
+Sử dụng để đồng bộ thông tin vật tư/hàng hóa.
 
 #### Các trường dữ liệu
 

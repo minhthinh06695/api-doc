@@ -69,6 +69,15 @@ const config = {
           autoCollapseCategories: true,
         },
       },
+      headTags: [
+        {
+          tagName: 'link',
+          attributes: {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Code+Pro&display=swap',
+          },
+        },
+      ],
 
       // Thay logo
       navbar: {

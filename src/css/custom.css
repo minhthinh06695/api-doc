@@ -3,6 +3,10 @@
  */
 
 :root {
+  --ifm-font-family-base: 'Inter', Arial, Helvetica, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.5;
+
   --ifm-color-primary: #1877F2;
   /* Màu chính (Facebook Blue) */
   --ifm-color-primary-dark: #166FE5;
@@ -145,4 +149,78 @@ pre {
 .admonition-danger {
   border-color: #f44336;
   background-color: #ffebee;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+/* Font cho code blocks */
+pre,
+code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+}
+
+/* Đảm bảo font áp dụng cho các thành phần Docusaurus */
+body,
+.markdown,
+.navbar,
+.footer {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  line-height: var(--ifm-line-height-base);
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('/fonts/SourceCodePro-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
 }

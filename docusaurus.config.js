@@ -9,7 +9,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // URL của trang web
-  url: 'https://your-website.com',
+  url: 'https://fast-api-doc.vercel.app',
   baseUrl: '/',
 
   // Thông tin GitHub (nếu triển khai trên GitHub Pages)

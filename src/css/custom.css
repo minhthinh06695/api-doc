@@ -2,26 +2,28 @@
  * Tùy chỉnh màu sắc cho phù hợp với giao diện Momo
  */
 
- :root {
-  --ifm-color-primary: #6a0dad;
-  --ifm-color-primary-dark: #600c9c;
-  --ifm-color-primary-darker: #5b0b92;
-  --ifm-color-primary-darkest: #4b0979;
-  --ifm-color-primary-light: #740ebe;
-  --ifm-color-primary-lighter: #790fc8;
-  --ifm-color-primary-lightest: #8911e1;
+:root {
+  --ifm-color-primary: #1877F2;
+  /* Màu chính (Facebook Blue) */
+  --ifm-color-primary-dark: #166FE5;
+  --ifm-color-primary-darker: #1467D8;
+  --ifm-color-primary-darkest: #1155B3;
+  --ifm-color-primary-light: #3085F4;
+  --ifm-color-primary-lighter: #4893F6;
+  --ifm-color-primary-lightest: #77AEF9;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #a74deb;
-  --ifm-color-primary-dark: #9a30e8;
-  --ifm-color-primary-darker: #9322e7;
-  --ifm-color-primary-darkest: #7a16c5;
-  --ifm-color-primary-light: #b46aee;
-  --ifm-color-primary-lighter: #bb78f0;
-  --ifm-color-primary-lightest: #d3a2f5;
+  --ifm-color-primary: #4893F6;
+  /* Sáng hơn để nổi trên nền tối */
+  --ifm-color-primary-dark: #3085F4;
+  --ifm-color-primary-darker: #1877F2;
+  --ifm-color-primary-darkest: #1467D8;
+  --ifm-color-primary-light: #60A1F8;
+  --ifm-color-primary-lighter: #78AFFA;
+  --ifm-color-primary-lightest: #A7C7FC;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
@@ -82,4 +84,65 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .responseSection pre {
   margin-bottom: 0;
+}
+
+.navbar__logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* src/css/custom.css */
+
+/* Định dạng cho bảng */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.custom-table th {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.custom-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.custom-table .required {
+  color: #e53935;
+  font-weight: bold;
+}
+
+/* Định dạng khối mã */
+pre {
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  padding: 16px;
+  overflow: auto;
+}
+
+/* Định dạng cho admonitions */
+.admonition {
+  margin-bottom: 1.5rem;
+  border-left: 6px solid;
+  border-radius: 4px;
+}
+
+.admonition-tip {
+  border-color: #4caf50;
+  background-color: #e8f5e9;
+}
+
+.admonition-caution {
+  border-color: #ff9800;
+  background-color: #fff3e0;
+}
+
+.admonition-danger {
+  border-color: #f44336;
+  background-color: #ffebee;
 }

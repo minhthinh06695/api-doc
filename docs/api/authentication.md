@@ -16,3 +16,7 @@ API key nên được gửi trong header của mỗi request:
 
 ```http
 Authorization: Bearer YOUR_API_KEY
+
+:::important Quan trọng
+Token xác thực có thời hạn sử dụng, thường là 24 giờ. Hãy đảm bảo bạn làm mới token trước khi hết hạn.
+:::

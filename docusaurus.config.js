@@ -1,6 +1,6 @@
 // @ts-check
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -38,6 +38,11 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Thêm link chỉnh sửa (nếu muốn)
           editUrl: 'https://github.com/your-organization/api-docs/tree/main/',
+          // Hiển thị thông tin cập nhật
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          // Đường dẫn cơ bản
+          routeBasePath: 'docs',
         },
         blog: false, // Tắt tính năng blog nếu không cần
         theme: {
@@ -50,12 +55,28 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // Chế độ màu
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+
+      // Cấu hình docs
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
+
       // Thay logo
       navbar: {
         title: 'API Documentation',
         logo: {
           alt: 'Logo',
-          src: 'img/logo.png',
+          src: 'img/logo.jpg',
+          srcDark: 'img/logo.jpg',
         },
         items: [
           {
@@ -68,8 +89,16 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
+          // Thêm link đến GitHub repo
+          {
+            href: 'https://github.com/your-organization/api-docs',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
+          },
         ],
       },
+
       footer: {
         style: 'dark',
         links: [
@@ -81,8 +110,29 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'Thanh toán',
-                to: '/docs/api/payments/overview',
+                label: 'API Đồng bộ danh mục',
+                to: '/docs/api/sync-data',
+              },
+              {
+                label: 'API Đồng bộ chứng từ',
+                to: '/docs/api/sync-voucher',
+              },
+              {
+                label: 'API Truy vấn dữ liệu',
+                to: '/docs/api/get-data',
+              },
+            ],
+          },
+          {
+            title: 'Tài nguyên',
+            items: [
+              {
+                label: 'Tải SDK',
+                href: 'https://your-website.com/sdk',
+              },
+              {
+                label: 'Code mẫu',
+                href: 'https://github.com/your-organization/api-examples',
               },
             ],
           },
@@ -102,11 +152,25 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Your Company, Inc.`,
       },
+
+      // Cấu hình prism cho syntax highlighting
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['php', 'java', 'csharp'],
+        additionalLanguages: ['php', 'java', 'csharp', 'http', 'json', 'bash', 'powershell'],
       },
+
+      // Cấu hình bảng mục lục bên phải
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
+      },
+
+      // Metadata cho SEO
+      metadata: [
+        { name: 'keywords', content: 'api, documentation, fastapi, ecx, sync data, sync voucher' },
+        { name: 'description', content: 'Tài liệu API chính thức cho FastAPIs-ECX' },
+      ],
     }),
 };
 

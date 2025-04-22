@@ -190,37 +190,44 @@ body,
   line-height: var(--ifm-line-height-base);
 }
 
+/* Định nghĩa font Inter */
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  src: url('/fonts/Inter-Regular.woff2?v=1.0.0') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+  src: url('/fonts/Inter-SemiBold.woff2?v=1.0.0') format('woff2');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/Inter-Bold.woff2') format('woff2');
+  src: url('/fonts/Inter-Bold.woff2?v=1.0.0') format('woff2');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/Inter-ExtraBold.woff2') format('woff2');
+  src: url('/fonts/Inter-ExtraBold.woff2?v=1.0.0') format('woff2');
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 
+/* Định nghĩa font Source Code Pro */
 @font-face {
   font-family: 'Source Code Pro';
-  src: url('/fonts/SourceCodePro-Regular.woff2') format('woff2');
+  src: url('/fonts/SourceCodePro-Regular.woff2?v=1.0.0') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }

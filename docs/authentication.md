@@ -29,9 +29,13 @@ Content-Type: application/json
 
 ```json
 {
-  "success": true,
-  "token": "base64_encoded_token_string",
-  "expires": "2023-04-30T23:59:59Z"
+    "success": true,
+    "code": 200,
+    "messages": "Success",
+    "token": {
+        "accesstoken": "base64_encoded_token_string",
+        "expires": "2025-04-24T10:02:42Z"
+    }
 }
 ```
 

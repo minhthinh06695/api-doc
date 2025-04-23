@@ -150,7 +150,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Your Company, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.`,
       },
 
       // Cấu hình prism cho syntax highlighting

@@ -136,7 +136,6 @@ Sử dụng để đồng bộ thông tin hóa đơn mua hàng.
 | Job | VARCHAR(32) | Không | Mã vụ việc |
 | Hbl | VARCHAR(512) | Không | Số House B/L |
 | Mbl | VARCHAR(512) | Không | Số Master B/L |
-| VoucherId | VARCHAR(64) | Có | Mã chứng từ (từ cha) |
 
 #### Các trường dữ liệu của Tax (Thông tin thuế)
 
@@ -148,7 +147,6 @@ Sử dụng để đồng bộ thông tin hóa đơn mua hàng.
 | TotalAmount | DECIMAL(18,4) | Có | Tiền trước thuế |
 | TaxRate | VARCHAR(8) | Có | Thuế suất |
 | TaxAmount | DECIMAL(18,4) | Có | Tiền thuế |
-| VoucherId | VARCHAR(64) | Có | Mã chứng từ (từ cha) |
 
 #### Ví dụ request
 
@@ -183,7 +181,9 @@ Sử dụng để đồng bộ thông tin hóa đơn mua hàng.
           "Quantity": 3,
           "UnitPrice": 5000000,
           "Amount": 15000000,
-          "Job": "VV001"
+          "Job": "VV002",
+          "Hbl": "HBL123456",
+          "Mbl": "MBL789012"
         }
       ],
       "tax": [
@@ -192,7 +192,7 @@ Sử dụng để đồng bộ thông tin hóa đơn mua hàng.
           "VatInvoiceDate": "2023-04-15",
           "VatInvoiceSymbol": "AA/20E",
           "TotalAmount": 35000000,
-          "TaxRate": "10%",
+          "TaxRate": "10",
           "TaxAmount": 3500000
         }
       ]
@@ -279,7 +279,9 @@ Sử dụng để đồng bộ thông tin hóa đơn bán hàng.
           "TaxRate": "10%",
           "TaxAmount": 1200000,
           "TotalAmount": 13200000,
-          "Job": "VV001"
+          "Job": "VV001",
+          "Hbl": "HBL123456",
+          "Mbl": "MBL789012"
         }
       ]
     }

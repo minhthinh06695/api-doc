@@ -157,14 +157,14 @@ public class ApiClient
         var result = JsonConvert.DeserializeObject<TokenResponse>(
             await response.Content.ReadAsStringAsync());
             
-        return result.Token;
+        return result.Token.AccessToken;
     }
     
     // Gọi API với token
     public async Task<ApiResult> SyncDataAsync(string token, object data)
     {
         _client.DefaultRequestHeaders.Authorization = 
-            new System.Net.Http.Headers.AuthenticationHeaderValue(token);
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             
         var content = new StringContent(
             JsonConvert.SerializeObject(data),
@@ -184,10 +184,35 @@ public class TokenResponse
     [JsonProperty("success")]
     public bool Success { get; set; }
     
+    [JsonProperty("code")]
+    public int Code { get; set; }
+    
+    [JsonProperty("messages")]
+    public string Messages { get; set; }
+    
     [JsonProperty("token")]
-    public string Token { get; set; }
+    public TokenData Token { get; set; }
+}
+
+public class TokenData
+{
+    [JsonProperty("accesstoken")]
+    public string AccessToken { get; set; }
     
     [JsonProperty("expires")]
     public DateTime Expires { get; set; }
+}
+
+public class ApiResult
+{
+    [JsonProperty("success")]
+    public bool Success { get; set; }
+    
+    [JsonProperty("code")]
+    public int Code { get; set; }
+    
+    [JsonProperty("messages")]
+    public string Messages { get; set; }
+    
 }
 ```

@@ -12,25 +12,6 @@ Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàn
 POST /api/SyncData
 ```
 
-## Request Body
-
-```json
-{
-  "form": "setItem",
-  "data": [
-    {
-      "ItemCode": "VT001",
-      "ItemName": "Máy tính xách tay",
-      "Uom": "Cái",
-      "ItemType": "HH",
-      "ItemGroup1": "TB",
-      "Status": 1
-    },
-    ...
-  ]
-}
-```
-
 ## Các trường dữ liệu
 
 | Param | Kiểu dữ liệu | Bắt buộc | Mô tả |

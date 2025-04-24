@@ -9,14 +9,14 @@ const sidebars = {
     'authentication',
     {
       type: 'category',
-      label: 'API Reference',
+      label: 'Danh sách API',
       items: [
         {
           type: 'category',
           label: 'Đồng bộ danh mục',
           link: {
             type: 'doc',
-            id: 'api/sync-data', // Liên kết đến tài liệu chính
+            id: 'api/sync-data',
           },
           items: [
             'api/sync-data/setcustomers',
@@ -24,7 +24,18 @@ const sidebars = {
             'api/sync-data/setjob',
           ],
         },
-        'api/sync-voucher'
+        {
+          type: 'category',
+          label: 'Đồng bộ chứng từ',
+          link: {
+            type: 'doc',
+            id: 'api/sync-voucher',
+          },
+          items: [
+            'api/sync-voucher/setpurchaseinvoice',
+            'api/sync-voucher/setsaleinvoice',
+          ],
+        },
       ],
     },
   ],

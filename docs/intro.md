@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+import ThemedImage from '@theme/ThemedImage';
 
 # Giới thiệu
 
@@ -27,11 +28,25 @@ FastAPI được thiết kế với kiến trúc module hóa, cho phép mở r�
 
 ## Luồng xử lý dữ liệu
 
+<figure style={{textAlign: 'center'}}>
+  <ThemedImage
+    alt="Sơ đồ luồng xử lý dữ liệu API"
+    sources={{
+      light: '/img/Mermaid-Intro-Diagram-light.svg',
+      dark: '/img/Mermaid-Intro-Diagram-dark.svg',
+    }}
+    style={{maxWidth: "800px", margin: "0 auto", display: "block", width: "100%"}}
+  />
+  <figcaption style={{marginTop: '10px', fontSize: '14px', fontStyle: 'italic'}}>
+    Hình 1: Sơ đồ luồng xử lý dữ liệu API
+  </figcaption>
+</figure>
+
+**Luồng xử lý dữ liệu**
 1. Client gửi request có kèm token xác thực.
 2. API xác thực token và quyền truy cập.
-3. Dữ liệu được validate theo quy tắc trong file mapping XML.
-4. Dữ liệu hợp lệ được chuyển đổi và lưu vào cơ sở dữ liệu.
-5. Kết quả xử lý được trả về cho client.
+3. Dữ liệu hợp lệ được chuyển đổi và lưu vào cơ sở dữ liệu.
+4. Kết quả xử lý được trả về cho client.
 
 ## Bắt đầu
 
@@ -39,3 +54,4 @@ FastAPI được thiết kế với kiến trúc module hóa, cho phép mở r�
 
 1. Đăng ký và nhận thông tin xác thực (username/password).
 2. Tìm hiểu về [xác thực và bảo mật](./authentication).
+3. Khám phá các endpoint API sẵn có trong phần [Danh sách API](./api/sync-data).

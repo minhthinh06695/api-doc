@@ -38,7 +38,7 @@ Request body có cấu trúc như sau:
 ```
 
 Trong đó:
-- **form**: Tên form được định nghĩa trong file cấu hình XML mapping
+- **form**: Tên form được định nghĩa trong phần chi tiết đồng bộ của từng danh mục
 - **data**: Mảng các object chứa dữ liệu cần đồng bộ
 
 ## Response

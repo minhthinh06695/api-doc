@@ -4,28 +4,12 @@ sidebar_position: 3
 
 # Danh mục vụ việc
 
-Form `setJob` được sử dụng để đồng bộ thông tin vụ việc từ hệ thống của đối tác vào hệ thống nội bộ.
+Form **`setJob`** được sử dụng để đồng bộ thông tin vụ việc từ hệ thống của đối tác vào hệ thống nội bộ.
 
 ## Endpoint
 
 ```http
 POST /api/SyncData
-```
-
-## Request Body
-
-```json
-{
-  "form": "setJob",
-  "data": [
-    {
-      "JobCode": "VV001",
-      "JobName": "Dự án phát triển phần mềm",
-      "Status": 1
-    },
-    ...
-  ]
-}
 ```
 
 ## Các trường dữ liệu

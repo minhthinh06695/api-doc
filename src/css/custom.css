@@ -34,7 +34,7 @@
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  margin: a calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
 
@@ -230,4 +230,62 @@ body,
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+/* Tùy chỉnh cho sidebar - Giải quyết vấn đề màu chữ */
+
+/* Hiệu ứng khi hover vào menu sidebar */
+.menu__link:hover:not(.menu__link--active) {
+  background-color: rgba(125, 155, 238, 0.363);
+  color: var(--ifm-color-primary);
+}
+
+/* Hiệu ứng khi menu được chọn (active) - Light Theme */
+html[data-theme='light'] .menu__link--active:not(.menu__link--sublist) {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff !important;
+  /* Màu chữ trắng trên nền xanh */
+  font-weight: 500;
+}
+
+/* Hiệu ứng khi menu được chọn (active) - Dark Theme */
+html[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff !important;
+  /* Màu chữ trắng trên nền xanh */
+  font-weight: 500;
+}
+
+/* Menu cha khi được chọn - Light Theme */
+html[data-theme='light'] .menu__link--sublist.menu__link--active {
+  background-color: transparent;
+  color: var(--ifm-color-primary) !important;
+  font-weight: 600;
+}
+
+/* Menu cha khi được chọn - Dark Theme */
+html[data-theme='dark'] .menu__link--sublist.menu__link--active {
+  background-color: transparent;
+  color: var(--ifm-color-primary-light) !important;
+  font-weight: 600;
+}
+
+/* Đảm bảo màu chữ cho menu active có độ tương phản cao */
+html[data-theme='light'] .menu__list .menu__link--active:not(.menu__link--sublist) {
+  color: white !important;
+}
+
+html[data-theme='dark'] .menu__list .menu__link--active:not(.menu__link--sublist) {
+  color: white !important;
+}
+
+/* Menu con khi active */
+.menu__list .menu__list .menu__link--active {
+  background-color: var(--ifm-color-primary);
+  color: white !important;
+}
+
+/* Thêm transition để hiệu ứng mượt mà hơn */
+.menu__link {
+  transition: background-color 0.3s, color 0.3s;
 }

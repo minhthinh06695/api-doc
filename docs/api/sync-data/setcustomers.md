@@ -12,26 +12,6 @@ Form `setCustomers` được sử dụng để đồng bộ thông tin khách h�
 POST /api/SyncData
 ```
 
-## Request Body
-
-```json
-{
-  "form": "setCustomers",
-  "data": [
-    {
-      "CustomerCode": "KH001",
-      "CustomerName": "Công ty TNHH ABC",
-      "Address": "123 Đường XYZ, Quận 1, TP.HCM",
-      "PhoneNumber": "0901234567",
-      "TaxCode": "0123456789",
-      "Email": "contact@abc.com",
-      "status": "1"
-    },
-    ...
-  ]
-}
-```
-
 ## Các trường dữ liệu
 
 | Param | Kiểu dữ liệu | Bắt buộc | Mô tả |

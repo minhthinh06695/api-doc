@@ -36,9 +36,10 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 | TaxRate | VARCHAR(8) | Có | Thuế suất |
 | TaxAmount | DECIMAL(18,4) | Có | Tiền thuế |
 | TotalAmount | DECIMAL(18,4) | Có | Tổng tiền (bao gồm thuế) |
-| Job | VARCHAR(32) | Không | Mã vụ việc |
-| Hbl | VARCHAR(512) | Không | Số House B/L |
-| Mbl | VARCHAR(512) | Không | Số Master B/L |
+| JobCode | VARCHAR(32) | Không | Mã vụ việc |
+| DeptCode | VARCHAR(32) | Không | Mã bộ phận |
+| ContractCode | VARCHAR(32) | Không | Mã hợp đồng |
+| ExpenseCode | VARCHAR(32) | Không | Mã phí |
 
 ## Ví dụ request
 
@@ -62,12 +63,13 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
           "Quantity": 1,
           "UnitPrice": 12000000,
           "Amount": 12000000,
-          "TaxRate": "10%",
+          "TaxRate": "10",
           "TaxAmount": 1200000,
           "TotalAmount": 13200000,
-          "Job": "VV001",
-          "Hbl": "HBL123456",
-          "Mbl": "MBL789012"
+          "JobCode": "VV001",
+          "DeptCode": "BP001",
+          "ContractCode": "HD001",
+          "ExpenseCode": "PHI001"
         },
         {
           "RefNumber": 2,
@@ -76,18 +78,25 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
           "Quantity": 2,
           "UnitPrice": 6000000,
           "Amount": 12000000,
-          "TaxRate": "10%",
+          "TaxRate": "10",
           "TaxAmount": 1200000,
           "TotalAmount": 13200000,
-          "Job": "VV001",
-          "Hbl": "HBL123456",
-          "Mbl": "MBL789012"
+          "JobCode": "VV001",
+          "DeptCode": "BP001",
+          "ContractCode": "HD001",
+          "ExpenseCode": "PHI002"
         }
       ]
     }
   ]
 }
 ```
+
+## Lưu ý quan trọng
+
+1. Khác với hóa đơn mua hàng, hóa đơn bán hàng có thông tin thuế được tích hợp ngay trong chi tiết hàng hóa (không có mảng `tax` riêng biệt).
+2. Mỗi dòng chi tiết hóa đơn bán hàng đều có thông tin về thuế suất và tiền thuế.
+3. Trường `TotalAmount` trong chi tiết hàng hóa là tổng tiền đã bao gồm thuế (`Amount + TaxAmount`).
 
 ## Ví dụ mã nguồn C#
 
@@ -159,9 +168,10 @@ public class SaleInvoiceDetail
     public decimal TaxAmount { get; set; }
     public decimal TotalAmount { get; set; }
     public string VoucherId { get; set; }
-    public string Job { get; set; }
-    public string Hbl { get; set; }
-    public string Mbl { get; set; }
+    public string JobCode { get; set; }
+    public string DeptCode { get; set; }
+    public string ContractCode { get; set; }
+    public string ExpenseCode { get; set; }
 }
 
 public class ApiResult
@@ -173,12 +183,3 @@ public class ApiResult
     public int Code { get; set; }
 }
 ```
-
-## Lưu ý quan trọng
-
-1. Khác với hóa đơn mua hàng, hóa đơn bán hàng có thông tin thuế được tích hợp ngay trong chi tiết hàng hóa (không có mảng `tax` riêng biệt).
-2. Mỗi dòng chi tiết hóa đơn bán hàng đều có thông tin về thuế suất và tiền thuế.
-3. Trường `TotalAmount` trong chi tiết hàng hóa là tổng tiền đã bao gồm thuế (`Amount + TaxAmount`).
-4. Trường `VoucherId` trong chi tiết phải trùng với `VoucherId` của header để đảm bảo tính toàn vẹn dữ liệu.
-5. Giá trị `TaxRate` có thể được biểu thị dưới dạng phần trăm (ví dụ: "10%") hoặc dạng số (ví dụ: "10").
-6. Đảm bảo tổng giá trị của các dòng chi tiết khớp với tổng giá trị của hóa đơn.

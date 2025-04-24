@@ -34,9 +34,10 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | Quantity | DECIMAL(18,4) | Có | Số lượng |
 | UnitPrice | DECIMAL(18,4) | Có | Đơn giá |
 | Amount | DECIMAL(18,4) | Có | Thành tiền |
-| Job | VARCHAR(32) | Không | Mã vụ việc |
-| Hbl | VARCHAR(512) | Không | Số House B/L |
-| Mbl | VARCHAR(512) | Không | Số Master B/L |
+| JobCode | VARCHAR(32) | Không | Mã vụ việc |
+| DeptCode | VARCHAR(32) | Không | Mã bộ phận |
+| ContractCode | VARCHAR(32) | Không | Mã hợp đồng |
+| ExpenseCode | VARCHAR(32) | Không | Mã phí |
 
 ### Tax (Thông tin thuế)
 
@@ -71,9 +72,10 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
           "Quantity": 2,
           "UnitPrice": 10000000,
           "Amount": 20000000,
-          "Job": "VV001",
-          "Hbl": "HBL123456",
-          "Mbl": "MBL789012"
+          "JobCode": "VV001",
+          "DeptCode": "BP001",
+          "ContractCode": "HD001",
+          "ExpenseCode": "PHI001"
         },
         {
           "RefNumber": 2,
@@ -82,9 +84,10 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
           "Quantity": 3,
           "UnitPrice": 5000000,
           "Amount": 15000000,
-          "Job": "VV002",
-          "Hbl": "HBL123456",
-          "Mbl": "MBL789012"
+          "JobCode": "VV002",
+          "DeptCode": "BP002",
+          "ContractCode": "HD002",
+          "ExpenseCode": "PHI002"
         }
       ],
       "tax": [
@@ -101,6 +104,12 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
   ]
 }
 ```
+
+## Lưu ý quan trọng
+
+1. Trường `VoucherId` phải là duy nhất trong hệ thống để tránh trùng lặp chứng từ.
+2. Đảm bảo các trường bắt buộc đều được điền đầy đủ.
+3. Ngày tháng phải được định dạng theo chuẩn ISO (YYYY-MM-DD).
 
 ## Ví dụ mã nguồn C#
 
@@ -169,9 +178,10 @@ public class PurchaseInvoiceDetail
     public decimal Quantity { get; set; }
     public decimal UnitPrice { get; set; }
     public decimal Amount { get; set; }
-    public string Job { get; set; }
-    public string Hbl { get; set; }
-    public string Mbl { get; set; }
+    public string JobCode { get; set; }
+    public string DeptCode { get; set; }
+    public string ContractCode { get; set; }
+    public string ExpenseCode { get; set; }
 }
 
 public class PurchaseInvoiceTax
@@ -193,11 +203,3 @@ public class ApiResult
     public int Code { get; set; }
 }
 ```
-
-## Lưu ý quan trọng
-
-1. Trường `VoucherId` phải là duy nhất trong hệ thống để tránh trùng lặp chứng từ.
-2. Đảm bảo các trường bắt buộc đều được điền đầy đủ.
-3. Ngày tháng phải được định dạng theo chuẩn ISO (YYYY-MM-DD).
-4. Số tiền (`Amount`, `TotalAmount`, `TaxAmount`) phải được tính toán chính xác.
-5. Trường `Currency` và `ExchangeRate` phải phù hợp với chính sách tiền tệ của doanh nghiệp.

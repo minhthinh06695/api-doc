@@ -138,22 +138,22 @@ const config = {
               },
               {
                 label: 'Hóa đơn mua hàng',
-                to: '/docs/api/sync-data/setpurchaseinvoice',
+                to: '/docs/api/sync-voucher/setpurchaseinvoice',
               },
               {
                 label: 'Hóa đơn bán hàng',
-                to: '/docs/api/sync-data/setsaleinvoice',
+                to: '/docs/api/sync-voucher/setsaleinvoice',
               },
               {
                 label: 'Phiếu thu tiền mặt',
-                to: '/docs/api/sync-data/setsaleinvoice',
+                to: '/docs/api/sync-voucher/setsaleinvoice',
               },
               {
                 label: 'Phiếu chi tiền mặt',
-                to: '/docs/api/sync-data/setcashreceipt',
+                to: '/docs/api/sync-voucher/setcashreceipt',
               }, {
                 label: 'Phiếu thu tiền mặt',
-                to: '/docs/api/sync-data/setcashdisbursement',
+                to: '/docs/api/sync-voucher/setcashdisbursement',
               },
             ],
           },

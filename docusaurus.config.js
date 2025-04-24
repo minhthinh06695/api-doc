@@ -82,7 +82,7 @@ const config = {
 
       // Thay logo
       navbar: {
-        title: 'API Documentation',
+        title: 'Fast Developer',
         logo: {
           alt: 'Logo',
           src: 'img/logo.jpg',
@@ -93,7 +93,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tài liệu',
+            label: 'Tài liệu API',
           },
           {
             type: 'localeDropdown',

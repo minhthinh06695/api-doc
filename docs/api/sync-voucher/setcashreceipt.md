@@ -13,30 +13,30 @@ Chứng từ phiếu thu tiền gồm 2 phần chính:
 
 ### Header (Thông tin chung)
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| VoucherId | VARCHAR(64) | Có | Mã chứng từ |
-| VoucherDate | DATE | Có | Ngày chứng từ |
-| VoucherNumber | VARCHAR(12) | Có | Số chứng từ |
-| CustomerCode | VARCHAR(32) | Có | Mã khách hàng |
-| Payer | NVARCHAR(128) | Không | Người nộp tiền |
-| Address | NVARCHAR(128) | Không | Địa chỉ người nộp tiền |
-| DebitAccount | VARCHAR(32) | Có | Tài khoản nợ (Tài khoản kế toán) |
-| Description | NVARCHAR(500) | Không | Diễn giải |
-| Currency | VARCHAR(5) | Có | Loại tiền |
-| ExchangeRate | DECIMAL(18,4) | Có | Tỷ giá |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| VoucherId    | String(64)  | ✔️       | Mã chứng từ          |
+| VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
+| VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
+| CustomerCode | String(32)  | ✔️       | Mã khách hàng        |
+| Payer        | String(128) |          | Người nộp tiền       |
+| Address      | String(128) |          | Địa chỉ người nộp tiền |
+| DebitAccount | String(32)  | ✔️       | Tài khoản nợ (Tài khoản kế toán) |
+| Description  | String(512) |          | Diễn giải            |
+| Currency     | String(3)   | ✔️       | Loại tiền            |
+| ExchangeRate | Long        | ✔️       | Tỷ giá               |
 
 ### Detail (Chi tiết)
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| RefNumber | DECIMAL(5,0) | Có | Số thứ tự |
-| CreditAccount | VARCHAR(32) | Có | Mã tài khoản có (Tài khoản kế toán) |
-| Amount | DECIMAL(18,2) | Có | Số tiền |
-| JobCode | VARCHAR(32) | Không | Mã vụ việc |
-| DeptCode | VARCHAR(32) | Không | Mã bộ phận |
-| ContractCode | VARCHAR(32) | Không | Mã hợp đồng |
-| ExpenseCode | VARCHAR(32) | Không | Mã phí |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| RefNumber    | Long        | ✔️       | Số thứ tự            |
+| CreditAccount| String(32)  | ✔️       | Mã tài khoản có (Tài khoản kế toán) |
+| Amount       | Long        | ✔️       | Số tiền              |
+| JobCode      | String(32)  |          | Mã vụ việc           |
+| DeptCode     | String(32)  |          | Mã bộ phận           |
+| ContractCode | String(32)  |          | Mã hợp đồng          |
+| ExpenseCode  | String(32)  |          | Mã phí               |
 
 ## Ví dụ request
 

@@ -8,15 +8,15 @@ Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ 
 
 ## Các trường dữ liệu
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| SiteCode | VARCHAR(32) | Có | Mã kho |
-| SiteName | NVARCHAR(512) | Có | Tên kho |
-| OtherName | NVARCHAR(512) | Không | Tên kho 2 |
-| Address | NVARCHAR(512) | Không | Địa chỉ |
-| GroupCode | VARCHAR(32) | Không | Nhóm kho |
-| AgentYN | VARCHAR(32) | Không | Là kho đại lý |
-| Status | TINYINT | Có | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| SiteCode     | String(32)  | ✔️       | Mã kho               |
+| SiteName     | String(256) | ✔️       | Tên kho              |
+| OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
+| Address      | String(256) |          | Địa chỉ              |
+| GroupCode    | String(32)  |          | Nhóm kho             |
+| AgentYN      | Byte        |          | Kho đại lý (1: Có, 0: không)      |
+| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
 
 ## Ví dụ request
 
@@ -30,16 +30,16 @@ Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ 
       "OtherName": "Hanoi Warehouse",
       "Address": "Số 123 Đường Láng, Đống Đa, Hà Nội",
       "GroupCode": "MIEN_BAC",
-      "AgentYN": "0",
-      "Status": 1
+      "AgentYN": 0,
+      "Status": "1"
     },
     {
       "SiteCode": "KHO002",
       "SiteName": "Kho Hồ Chí Minh",
       "Address": "Số 456 Lê Lợi, Quận 1, TP.HCM",
       "GroupCode": "MIEN_NAM",
-      "AgentYN": "1",
-      "Status": 1
+      "AgentYN": 0,
+      "Status": "1"
     }
   ]
 }

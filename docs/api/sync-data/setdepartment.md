@@ -8,14 +8,14 @@ Form `setDepartment` được sử dụng để đồng bộ thông tin bộ ph�
 
 ## Các trường dữ liệu
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| DeptCode | VARCHAR(32) | Có | Mã bộ phận |
-| DeptName | NVARCHAR(512) | Có | Tên bộ phận |
-| OtherName | NVARCHAR(512) | Không | Tên bộ phận 2 |
-| Address | NVARCHAR(512) | Không | Địa chỉ |
-| PhoneNumber | NVARCHAR(512) | Không | Số điện thoại |
-| Status | TINYINT | Có | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| DeptCode     | String(32)  | ✔️       | Mã bộ phận           |
+| DeptName     | String(256) | ✔️       | Tên bộ phận          |
+| OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
+| Address      | String(256) |          | Địa chỉ              |
+| PhoneNumber  | String(256) |          | Số điện thoại        |
+| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
 
 ## Ví dụ request
 
@@ -29,14 +29,14 @@ Form `setDepartment` được sử dụng để đồng bộ thông tin bộ ph�
       "OtherName": "Accounting Department",
       "Address": "Tầng 3, Tòa nhà ABC, Hà Nội",
       "PhoneNumber": "024.1234.5678",
-      "Status": 1
+      "Status": "1"
     },
     {
       "DeptCode": "BP002",
       "DeptName": "Phòng Nhân sự",
       "Address": "Tầng 4, Tòa nhà ABC, Hà Nội",
       "PhoneNumber": "024.8765.4321",
-      "Status": 1
+      "Status": "1"
     }
   ]
 }

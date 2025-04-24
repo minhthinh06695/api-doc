@@ -4,9 +4,9 @@ API `SyncVoucher` được sử dụng để đồng bộ các chứng từ ph�
 
 ## Endpoint
 
-```http
-POST /api/SyncVoucher
-```
+<blockquote>
+  <pre><code><b>POST</b> /api/SyncVoucher</code></pre>
+</blockquote>
 
 ## Headers
 

@@ -14,41 +14,41 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 
 ### Header (Thông tin chung)
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| VoucherId | VARCHAR(64) | Có | Mã chứng từ |
-| SupplierCode | VARCHAR(32) | Có | Mã nhà cung cấp, chính là mã khách hàng trong Danh mục khách hàng|
-| VoucherDate | DATE | Có | Ngày chứng từ |
-| VoucherNumber | VARCHAR(12) | Có | Số chứng từ |
-| Description | NVARCHAR(512) | Không | Diễn giải |
-| Currency | VARCHAR(5) | Có | Loại tiền |
-| ExchangeRate | DECIMAL(18,4) | Có | Tỷ giá |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| VoucherId    | String(64)  | ✔️       | Mã chứng từ          |
+| SupplierCode | String(32)  | ✔️       | Mã nhà cung cấp, chính là mã khách hàng trong Danh mục khách hàng |
+| VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
+| VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
+| Description  | String(512) |          | Diễn giải            |
+| Currency     | String(3)   | ✔️       | Loại tiền            |
+| ExchangeRate | Long        | ✔️       | Tỷ giá               |
 
 ### Detail (Chi tiết hàng hóa)
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| RefNumber | DECIMAL(5,0) | Có | Số thứ tự |
-| ItemCode | VARCHAR(32) | Có | Mã hàng |
-| Uom | NVARCHAR(32) | Có | Đơn vị tính |
-| Quantity | DECIMAL(18,4) | Có | Số lượng |
-| UnitPrice | DECIMAL(18,4) | Có | Đơn giá |
-| Amount | DECIMAL(18,4) | Có | Thành tiền |
-| JobCode | VARCHAR(32) | Không | Mã vụ việc |
-| DeptCode | VARCHAR(32) | Không | Mã bộ phận |
-| ContractCode | VARCHAR(32) | Không | Mã hợp đồng |
-| ExpenseCode | VARCHAR(32) | Không | Mã phí |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| RefNumber    | Long        | ✔️       | Số thứ tự            |
+| ItemCode     | String(32)  | ✔️       | Mã hàng              |
+| Uom          | String(32)  | ✔️       | Đơn vị tính          |
+| Quantity     | Long        | ✔️       | Số lượng             |
+| UnitPrice    | Long        | ✔️       | Đơn giá              |
+| Amount       | Long        | ✔️       | Thành tiền           |
+| JobCode      | String(32)  |          | Mã vụ việc           |
+| DeptCode     | String(32)  |          | Mã bộ phận           |
+| ContractCode | String(32)  |          | Mã hợp đồng          |
+| ExpenseCode  | String(32)  |          | Mã phí               |
 
 ### Tax (Thông tin thuế)
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| VatInvoiceNumber | VARCHAR(32) | Có | Số hóa đơn VAT |
-| VatInvoiceDate | DATE | Có | Ngày hóa đơn VAT |
-| VatInvoiceSymbol | VARCHAR(32) | Không | Ký hiệu hóa đơn |
-| TotalAmount | DECIMAL(18,4) | Có | Tiền trước thuế |
-| TaxRate | VARCHAR(8) | Có | Thuế suất |
-| TaxAmount | DECIMAL(18,4) | Có | Tiền thuế |
+| Attribute        | Type        | Required | Description          |
+|------------------|-------------|----------|----------------------|
+| VatInvoiceNumber | String(32)  | ✔️       | Số hóa đơn VAT       |
+| VatInvoiceDate   | Date        | ✔️       | Ngày hóa đơn VAT     |
+| VatInvoiceSymbol | String(32)  |          | Ký hiệu hóa đơn      |
+| TotalAmount      | Long        | ✔️       | Tiền trước thuế      |
+| TaxRate          | String(8)   | ✔️       | Thuế suất            |
+| TaxAmount        | Long        | ✔️       | Tiền thuế            |
 
 ## Ví dụ request
 

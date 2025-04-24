@@ -13,33 +13,27 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 
 ### Header (Thông tin chung)
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| VoucherId | VARCHAR(64) | Có | Mã chứng từ |
-| CustomerCode | VARCHAR(32) | Có | Mã khách hàng |
-| VoucherDate | DATE | Có | Ngày chứng từ |
-| VoucherNumber | VARCHAR(12) | Có | Số chứng từ |
-| Description | NVARCHAR(500) | Không | Diễn giải |
-| Currency | VARCHAR(5) | Có | Loại tiền |
-| ExchangeRate | DECIMAL(18,4) | Có | Tỷ giá |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| VoucherId    | String(64)  | ✔️       | Mã chứng từ          |
+| CustomerCode | String(32)  | ✔️       | Mã khách hàng        |
+| VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
+| VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
+| Description  | String(512) |          | Diễn giải            |
+| Currency     | String(3)   | ✔️       | Loại tiền            |
+| ExchangeRate | Long        | ✔️       | Tỷ giá               |
 
 ### Detail (Chi tiết hàng hóa)
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| RefNumber | DECIMAL(5,0) | Có | Số thứ tự |
-| ItemCode | VARCHAR(32) | Có | Mã hàng |
-| Uom | NVARCHAR(32) | Có | Đơn vị tính |
-| Quantity | DECIMAL(18,4) | Có | Số lượng |
-| UnitPrice | DECIMAL(18,4) | Có | Đơn giá |
-| Amount | DECIMAL(18,2) | Có | Thành tiền |
-| TaxRate | VARCHAR(8) | Có | Thuế suất |
-| TaxAmount | DECIMAL(18,4) | Có | Tiền thuế |
-| TotalAmount | DECIMAL(18,4) | Có | Tổng tiền (bao gồm thuế) |
-| JobCode | VARCHAR(32) | Không | Mã vụ việc |
-| DeptCode | VARCHAR(32) | Không | Mã bộ phận |
-| ContractCode | VARCHAR(32) | Không | Mã hợp đồng |
-| ExpenseCode | VARCHAR(32) | Không | Mã phí |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| RefNumber    | Long        | ✔️       | Số thứ tự            |
+| ItemCode     | String(32)  | ✔️       | Mã hàng              |
+| Uom          | String(32)  | ✔️       | Đơn vị tính          |
+| Quantity     | Long        | ✔️       | Số lượng             |
+| UnitPrice    | Long        | ✔️       | Đơn giá              |
+| Amount       | Long        | ✔️       | Thành tiền           |
+| TaxRate      | String(8)   |
 
 ## Ví dụ request
 

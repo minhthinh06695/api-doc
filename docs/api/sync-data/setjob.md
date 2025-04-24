@@ -8,12 +8,12 @@ Form `setJob` được sử dụng để đồng bộ thông tin vụ việc t�
 
 ## Các trường dữ liệu
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| JobCode | VARCHAR(32) | Có | Mã vụ việc |
-| JobName | NVARCHAR(512) | Có | Tên vụ việc |
-| OtherName | NVARCHAR(512) | Không | Tên vụ việc 2 |
-| Status | TINYINT | Có | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| JobCode      | String(32)  | ✔️       | Mã vụ việc           |
+| JobName      | String(256) | ✔️       | Tên vụ việc          |
+| OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
+| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
 
 ## Ví dụ request
 
@@ -24,12 +24,12 @@ Form `setJob` được sử dụng để đồng bộ thông tin vụ việc t�
     {
       "JobCode": "VV001",
       "JobName": "Dự án phát triển phần mềm",
-      "Status": 1
+      "Status": "1"
     },
     {
       "JobCode": "VV002",
       "JobName": "Dự án triển khai hệ thống",
-      "Status": 1
+      "Status": "1"
     }
   ]
 }

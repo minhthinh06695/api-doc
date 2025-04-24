@@ -8,9 +8,9 @@ API `SyncData` được sử dụng để đồng bộ dữ liệu master (dữ 
 
 ## Endpoint
 
-```http
-POST /api/SyncData
-```
+<blockquote>
+  <pre><code><b>POST</b> /api/SyncData</code></pre>
+</blockquote>
 
 ## Headers
 

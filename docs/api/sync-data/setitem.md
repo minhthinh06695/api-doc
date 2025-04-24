@@ -8,17 +8,17 @@ Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàn
 
 ## Các trường dữ liệu
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| ItemCode | VARCHAR(32) | Có | Mã vật tư |
-| ItemName | NVARCHAR(512) | Có | Tên vật tư |
-| OtherName | NVARCHAR(512) | Không | Tên vật tư 2 |
-| Uom | NVARCHAR(32) | Không | Đơn vị tính |
-| ItemType | VARCHAR(2) | Có | Loại vật tư |
-| ItemGroup1 | VARCHAR(32) | Không | Nhóm vật tư 1 |
-| ItemGroup2 | VARCHAR(32) | Không | Nhóm vật tư 2 |
-| ItemGroup3 | VARCHAR(32) | Không | Nhóm vật tư 3 |
-| Status | TINYINT | Có | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| ItemCode     | String(32)  | ✔️       | Mã vật tư            |
+| ItemName     | String(256) | ✔️       | Tên vật tư           |
+| OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
+| Uom          | String(32)  |          | Đơn vị tính          |
+| ItemType     | String(2)   | ✔️       | Loại vật tư          |
+| ItemGroup1   | String(32)  |          | Nhóm vật tư 1        |
+| ItemGroup2   | String(32)  |          | Nhóm vật tư 2        |
+| ItemGroup3   | String(32)  |          | Nhóm vật tư 3        |
+| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
 
 ## Ví dụ request
 
@@ -32,7 +32,7 @@ Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàn
       "Uom": "Cái",
       "ItemType": "HH",
       "ItemGroup1": "TB",
-      "Status": 1
+      "Status": "1"
     },
     {
       "ItemCode": "VT002",
@@ -40,7 +40,7 @@ Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàn
       "Uom": "Cái",
       "ItemType": "HH",
       "ItemGroup1": "TB",
-      "Status": 1
+      "Status": "1"
     }
   ]
 }

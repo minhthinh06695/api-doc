@@ -8,29 +8,29 @@ Form `setCustomer` được sử dụng để đồng bộ thông tin khách hà
 
 ## Các trường dữ liệu
 
-| Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
-|-------|-------------|----------|-------|
-| CustomerCode | VARCHAR(32) | Có | Mã khách hàng |
-| CustomerName | NVARCHAR(512) | Có | Tên khách hàng |
-| OtherName | NVARCHAR(512) | Không | Tên khách hàng 2 |
-| SaleCode | VARCHAR(32) | Không | Mã nhân viên bán hàng |
-| Address | NVARCHAR(255) | Không | Địa chỉ |
-| Buyer | NVARCHAR(512) | Không | Người mua hàng |
-| GroupCode1 | VARCHAR(32) | Không | Nhóm khách hàng 1 |
-| GroupCode2 | VARCHAR(32) | Không | Nhóm khách hàng 2 |
-| GroupCode3 | VARCHAR(32) | Không | Nhóm khách hàng 3 |
-| PhoneNumber | VARCHAR(32) | Không | Điện thoại |
-| TaxCode | VARCHAR(32) | Không | Mã số thuế |
-| Fax | VARCHAR(32) | Không | Số fax |
-| Email | VARCHAR(100) | Không | Email |
-| BankAccount | VARCHAR(30) | Không | Tài khoản ngân hàng |
-| BankName | NVARCHAR(512) | Không | Tên ngân hàng |
-| BranchName | NVARCHAR(512) | Không | Chi nhánh/Tỉnh thành |
-| PaymentTerm | VARCHAR(32) | Không | Điều khoản thanh toán |
-| Status | CHAR(1) | Có | Trạng thái |
-| SuplierYN | TINYINT | Không | Là nhà cung cấp (1: Có, 0: Không) |
-| EmployeeYN | TINYINT | Không | Là nhân viên (1: Có, 0: Không) |
-| Description | NVARCHAR(500) | Không | Ghi chú |
+| Attribute    | Type        | Required | Description          |
+|--------------|-------------|----------|----------------------|
+| CustomerCode | String(32)  | ✔️       | Mã khách hàng        |
+| CustomerName | String(256) | ✔️       | Tên khách hàng       |
+| OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
+| SaleCode     | String(32)  |          | Mã nhân viên bán hàng|
+| Address      | String(256) |          | Địa chỉ              |
+| Buyer        | String(256) |          | Người mua hàng       |
+| GroupCode1   | String(32)  |          | Nhóm khách hàng 1    |
+| GroupCode2   | String(32)  |          | Nhóm khách hàng 2    |
+| GroupCode3   | String(32)  |          | Nhóm khách hàng 3    |
+| PhoneNumber  | String(32)  |          | Điện thoại           |
+| TaxCode      | String(32)  |          | Mã số thuế           |
+| Fax          | String(32)  |          | Số fax               |
+| Email        | String(128) |          | Email                |
+| BankAccount  | String(30)  |          | Tài khoản ngân hàng  |
+| BankName     | String(256) |          | Tên ngân hàng        |
+| BranchName   | String(256) |          | Chi nhánh/Tỉnh thành |
+| PaymentTerm  | String(32)  |          | Điều khoản thanh toán|
+| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| SuplierYN    | Byte        |          | Là nhà cung cấp (1: Có, 0: Không) |
+| EmployeeYN   | Byte        |          | Là nhân viên (1: Có, 0: Không)    |
+| Description  | String(512) |          | Ghi chú              |
 
 ## Ví dụ request
 

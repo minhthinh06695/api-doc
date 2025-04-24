@@ -36,6 +36,8 @@ const sidebars = {
           items: [
             'api/sync-voucher/setpurchaseinvoice',
             'api/sync-voucher/setsaleinvoice',
+            'api/sync-voucher/setcashreceipt',
+            'api/sync-voucher/setcashdisbursement',
           ],
         },
       ],

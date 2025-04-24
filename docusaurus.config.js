@@ -135,7 +135,26 @@ const config = {
               {
                 label: 'API Đồng bộ chứng từ',
                 to: '/docs/api/sync-voucher',
-              }
+              },
+              {
+                label: 'Hóa đơn mua hàng',
+                to: '/docs/api/sync-data/setpurchaseinvoice',
+              },
+              {
+                label: 'Hóa đơn bán hàng',
+                to: '/docs/api/sync-data/setsaleinvoice',
+              },
+              {
+                label: 'Phiếu thu tiền mặt',
+                to: '/docs/api/sync-data/setsaleinvoice',
+              },
+              {
+                label: 'Phiếu chi tiền mặt',
+                to: '/docs/api/sync-data/setcashreceipt',
+              }, {
+                label: 'Phiếu thu tiền mặt',
+                to: '/docs/api/sync-data/setcashdisbursement',
+              },
             ],
           },
           {

@@ -99,6 +99,8 @@ API SyncVoucher hỗ trợ các form sau:
 
 - [Hóa đơn mua hàng (setPurchaseinvoice)](sync-voucher/setpurchaseinvoice)
 - [Hóa đơn bán hàng (setSaleinvoice)](sync-voucher/setsaleinvoice)
+- [Phiếu thu tiền mặt (setCashReceipt)](sync-voucher/setcashreceipt)
+- [Phiếu chi tiền mặt (setCashDisbursement)](sync-voucher/setcashdisbursement)
 
 ## Xử lý dữ liệu phân cấp
 

@@ -17,7 +17,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
 |-------|-------------|----------|-------|
 | VoucherId | VARCHAR(64) | Có | Mã chứng từ |
-| SupplierId | VARCHAR(32) | Có | Mã nhà cung cấp |
+| SupplierCode | VARCHAR(32) | Có | Mã nhà cung cấp |
 | VoucherDate | DATE | Có | Ngày chứng từ |
 | VoucherNumber | VARCHAR(32) | Có | Số chứng từ |
 | Description | NVARCHAR(512) | Không | Diễn giải |
@@ -57,7 +57,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
   "data": [
     {
       "VoucherId": "PI20230001",
-      "SupplierId": "NCC001",
+      "SupplierCode": "NCC001",
       "VoucherDate": "2023-04-15",
       "VoucherNumber": "ABC0001",
       "Description": "Mua hàng hóa từ nhà cung cấp ABC",
@@ -151,7 +151,7 @@ public class SyncPurchaseInvoice
 public class PurchaseInvoice
 {
     public string VoucherId { get; set; }
-    public string SupplierId { get; set; }
+    public string SupplierCode { get; set; }
     public DateTime VoucherDate { get; set; }
     public string VoucherNumber { get; set; }
     public string Description { get; set; }

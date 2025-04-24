@@ -16,7 +16,7 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 | Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
 |-------|-------------|----------|-------|
 | VoucherId | VARCHAR(64) | Có | Mã chứng từ |
-| CustomerId | VARCHAR(32) | Có | Mã khách hàng |
+| CustomerCode | VARCHAR(32) | Có | Mã khách hàng |
 | VoucherDate | DATE | Có | Ngày chứng từ |
 | VoucherNumber | VARCHAR(32) | Có | Số chứng từ |
 | Description | NVARCHAR(500) | Không | Diễn giải |
@@ -36,7 +36,6 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 | TaxRate | VARCHAR(8) | Có | Thuế suất |
 | TaxAmount | DECIMAL(18,4) | Có | Tiền thuế |
 | TotalAmount | DECIMAL(18,4) | Có | Tổng tiền (bao gồm thuế) |
-| VoucherId | VARCHAR(64) | Có | Mã chứng từ (từ cha) |
 | Job | VARCHAR(32) | Không | Mã vụ việc |
 | Hbl | VARCHAR(512) | Không | Số House B/L |
 | Mbl | VARCHAR(512) | Không | Số Master B/L |
@@ -49,7 +48,7 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
   "data": [
     {
       "VoucherId": "SI20230001",
-      "CustomerId": "KH001",
+      "CustomerCode": "KH001",
       "VoucherDate": "2023-04-15",
       "VoucherNumber": "HD0001",
       "Description": "Bán hàng cho khách hàng ABC",
@@ -139,7 +138,7 @@ public class SyncSaleInvoice
 public class SaleInvoice
 {
     public string VoucherId { get; set; }
-    public string CustomerId { get; set; }
+    public string CustomerCode { get; set; }
     public DateTime VoucherDate { get; set; }
     public string VoucherNumber { get; set; }
     public string Description { get; set; }

@@ -1,4 +1,4 @@
----
+SupplierCode---
 sidebar_position: 1
 ---
 
@@ -13,7 +13,7 @@ Form `setCustomer` được sử dụng để đồng bộ thông tin khách hà
 | CustomerCode | VARCHAR(32) | Có | Mã khách hàng |
 | CustomerName | NVARCHAR(512) | Có | Tên khách hàng |
 | OtherName | NVARCHAR(512) | Không | Tên khách hàng 2 |
-| SaleID | VARCHAR(32) | Không | Mã nhân viên bán hàng |
+| SaleCode | VARCHAR(32) | Không | Mã nhân viên bán hàng |
 | Address | NVARCHAR(255) | Không | Địa chỉ |
 | Buyer | NVARCHAR(512) | Không | Người mua hàng |
 | GroupCode1 | VARCHAR(32) | Không | Nhóm khách hàng 1 |

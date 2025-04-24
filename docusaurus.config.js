@@ -122,6 +122,13 @@ const config = {
                 to: '/docs/api/sync-data/setitem',
               },
               {
+                label: 'Danh mục kho',
+                to: '/docs/api/sync-data/setsite',
+              }, {
+                label: 'Danh mục bộ phận',
+                to: '/docs/api/sync-data/setdepartment',
+              },
+              {
                 label: 'Danh mục vụ việc',
                 to: '/docs/api/sync-data/setjob',
               },

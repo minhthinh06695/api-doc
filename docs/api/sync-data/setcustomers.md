@@ -6,12 +6,6 @@ sidebar_position: 1
 
 Form `setCustomers` được sử dụng để đồng bộ thông tin khách hàng từ hệ thống của đối tác vào hệ thống nội bộ.
 
-## Endpoint
-
-```http
-POST /api/SyncData
-```
-
 ## Các trường dữ liệu
 
 | Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
@@ -27,13 +21,13 @@ POST /api/SyncData
 | GroupCode3 | VARCHAR(32) | Không | Nhóm khách hàng 3 |
 | PhoneNumber | VARCHAR(32) | Không | Điện thoại |
 | TaxCode | VARCHAR(32) | Không | Mã số thuế |
-| fax | VARCHAR(32) | Không | Số fax |
+| Fax | VARCHAR(32) | Không | Số fax |
 | Email | VARCHAR(100) | Không | Email |
 | BankAccount | VARCHAR(30) | Không | Tài khoản ngân hàng |
 | BankName | NVARCHAR(512) | Không | Tên ngân hàng |
 | BranchName | NVARCHAR(512) | Không | Chi nhánh/Tỉnh thành |
 | PaymentTerm | VARCHAR(32) | Không | Điều khoản thanh toán |
-| status | CHAR(1) | Có | Trạng thái |
+| Status | CHAR(1) | Có | Trạng thái |
 | SuplierYN | TINYINT | Không | Là nhà cung cấp (1: Có, 0: Không) |
 | EmployeeYN | TINYINT | Không | Là nhân viên (1: Có, 0: Không) |
 | Description | NVARCHAR(500) | Không | Ghi chú |
@@ -94,4 +88,4 @@ POST /api/SyncData
 
 1. Trường `CustomerCode` và `CustomerName` là bắt buộc và không được để trống.
 2. Trường `status` cũng là bắt buộc, với giá trị "1" cho khách hàng đang hoạt động và "0" cho khách hàng không hoạt động.
-3. Để biết thêm chi tiết về các mã lỗi và cách xử lý, vui lòng tham khảo [trang chính về API SyncData](../sync-data).
+3. Để biết thêm chi tiết về các mã lỗi và cách xử lý, vui lòng tham khảo [API Đồng bộ danh mục](../sync-data).

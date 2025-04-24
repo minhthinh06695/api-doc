@@ -6,12 +6,6 @@ sidebar_position: 2
 
 Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàng hóa từ hệ thống của đối tác vào hệ thống nội bộ.
 
-## Endpoint
-
-```http
-POST /api/SyncData
-```
-
 ## Các trường dữ liệu
 
 | Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
@@ -80,4 +74,4 @@ POST /api/SyncData
 
 1. Trường `ItemCode`, `ItemName` và `ItemType` là bắt buộc và không được để trống.
 2. Trường `Status` cũng là bắt buộc, với giá trị "1" cho vật tư đang hoạt động và "0" cho vật tư không hoạt động.
-3. Để biết thêm chi tiết về các mã lỗi và cách xử lý, vui lòng tham khảo [trang chính về API SyncData](../sync-data).
+3. Để biết thêm chi tiết về các mã lỗi và cách xử lý, vui lòng tham khảo [trang chính về API Đồng bộ danh mục](../sync-data).

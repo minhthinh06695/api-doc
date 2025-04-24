@@ -17,9 +17,18 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'API Đồng bộ dữ liệu',
+      label: 'API Reference',
       items: [
-        'api/sync-data',
+        {
+          type: 'category',
+          label: 'Đồng bộ danh mục',
+          items: [
+            'api/sync-data',
+            'api/sync-data/setcustomers',
+            'api/sync-data/setjob',
+            'api/sync-data/setitem',
+          ],
+        },
         'api/sync-voucher',
         'api/get-data',
       ],

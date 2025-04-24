@@ -112,6 +112,20 @@ const config = {
               {
                 label: 'API Đồng bộ danh mục',
                 to: '/docs/api/sync-data',
+                items: [
+                  {
+                    label: 'Danh mục khách hàng',
+                    to: '/docs/api/sync-data/setcustomers',
+                  },
+                  {
+                    label: 'Danh mục vụ việc',
+                    to: '/docs/api/sync-data/setjob',
+                  },
+                  {
+                    label: 'Danh mục vật tư',
+                    to: '/docs/api/sync-data/setitem',
+                  },
+                ],
               },
               {
                 label: 'API Đồng bộ chứng từ',
@@ -168,8 +182,8 @@ const config = {
 
       // Metadata cho SEO
       metadata: [
-        { name: 'keywords', content: 'api, documentation, fastapi, ecx, sync data, sync voucher' },
-        { name: 'description', content: 'Tài liệu API chính thức cho FastAPIs-ECX' },
+        { name: 'keywords', content: 'api, documentation, fastapi, ecx, sync data, sync voucher, setcustomers, setjob, setitem' },
+        { name: 'description', content: 'Tài liệu API chính thức cho FastAPI' },
       ],
     }),
 };

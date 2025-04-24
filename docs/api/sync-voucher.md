@@ -1,6 +1,6 @@
 # Đồng bộ chứng từ 
 
-API `SyncVoucher` được sử dụng để đồng bộ các chứng từ phức tạp có cấu trúc phân cấp (như hóa đơn, đơn hàng có chi tiết). API này hỗ trợ đồng bộ dữ liệu với cấu trúc JSON phân cấp thay vì đơn giản như [API Đồng bộ danh mục](../sync-data).
+API `SyncVoucher` được sử dụng để đồng bộ các chứng từ phức tạp có cấu trúc phân cấp (như hóa đơn, đơn hàng có chi tiết). API này hỗ trợ đồng bộ dữ liệu với cấu trúc JSON phân cấp thay vì đơn giản như [API Đồng bộ danh mục](./sync-data).
 
 ## Endpoint
 

@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Danh mục bộ phận
 
-Form `setDepartment` được sử dụng để đồng bộ thông tin bộ phận từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setDepartment` được sử dụng để đồng bộ thông tin bộ phận từ hệ thống của đối tác vào hệ thống Fast thông qua [API Đồng bộ danh mục](../sync-data).
 
 ## Các trường dữ liệu
 
@@ -14,8 +14,9 @@ Form `setDepartment` được sử dụng để đồng bộ thông tin bộ ph�
 | DeptName     | String(256) | ✔️       | Tên bộ phận          |
 | OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
 | Address      | String(256) |          | Địa chỉ              |
-| PhoneNumber  | String(256) |          | Số điện thoại        |
-| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| PhoneNumber  | String(32) |          | Số điện thoại        |
+| Note         | String(512) |          | Ghi chú       |
+| Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
 
 ## Ví dụ request
 
@@ -29,6 +30,7 @@ Form `setDepartment` được sử dụng để đồng bộ thông tin bộ ph�
       "OtherName": "Accounting Department",
       "Address": "Tầng 3, Tòa nhà ABC, Hà Nội",
       "PhoneNumber": "024.1234.5678",
+      "Note": "Ghi chú bộ phận 1",
       "Status": "1"
     },
     {
@@ -36,6 +38,7 @@ Form `setDepartment` được sử dụng để đồng bộ thông tin bộ ph�
       "DeptName": "Phòng Nhân sự",
       "Address": "Tầng 4, Tòa nhà ABC, Hà Nội",
       "PhoneNumber": "024.8765.4321",
+      "Note": "Ghi chú bộ phận 2",
       "Status": "1"
     }
   ]

@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Danh mục vật tư
 
-Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàng hóa từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàng hóa từ hệ thống của đối tác vào hệ thống Fast thông qua [API Đồng bộ danh mục](../sync-data).
 
 ## Các trường dữ liệu
 
@@ -18,7 +18,7 @@ Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàn
 | ItemGroup1   | String(32)  |          | Nhóm vật tư 1        |
 | ItemGroup2   | String(32)  |          | Nhóm vật tư 2        |
 | ItemGroup3   | String(32)  |          | Nhóm vật tư 3        |
-| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
 
 ## Ví dụ request
 
@@ -74,4 +74,4 @@ Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàn
 
 1. Trường `ItemCode`, `ItemName` và `ItemType` là bắt buộc và không được để trống.
 2. Trường `Status` cũng là bắt buộc, với giá trị "1" cho vật tư đang hoạt động và "0" cho vật tư không hoạt động.
-3. Để biết thêm chi tiết về các mã lỗi và cách xử lý, vui lòng tham khảo [trang chính về API Đồng bộ danh mục](../sync-data).
+3. Để biết thêm chi tiết về các mã lỗi và cách xử lý, vui lòng tham khảo [API Đồng bộ danh mục](../sync-data).

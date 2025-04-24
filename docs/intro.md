@@ -17,38 +17,70 @@ FastAPI là hệ thống API được phát triển để nhận dữ liệu t�
 - **Truy vấn dữ liệu**: Cung cấp khả năng truy vấn dữ liệu từ hệ thống.
 - **Caching thông minh**: Tối ưu hiệu suất bằng cách cache dữ liệu và sử dụng cơ chế deduplicate requests.
 
-## Kiến trúc hệ thống
-
-FastAPI được thiết kế với kiến trúc module hóa, cho phép mở rộng dễ dàng:
-
-1. **Lớp Controller**: Xử lý các request HTTP và điều phối các service.
-2. **Lớp Service**: Chứa logic nghiệp vụ, xử lý dữ liệu và tương tác với cơ sở dữ liệu.
-3. **Lớp Model**: Định nghĩa cấu trúc dữ liệu.
-4. **Cấu hình XML**: Định nghĩa mapping giữa dữ liệu API và cấu trúc dữ liệu trong database.
-
 ## Luồng xử lý dữ liệu
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Auth_Server as Authentication Server
+    participant API_Server as API Server
+    participant Database
+
+    %% Bước 1: Xác thực và lấy token
+    Client->>Auth_Server: POST api/getToken (username, password)
+    Note over Auth_Server: Kiểm tra thông tin đăng nhập
+    alt Xác thực thành công
+        Auth_Server->>Auth_Server: Tạo JWT token (có thời hạn)
+        Auth_Server-->>Client: 200 OK (token, expiry)
+    else Xác thực thất bại
+        Auth_Server-->>Client: 401 Unauthorized
+    end
+    
+    %% Bước 2: Gửi yêu cầu xử lý dữ liệu
+    Client->>API_Server: POST /api/SyncVoucher (data, Authorization: {token})
+    API_Server->>Auth_Server: Xác thực token
+    
+    alt Token hợp lệ
+        Auth_Server-->>API_Server: Token hợp lệ (thông tin user, permissions)
+        
+        %% Bước 3: Xử lý dữ liệu
+        Note over API_Server: Kiểm tra quyền truy cập
+        API_Server->>API_Server: Xác thực và chuyển đổi dữ liệu
+        API_Server->>Database: Lưu dữ liệu
+        Database-->>API_Server: Xác nhận lưu thành công
+        
+        %% Bước 4: Phản hồi
+        API_Server-->>Client: 200 OK (kết quả xử lý)
+    else Token không hợp lệ hoặc hết hạn
+        Auth_Server-->>API_Server: Token không hợp lệ
+        API_Server-->>Client: 401 Unauthorized
+        Note over Client: Cần xác thực lại
+    end
+```
 <figure style={{textAlign: 'center'}}>
-  <ThemedImage
-    alt="Sơ đồ luồng xử lý dữ liệu API"
-    sources={{
-      light: '/img/Mermaid-Intro-Diagram-light.svg',
-      dark: '/img/Mermaid-Intro-Diagram-dark.svg',
-    }}
-    style={{maxWidth: "800px", margin: "0 auto", display: "block", width: "100%"}}
-  />
   <figcaption style={{marginTop: '10px', fontSize: '14px', fontStyle: 'italic'}}>
     Hình 1: Sơ đồ luồng xử lý dữ liệu API
   </figcaption>
 </figure>
 
-**Luồng xử lý dữ liệu**
-1. Client gửi request có kèm token xác thực.
-2. API xác thực token và quyền truy cập.
-3. Dữ liệu hợp lệ được chuyển đổi và lưu vào cơ sở dữ liệu.
-4. Kết quả xử lý được trả về cho client.
+### 1. Xác thực và lấy token
+- Client gửi request xác thực với thông tin đăng nhập (username/password).
+- Hệ thống xác thực thông tin và tạo token.
+- Token được trả về cho client kèm thời hạn sử dụng.
 
-## Bắt đầu
+### 2. Gửi yêu cầu xử lý dữ liệu
+- Client gửi request có kèm token xác thực trong header.
+- API xác thực token và quyền truy cập.
+
+### 3. Xử lý dữ liệu
+- Dữ liệu hợp lệ được chuyển đổi và lưu vào cơ sở dữ liệu.
+- Hệ thống xử lý nghiệp vụ liên quan.
+
+### 4. Phản hồi
+- Kết quả xử lý được trả về cho client.
+- Trong trường hợp token hết hạn, hệ thống trả về mã lỗi yêu cầu client xác thực lại.
+
+## Bắt đầu tích hợp
 
 Để bắt đầu sử dụng API, bạn cần:
 

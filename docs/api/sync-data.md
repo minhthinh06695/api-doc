@@ -4,7 +4,7 @@ title: Đồng bộ dữ liệu danh mục
 
 # Đồng bộ dữ liệu danh mục
 
-API `SyncData` được sử dụng để đồng bộ dữ liệu master (dữ liệu danh mục) từ hệ thống của đối tác vào hệ thống nội bộ. API này hỗ trợ đồng bộ các dữ liệu đơn giản, không phân cấp thông qua cấu trúc DataTable.
+API `SyncData` được sử dụng để đồng bộ dữ liệu master (dữ liệu danh mục) từ hệ thống của đối tác vào hệ thống nội bộ. API này hỗ trợ đồng bộ các dữ liệu đơn giản, không phân cấp.
 
 ## Endpoint
 
@@ -93,7 +93,8 @@ API SyncData hỗ trợ các form sau:
 - [Danh mục kho (setSite)](sync-data/setsite)
 - [Danh mục bộ phận (setDepartment)](sync-data/setdepartment)
 - [Danh mục vụ việc (setJob)](sync-data/setjob)
-
+- [Danh mục hợp đồng (setContract)](sync-data/setcontract)
+- [Danh mục phí (setExpense)](sync-data/setexpense)
 
 ## Lưu ý khi sử dụng
 

@@ -1,6 +1,6 @@
 # Hóa đơn bán hàng
 
-Form `setSaleInvoice` được sử dụng để đồng bộ thông tin hóa đơn bán hàng thông qua API SyncVoucher.
+Form `setSaleInvoice` được sử dụng để đồng bộ thông tin hóa đơn bán hàng vào hệ thống Fast thông qua [API Đồng bộ chứng từ](../sync-voucher).
 
 ## Cấu trúc chứng từ
 
@@ -20,8 +20,13 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 | VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
 | VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
 | Description  | String(512) |          | Diễn giải            |
-| Currency     | String(3)   | ✔️       | Loại tiền            |
+| Currency     | String(3)   | ✔️       | Loại tiền ("VND","USD","EUR"...) |
 | ExchangeRate | Long        | ✔️       | Tỷ giá               |
+| TotalQuantity| Long        | ✔️       | Tổng số lượng        |
+| TotalNetAmount| Long        | ✔️       | Tổng tiền hàng trước thuế |
+| TotalDiscountAmount| Long        | ✔️   | Tổng tiền chiết khấu |
+| TotalTaxAmount| Long        | ✔️       | Tổng tiền thuế       |
+| TotalAmount  | Long        | ✔️       | Tổng tiền sau thuế   |
 
 ### Detail (Chi tiết hàng hóa)
 
@@ -32,8 +37,16 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 | Uom          | String(32)  | ✔️       | Đơn vị tính          |
 | Quantity     | Long        | ✔️       | Số lượng             |
 | UnitPrice    | Long        | ✔️       | Đơn giá              |
-| Amount       | Long        | ✔️       | Thành tiền           |
-| TaxRate      | String(8)   |
+| Amount       | Long        | ✔️       | Thành tiền trước thuế|
+| Discount     | Long        | ✔️       | Tiền chiết khấu      |
+| TaxRate      | String(8)   | ✔️       | Thuế suất            |
+| TaxAmount    | Long        | ✔️       | Tiền thuế  **Công thức:** (Amount - Discount) × (TaxRate/100) |
+| TotalAmount  | Long        | ✔️       | Tổng tiền sau thuế   |
+| JobCode      | String(32)  |          | Mã vụ việc           |
+| DeptCode     | String(32)  |          | Mã bộ phận           |
+| ContractCode | String(32)  |          | Mã hợp đồng          |
+| ExpenseCode  | String(32)  |          | Mã phí               |
+
 
 ## Ví dụ request
 
@@ -49,6 +62,11 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
       "Description": "Bán hàng cho khách hàng ABC",
       "Currency": "VND",
       "ExchangeRate": 1,
+      "TotalQuantity": 3,
+      "TotalNetAmount": 24000000,
+      "TotalDiscountAmount": 1000000,
+      "TotalTaxAmount": 2300000,
+      "TotalAmount": 25300000,
       "detail": [
         {
           "RefNumber": 1,
@@ -57,9 +75,10 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
           "Quantity": 1,
           "UnitPrice": 12000000,
           "Amount": 12000000,
+          "Discount": 500000,
           "TaxRate": "10",
-          "TaxAmount": 1200000,
-          "TotalAmount": 13200000,
+          "TaxAmount": 1150000,
+          "TotalAmount": 12650000,
           "JobCode": "VV001",
           "DeptCode": "BP001",
           "ContractCode": "HD001",
@@ -72,9 +91,10 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
           "Quantity": 2,
           "UnitPrice": 6000000,
           "Amount": 12000000,
+          "Discount": 500000,
           "TaxRate": "10",
-          "TaxAmount": 1200000,
-          "TotalAmount": 13200000,
+          "TaxAmount": 1150000,
+          "TotalAmount": 12650000,
           "JobCode": "VV001",
           "DeptCode": "BP001",
           "ContractCode": "HD001",
@@ -90,7 +110,9 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 
 1. Khác với hóa đơn mua hàng, hóa đơn bán hàng có thông tin thuế được tích hợp ngay trong chi tiết hàng hóa (không có mảng `tax` riêng biệt).
 2. Mỗi dòng chi tiết hóa đơn bán hàng đều có thông tin về thuế suất và tiền thuế.
-3. Trường `TotalAmount` trong chi tiết hàng hóa là tổng tiền đã bao gồm thuế (`Amount + TaxAmount`).
+3. Trường `TotalAmount` trong chi tiết hàng hóa là tổng tiền đã bao gồm thuế (`Amount - Discount + TaxAmount`).
+4. Trường `TotalQuantity` là tổng số lượng hàng hóa trong đơn hàng, bằng tổng của tất cả các trường `Quantity` trong chi tiết.
+5. Đảm bảo rằng các trường tổng cộng phản ánh chính xác tổng của các chi tiết để tránh lỗi khi đồng bộ dữ liệu.
 
 ## Ví dụ mã nguồn C#
 
@@ -147,6 +169,11 @@ public class SaleInvoice
     public string Description { get; set; }
     public string Currency { get; set; }
     public decimal ExchangeRate { get; set; }
+    public decimal TotalQuantity { get; set; }
+    public decimal TotalNetAmount { get; set; }
+    public decimal TotalDiscountAmount { get; set; }
+    public decimal TotalTaxAmount { get; set; }
+    public decimal TotalAmount { get; set; }
     public List<SaleInvoiceDetail> detail { get; set; }
 }
 
@@ -158,10 +185,10 @@ public class SaleInvoiceDetail
     public decimal Quantity { get; set; }
     public decimal UnitPrice { get; set; }
     public decimal Amount { get; set; }
+    public decimal Discount { get; set; }
     public string TaxRate { get; set; }
     public decimal TaxAmount { get; set; }
     public decimal TotalAmount { get; set; }
-    public string VoucherId { get; set; }
     public string JobCode { get; set; }
     public string DeptCode { get; set; }
     public string ContractCode { get; set; }

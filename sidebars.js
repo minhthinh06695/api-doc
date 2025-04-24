@@ -24,6 +24,8 @@ const sidebars = {
             'api/sync-data/setsite',
             'api/sync-data/setdepartment',
             'api/sync-data/setjob',
+            'api/sync-data/setcontract',
+            'api/sync-data/setexpense',
           ],
         },
         {

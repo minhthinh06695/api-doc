@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Danh mục khách hàng
 
-Form `setCustomer` được sử dụng để đồng bộ thông tin khách hàng từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setCustomer` được sử dụng để đồng bộ thông tin khách hàng từ hệ thống của đối tác vào hệ thống Fast thông qua [API Đồng bộ danh mục](../sync-data).
 
 ## Các trường dữ liệu
 
@@ -15,7 +15,7 @@ Form `setCustomer` được sử dụng để đồng bộ thông tin khách hà
 | OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
 | SaleCode     | String(32)  |          | Mã nhân viên bán hàng|
 | Address      | String(256) |          | Địa chỉ              |
-| Buyer        | String(256) |          | Người mua hàng       |
+| Partner      | String(256) |          | Đối tác (Tên người đại diện)      |
 | GroupCode1   | String(32)  |          | Nhóm khách hàng 1    |
 | GroupCode2   | String(32)  |          | Nhóm khách hàng 2    |
 | GroupCode3   | String(32)  |          | Nhóm khách hàng 3    |
@@ -23,11 +23,12 @@ Form `setCustomer` được sử dụng để đồng bộ thông tin khách hà
 | TaxCode      | String(32)  |          | Mã số thuế           |
 | Fax          | String(32)  |          | Số fax               |
 | Email        | String(128) |          | Email                |
-| BankAccount  | String(30)  |          | Tài khoản ngân hàng  |
+| BankAccount  | String(30)  |          | Số tài khoản ngân hàng  |
 | BankName     | String(256) |          | Tên ngân hàng        |
 | BranchName   | String(256) |          | Chi nhánh/Tỉnh thành |
+| AccountName  | String(256) |          | Tên chủ tài khoản ngân hàng      |
 | PaymentTerm  | String(32)  |          | Điều khoản thanh toán|
-| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
 | SuplierYN    | Byte        |          | Là nhà cung cấp (1: Có, 0: Không) |
 | EmployeeYN   | Byte        |          | Là nhân viên (1: Có, 0: Không)    |
 | Description  | String(512) |          | Ghi chú              |

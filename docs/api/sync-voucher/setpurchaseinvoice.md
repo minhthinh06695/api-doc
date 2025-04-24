@@ -1,6 +1,6 @@
 # Hóa đơn mua hàng
 
-Form `setPurchaseInvoice` được sử dụng để đồng bộ thông tin hóa đơn mua hàng thông qua API SyncVoucher.
+Form `setPurchaseInvoice` được sử dụng để đồng bộ thông tin hóa đơn mua hàng vào hệ thống Fast thông qua [API Đồng bộ chứng từ](../sync-voucher).
 
 ## Cấu trúc chứng từ
 
@@ -21,8 +21,12 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
 | VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
 | Description  | String(512) |          | Diễn giải            |
-| Currency     | String(3)   | ✔️       | Loại tiền            |
+| Currency     | String(3)   | ✔️       | Loại tiền ("VND","USD","EUR"...)|
 | ExchangeRate | Long        | ✔️       | Tỷ giá               |
+| TotalQuantity    | Long    | ✔️   | Tổng số lượng |
+| TotalNetAmount    | Long   | ✔️   | Tổng tiền hàng trước thuế|
+| TotalTaxAmount    | Long   | ✔️   | Tổng tiền thuế |
+| TotalAmount    | Long      | ✔️       | Tổng tiền sau thuế |
 
 ### Detail (Chi tiết hàng hóa)
 
@@ -46,7 +50,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | VatInvoiceNumber | String(32)  | ✔️       | Số hóa đơn VAT       |
 | VatInvoiceDate   | Date        | ✔️       | Ngày hóa đơn VAT     |
 | VatInvoiceSymbol | String(32)  |          | Ký hiệu hóa đơn      |
-| TotalAmount      | Long        | ✔️       | Tiền trước thuế      |
+| TotalNetAmount   | Long        | ✔️       | Tiền trước thuế      |
 | TaxRate          | String(8)   | ✔️       | Thuế suất            |
 | TaxAmount        | Long        | ✔️       | Tiền thuế            |
 
@@ -64,6 +68,10 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
       "Description": "Mua hàng hóa từ nhà cung cấp ABC",
       "Currency": "VND",
       "ExchangeRate": 1,
+      "TotalQuantity": 5,
+      "TotalNetAmount": 35000000,
+      "TotalTaxAmount": 3500000,
+      "TotalAmount": 38500000,
       "detail": [
         {
           "RefNumber": 1,
@@ -95,7 +103,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
           "VatInvoiceNumber": "0000123",
           "VatInvoiceDate": "2023-04-15",
           "VatInvoiceSymbol": "AA/20E",
-          "TotalAmount": 35000000,
+          "TotalNetAmount": 35000000,
           "TaxRate": "10",
           "TaxAmount": 3500000
         }

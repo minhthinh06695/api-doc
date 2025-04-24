@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Danh mục kho
 
-Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ thống của đối tác vào hệ thống Fast thông qua [API Đồng bộ danh mục](../sync-data).
 
 ## Các trường dữ liệu
 
@@ -16,7 +16,8 @@ Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ 
 | Address      | String(256) |          | Địa chỉ              |
 | GroupCode    | String(32)  |          | Nhóm kho             |
 | AgentYN      | Byte        |          | Kho đại lý (1: Có, 0: không)      |
-| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| Note         | String(512) |          | Ghi chú              |
+| Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
 
 ## Ví dụ request
 
@@ -31,6 +32,7 @@ Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ 
       "Address": "Số 123 Đường Láng, Đống Đa, Hà Nội",
       "GroupCode": "MIEN_BAC",
       "AgentYN": 0,
+      "Note": "Ghi chú 1",
       "Status": "1"
     },
     {
@@ -39,6 +41,7 @@ Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ 
       "Address": "Số 456 Lê Lợi, Quận 1, TP.HCM",
       "GroupCode": "MIEN_NAM",
       "AgentYN": 0,
+      "Note": "Ghi chú 2",
       "Status": "1"
     }
   ]

@@ -1,6 +1,6 @@
 # Phiếu chi tiền
 
-Form `setCashDisbursement` được sử dụng để đồng bộ thông tin phiếu chi tiền thông qua API SyncVoucher.
+Form `setCashDisbursement` được sử dụng để đồng bộ thông tin phiếu chi tiền vào hệ thống Fast thông qua [API Đồng bộ chứng từ](../sync-voucher).
 
 ## Cấu trúc chứng từ
 
@@ -19,12 +19,13 @@ Chứng từ phiếu chi tiền gồm 2 phần chính:
 | VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
 | VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
 | CustomerCode | String(32)  | ✔️       | Mã khách hàng        |
-| Payer        | String(128) |          | Tên người nhận tiền  |
+| Recipient         | String(128) |      | Tên người nhận tiền  |
 | Address      | String(128) |          | Địa chỉ người nhận tiền |
 | CreditAccount| String(32)  | ✔️       | Tài khoản có (Tài khoản kế toán) |
 | Description  | String(512) |          | Diễn giải            |
-| Currency     | String(3)   | ✔️       | Loại tiền            |
+| Currency     | String(3)   | ✔️       | Loại tiền ("VND","USD","EUR"...) |
 | ExchangeRate | Long        | ✔️       | Tỷ giá               |
+| TotalAmount  | Long        | ✔️       | Tổng số tiền              |
 
 ### Detail (Chi tiết)
 
@@ -49,12 +50,13 @@ Chứng từ phiếu chi tiền gồm 2 phần chính:
       "VoucherDate": "2023-04-15",
       "VoucherNumber": "PC0001",
       "CustomerCode": "KH001",
-      "Payer": "Nguyễn Văn A",
+      "Recipient": "Nguyễn Văn A",
       "Address": "Số 123 Đường ABC, Quận 1, TP.HCM",
       "CreditAccount": "111",
       "Description": "Chi tiền cho nhà cung cấp",
       "Currency": "VND",
       "ExchangeRate": 1,
+      "Amount": 11000000,
       "detail": [
         {
           "RefNumber": 1,

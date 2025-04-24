@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Danh mục vụ việc
 
-Form `setJob` được sử dụng để đồng bộ thông tin vụ việc từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setJob` được sử dụng để đồng bộ thông tin vụ việc từ hệ thống của đối tác vào hệ thống Fast thông qua [API Đồng bộ danh mục](../sync-data).
 
 ## Các trường dữ liệu
 
@@ -13,7 +13,8 @@ Form `setJob` được sử dụng để đồng bộ thông tin vụ việc t�
 | JobCode      | String(32)  | ✔️       | Mã vụ việc           |
 | JobName      | String(256) | ✔️       | Tên vụ việc          |
 | OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
-| Status       | String(1)   | ✔️       | Trạng thái (1: Hoạt động, 0: Không hoạt động) |
+| Note         | String(512) |          | Ghi chú              |
+| Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
 
 ## Ví dụ request
 
@@ -24,11 +25,13 @@ Form `setJob` được sử dụng để đồng bộ thông tin vụ việc t�
     {
       "JobCode": "VV001",
       "JobName": "Dự án phát triển phần mềm",
+      "Note": "Ghi chú dự án 1",
       "Status": "1"
     },
     {
       "JobCode": "VV002",
       "JobName": "Dự án triển khai hệ thống",
+      "Note": "Ghi chú dự án 2",
       "Status": "1"
     }
   ]

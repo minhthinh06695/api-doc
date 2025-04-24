@@ -1,6 +1,6 @@
 # Phiếu thu tiền
 
-Form `setCashReceipt` được sử dụng để đồng bộ thông tin phiếu thu tiền thông qua API SyncVoucher.
+Form `setCashReceipt` được sử dụng để đồng bộ thông tin phiếu thu tiền vào hệ thống Fast thông qua [API Đồng bộ chứng từ](../sync-voucher).
 
 ## Cấu trúc chứng từ
 
@@ -23,8 +23,9 @@ Chứng từ phiếu thu tiền gồm 2 phần chính:
 | Address      | String(128) |          | Địa chỉ người nộp tiền |
 | DebitAccount | String(32)  | ✔️       | Tài khoản nợ (Tài khoản kế toán) |
 | Description  | String(512) |          | Diễn giải            |
-| Currency     | String(3)   | ✔️       | Loại tiền            |
+| Currency     | String(3)   | ✔️       | Loại tiền ("VND","USD","EUR"...)|
 | ExchangeRate | Long        | ✔️       | Tỷ giá               |
+| TotalAmount  | Long        | ✔️       | Tổng số tiền              |
 
 ### Detail (Chi tiết)
 
@@ -55,6 +56,7 @@ Chứng từ phiếu thu tiền gồm 2 phần chính:
       "Description": "Thu tiền khách hàng",
       "Currency": "VND",
       "ExchangeRate": 1,
+      "Amount": 15000000,
       "detail": [
         {
           "RefNumber": 1,

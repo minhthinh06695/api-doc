@@ -19,7 +19,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | VoucherId | VARCHAR(64) | Có | Mã chứng từ |
 | SupplierCode | VARCHAR(32) | Có | Mã nhà cung cấp |
 | VoucherDate | DATE | Có | Ngày chứng từ |
-| VoucherNumber | VARCHAR(32) | Có | Số chứng từ |
+| VoucherNumber | VARCHAR(12) | Có | Số chứng từ |
 | Description | NVARCHAR(512) | Không | Diễn giải |
 | Currency | VARCHAR(5) | Có | Loại tiền |
 | ExchangeRate | DECIMAL(18,4) | Có | Tỷ giá |

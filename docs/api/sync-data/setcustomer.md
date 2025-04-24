@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Danh mục khách hàng
 
-Form `setCustomers` được sử dụng để đồng bộ thông tin khách hàng từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setCustomer` được sử dụng để đồng bộ thông tin khách hàng từ hệ thống của đối tác vào hệ thống nội bộ.
 
 ## Các trường dữ liệu
 
@@ -36,7 +36,7 @@ Form `setCustomers` được sử dụng để đồng bộ thông tin khách h�
 
 ```json
 {
-  "form": "setCustomers",
+  "form": "setCustomer",
   "data": [
     {
       "CustomerCode": "KH001",

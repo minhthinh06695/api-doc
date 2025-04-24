@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Danh mục bộ phận
 
-Form **`setDepartment`** được sử dụng để đồng bộ thông tin bộ phận từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setDepartment` được sử dụng để đồng bộ thông tin bộ phận từ hệ thống của đối tác vào hệ thống nội bộ.
 
 ## Các trường dữ liệu
 

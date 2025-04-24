@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Danh mục vụ việc
 
-Form **`setJob`** được sử dụng để đồng bộ thông tin vụ việc từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setJob` được sử dụng để đồng bộ thông tin vụ việc từ hệ thống của đối tác vào hệ thống nội bộ.
 
 ## Các trường dữ liệu
 

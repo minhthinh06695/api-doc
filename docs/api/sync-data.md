@@ -88,7 +88,7 @@ Trong đó:
 
 API SyncData hỗ trợ các form sau:
 
-- [Danh mục khách hàng/nhà cung cấp (setCustomers)](sync-data/setcustomers)
+- [Danh mục khách hàng/nhà cung cấp (setCustomer)](sync-data/setcustomer)
 - [Danh mục vật tư (setItem)](sync-data/setitem)
 - [Danh mục kho (setSite)](sync-data/setsite)
 - [Danh mục bộ phận (setDepartment)](sync-data/setdepartment)

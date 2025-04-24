@@ -115,7 +115,7 @@ const config = {
               },
               {
                 label: 'Danh mục khách hàng',
-                to: '/docs/api/sync-data/setcustomers',
+                to: '/docs/api/sync-data/setcustomer',
               },
               {
                 label: 'Danh mục vật tư',
@@ -183,7 +183,7 @@ const config = {
 
       // Metadata cho SEO
       metadata: [
-        { name: 'keywords', content: 'api, documentation, fastapi, ecx, sync data, sync voucher, setcustomers, setjob, setitem' },
+        { name: 'keywords', content: 'api, documentation, fastapi, ecx, sync data, sync voucher, setCustomer, setjob, setitem' },
         { name: 'description', content: 'Tài liệu API chính thức cho FastAPI' },
       ],
     }),

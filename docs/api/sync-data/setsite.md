@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Danh mục kho
 
-Form **`setSite`** được sử dụng để đồng bộ thông tin kho từ hệ thống của đối tác vào hệ thống nội bộ.
+Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ thống của đối tác vào hệ thống nội bộ.
 
 ## Các trường dữ liệu
 

@@ -19,7 +19,7 @@ const sidebars = {
             id: 'api/sync-data',
           },
           items: [
-            'api/sync-data/setcustomers',
+            'api/sync-data/setcustomer',
             'api/sync-data/setitem',
             'api/sync-data/setsite',
             'api/sync-data/setdepartment',

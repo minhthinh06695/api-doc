@@ -4,7 +4,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'API Documentation',
+  title: 'Fast Developer',
   tagline: 'Tài liệu API cho nhà phát triển',
   favicon: 'img/favicon.ico',
 
@@ -32,7 +32,7 @@ const config = {
   markdown: {
     mermaid: true,
   },
-  
+
   themes: ['@docusaurus/theme-mermaid'],
 
   stylesheets: [

@@ -17,7 +17,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | Param | Kiểu dữ liệu | Bắt buộc | Mô tả |
 |-------|-------------|----------|-------|
 | VoucherId | VARCHAR(64) | Có | Mã chứng từ |
-| SupplierCode | VARCHAR(32) | Có | Mã nhà cung cấp |
+| SupplierCode | VARCHAR(32) | Có | Mã nhà cung cấp, chính là mã khách hàng trong Danh mục khách hàng|
 | VoucherDate | DATE | Có | Ngày chứng từ |
 | VoucherNumber | VARCHAR(12) | Có | Số chứng từ |
 | Description | NVARCHAR(512) | Không | Diễn giải |

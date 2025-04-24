@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 import ThemedImage from '@theme/ThemedImage';
 
-# Giới thiệu
+# Tổng quan
 
 ## FastAPI là gì?
 

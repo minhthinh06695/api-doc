@@ -110,51 +110,9 @@ const config = {
             title: 'Tài liệu',
             items: [
               {
-                label: 'Giới thiệu',
+                label: 'Tổng quan',
                 to: '/docs/intro',
-              },
-              {
-                label: 'Danh mục khách hàng',
-                to: '/docs/api/sync-data/setcustomer',
-              },
-              {
-                label: 'Danh mục vật tư',
-                to: '/docs/api/sync-data/setitem',
-              },
-              {
-                label: 'Danh mục kho',
-                to: '/docs/api/sync-data/setsite',
-              }, {
-                label: 'Danh mục bộ phận',
-                to: '/docs/api/sync-data/setdepartment',
-              },
-              {
-                label: 'Danh mục vụ việc',
-                to: '/docs/api/sync-data/setjob',
-              },
-              {
-                label: 'API Đồng bộ chứng từ',
-                to: '/docs/api/sync-voucher',
-              },
-              {
-                label: 'Hóa đơn mua hàng',
-                to: '/docs/api/sync-voucher/setpurchaseinvoice',
-              },
-              {
-                label: 'Hóa đơn bán hàng',
-                to: '/docs/api/sync-voucher/setsaleinvoice',
-              },
-              {
-                label: 'Phiếu thu tiền mặt',
-                to: '/docs/api/sync-voucher/setsaleinvoice',
-              },
-              {
-                label: 'Phiếu chi tiền mặt',
-                to: '/docs/api/sync-voucher/setcashreceipt',
-              }, {
-                label: 'Phiếu thu tiền mặt',
-                to: '/docs/api/sync-voucher/setcashdisbursement',
-              },
+              }
             ],
           },
           {

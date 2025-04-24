@@ -5,16 +5,8 @@
  */
 const sidebars = {
   tutorialSidebar: [
-    {
-      type: 'doc',
-      id: 'intro',
-      label: 'Giới thiệu',
-    },
-    {
-      type: 'doc',
-      id: 'authentication',
-      label: 'Xác thực và Bảo mật',
-    },
+    'intro',
+    'authentication',
     {
       type: 'category',
       label: 'API Reference',
@@ -22,18 +14,20 @@ const sidebars = {
         {
           type: 'category',
           label: 'Đồng bộ danh mục',
+          link: {
+            type: 'doc',
+            id: 'api/sync-data', // Liên kết đến tài liệu chính
+          },
           items: [
-            'api/sync-data',
             'api/sync-data/setcustomers',
-            'api/sync-data/setjob',
             'api/sync-data/setitem',
+            'api/sync-data/setjob',
           ],
         },
-        'api/sync-voucher',
-        'api/get-data',
+        'api/sync-voucher'
       ],
-    }
+    },
   ],
 };
 
-module.exports = sidebars;
+export default sidebars;

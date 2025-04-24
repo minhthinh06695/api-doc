@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # Đồng bộ chứng từ 
 
 API `SyncVoucher` được sử dụng để đồng bộ các chứng từ phức tạp có cấu trúc phân cấp (như hóa đơn, đơn hàng có chi tiết). API này hỗ trợ đồng bộ dữ liệu với cấu trúc JSON phân cấp thay vì DataTable đơn giản như SyncData.

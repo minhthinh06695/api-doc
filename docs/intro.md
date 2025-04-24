@@ -39,4 +39,3 @@ FastAPI được thiết kế với kiến trúc module hóa, cho phép mở r�
 
 1. Đăng ký và nhận thông tin xác thực (username/password).
 2. Tìm hiểu về [xác thực và bảo mật](./authentication).
-3. Khám phá các endpoint API sẵn có trong phần [Tham khảo API](./api/sync-data).

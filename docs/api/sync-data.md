@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+title: Đồng bộ dữ liệu danh mục
 ---
 
 # Đồng bộ dữ liệu danh mục
@@ -88,9 +88,10 @@ Trong đó:
 
 API SyncData hỗ trợ các form sau:
 
-- [Danh mục khách hàng (setCustomers)](setcustomers)
-- [Danh mục vụ việc (setJob)](setjob)
-- [Danh mục vật tư (setItem)](setitem)
+- [Danh mục khách hàng (setCustomers)](sync-data/setcustomers)
+- [Danh mục vật tư (setItem)](sync-data/setitem)
+- [Danh mục vụ việc (setJob)](sync-data/setjob)
+
 
 ## Lưu ý khi sử dụng
 

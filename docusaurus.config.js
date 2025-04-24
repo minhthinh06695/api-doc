@@ -98,7 +98,6 @@ const config = {
           },
         ],
       },
-
       footer: {
         style: 'dark',
         links: [
@@ -110,31 +109,21 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'API Đồng bộ danh mục',
-                to: '/docs/api/sync-data',
-                items: [
-                  {
-                    label: 'Danh mục khách hàng',
-                    to: '/docs/api/sync-data/setcustomers',
-                  },
-                  {
-                    label: 'Danh mục vụ việc',
-                    to: '/docs/api/sync-data/setjob',
-                  },
-                  {
-                    label: 'Danh mục vật tư',
-                    to: '/docs/api/sync-data/setitem',
-                  },
-                ],
+                label: 'Danh mục khách hàng',
+                to: '/docs/api/sync-data/setcustomers',
+              },
+              {
+                label: 'Danh mục vật tư',
+                to: '/docs/api/sync-data/setitem',
+              },
+              {
+                label: 'Danh mục vụ việc',
+                to: '/docs/api/sync-data/setjob',
               },
               {
                 label: 'API Đồng bộ chứng từ',
                 to: '/docs/api/sync-voucher',
-              },
-              {
-                label: 'API Truy vấn dữ liệu',
-                to: '/docs/api/get-data',
-              },
+              }
             ],
           },
           {

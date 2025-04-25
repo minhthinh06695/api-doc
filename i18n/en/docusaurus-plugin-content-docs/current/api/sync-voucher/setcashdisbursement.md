@@ -23,7 +23,7 @@ The cash disbursement voucher consists of two main parts:
 | Address        | String(128) |          | Address of the recipient             |
 | CreditAccount  | String(32)  | ✔️       | Credit account (Accounting account)  |
 | Description    | String(512) |          | Description                          |
-| Currency       | String(3)   | ✔️       | Currency type ("VND", "USD", "EUR", etc.) |
+| Currency       | String(3)   | ✔️       | Currency code ("VND", "USD", "EUR", etc.) |
 | ExchangeRate   | Long        | ✔️       | Exchange rate                        |
 | TotalAmount    | Long        | ✔️       | Total amount                         |
 

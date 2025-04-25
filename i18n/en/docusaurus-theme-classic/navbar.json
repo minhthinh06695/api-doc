@@ -8,7 +8,7 @@
     "description": "The alt text of navbar logo"
   },
   "item.label.Tài liệu API": {
-    "message": "Tài liệu API",
+    "message": "API Documentation",
     "description": "Navbar item with label Tài liệu API"
   }
 }

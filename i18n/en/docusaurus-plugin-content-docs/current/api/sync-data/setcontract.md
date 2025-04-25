@@ -18,7 +18,7 @@ The `setContract` form is used to synchronize contract information from the part
 | FromDate      | Date        |          | Effective start date                     |
 | ToDate        | Date        |          | Effective end date                       |
 | TotalAmount   | Long        |          | Contract value                           |
-| Currency      | String(3)   | ✔️       | Currency type ("VND", "USD", "EUR", etc.) |
+| Currency      | String(3)   | ✔️       | Currency code ("VND", "USD", "EUR", etc.) |
 | Note          | String(512) |          | Notes                                    |
 | Status        | String(1)   | ✔️       | Status ("1": Active, "0": Inactive)     |
 

@@ -20,7 +20,7 @@ The sales invoice consists of two main parts:
 | VoucherDate       | Date        | ✔️       | Voucher date                         |
 | VoucherNumber     | String(12)  | ✔️       | Voucher number                       |
 | Description       | String(512) |          | Description                          |
-| Currency          | String(3)   | ✔️       | Currency type ("VND", "USD", "EUR", etc.) |
+| Currency          | String(3)   | ✔️       | Currency code ("VND", "USD", "EUR", etc.) |
 | ExchangeRate      | Long        | ✔️       | Exchange rate                        |
 | TotalQuantity     | Long        | ✔️       | Total quantity                       |
 | TotalNetAmount    | Long        | ✔️       | Total amount before tax              |

@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Danh sách API": {
+    "message": "API Reference",
+    "description": "The label for category Danh sách API in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Đồng bộ danh mục": {
+    "message": "Master Data Sync",
+    "description": "The label for category Đồng bộ danh mục in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Đồng bộ chứng từ": {
+    "message": "Voucher Sync",
+    "description": "The label for category Đồng bộ chứng từ in sidebar tutorialSidebar"
+  }
+}

@@ -24,8 +24,16 @@ const config = {
     defaultLocale: 'vi',
     locales: ['vi', 'en'],
     localeConfigs: {
-      vi: { label: 'Tiếng Việt' },
-      en: { label: 'English' },
+      vi: {
+        label: 'Tiếng Việt',
+        htmlLang: 'vi',
+        path: 'vi', // Thư mục prefix cho tiếng Việt
+      },
+      en: {
+        label: 'English',
+        htmlLang: 'en',
+        path: 'en', // Thư mục prefix cho tiếng Anh
+      },
     },
   },
 
@@ -35,9 +43,10 @@ const config = {
 
   themes: ['@docusaurus/theme-mermaid'],
 
-  stylesheets: [
-    'styles/custom.css',
-  ],
+  // XÓA MẢNG stylesheets NÀY ĐI VÌ ĐÃ CÓ customCss TRONG PRESET
+  // stylesheets: [
+  //   'styles/custom.css',
+  // ],
 
   presets: [
     [
@@ -47,7 +56,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Thêm link chỉnh sửa (nếu muốn)
-          editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master',
+          editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master/docs',
           // Hiển thị thông tin cập nhật
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -93,7 +102,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tài liệu API',
+            label: 'Tài liệu API', // Nhãn này sẽ được dịch qua i18n/en.json
           },
           {
             type: 'localeDropdown',
@@ -104,7 +113,7 @@ const config = {
             href: 'https://github.com/your-organization/api-docs',
             position: 'right',
             className: 'header-github-link',
-            'aria-label': 'GitHub repository',
+            'aria-label': 'GitHub repository', // Nhãn này sẽ được dịch qua i18n/en.json
           },
         ],
       },
@@ -112,41 +121,42 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Tài liệu',
+            title: 'Tài liệu', // Tiêu đề này sẽ được dịch qua i18n/en.json
             items: [
               {
-                label: 'Tổng quan',
+                label: 'Tổng quan', // Nhãn này sẽ được dịch qua i18n/en.json
                 to: '/docs/intro',
               }
             ],
           },
           {
-            title: 'Tài nguyên',
+            title: 'Tài nguyên', // Tiêu đề này sẽ được dịch qua i18n/en.json
             items: [
               {
-                label: 'Tải SDK',
+                label: 'Tải SDK', // Nhãn này sẽ được dịch qua i18n/en.json
                 href: 'https://your-website.com/sdk',
               },
               {
-                label: 'Code mẫu',
+                label: 'Code mẫu', // Nhãn này sẽ được dịch qua i18n/en.json
                 href: 'https://github.com/your-organization/api-examples',
               },
             ],
           },
           {
-            title: 'Liên hệ',
+            title: 'Liên hệ', // Tiêu đề này sẽ được dịch qua i18n/en.json
             items: [
               {
-                label: 'Hỗ trợ',
+                label: 'Hỗ trợ', // Nhãn này sẽ được dịch qua i18n/en.json
                 href: 'https://your-website.com/support',
               },
               {
-                label: 'Developer Portal',
+                label: 'Developer Portal', // Nhãn này sẽ được dịch qua i18n/en.json
                 href: 'https://your-website.com/developer',
               },
             ],
           },
         ],
+        // Bản quyền sẽ được dịch qua i18n/en.json
         copyright: `Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.`,
       },
 

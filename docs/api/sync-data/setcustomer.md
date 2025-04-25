@@ -27,7 +27,7 @@ Form `setCustomer` được sử dụng để đồng bộ thông tin khách hà
 | BankName     | String(256) |          | Tên ngân hàng        |
 | BranchName   | String(256) |          | Chi nhánh/Tỉnh thành |
 | AccountName  | String(256) |          | Tên chủ tài khoản ngân hàng      |
-| PaymentTerm  | String(32)  |          | Điều khoản thanh toán|
+| PaymentTerm  | String(2)  |          | Mã thanh toán        |
 | Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
 | SuplierYN    | Byte        |          | Là nhà cung cấp (1: Có, 0: Không) |
 | EmployeeYN   | Byte        |          | Là nhân viên (1: Có, 0: Không)    |

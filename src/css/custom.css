@@ -9,7 +9,7 @@
   --ifm-font-size-base: 16px;
   --ifm-line-height-base: 1.5;
   --ifm-code-font-size: 95%;
-  
+
   /* Primary Colors */
   --ifm-color-primary: #1877F2;
   --ifm-color-primary-dark: #166FE5;
@@ -18,13 +18,13 @@
   --ifm-color-primary-light: #3085F4;
   --ifm-color-primary-lighter: #4893F6;
   --ifm-color-primary-lightest: #77AEF9;
-  
+
   /* UI Elements */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-blockquote-border-left-width: 4px;
   --ifm-blockquote-padding-vertical: 0px;
   --ifm-blockquote-padding-horizontal: 1px;
-  
+
   /* Custom Colors */
   --color-success: #00B14F;
   --color-border: #ddd;
@@ -43,8 +43,9 @@
   --ifm-color-primary-lighter: #78AFFA;
   --ifm-color-primary-lightest: #A7C7FC;
   /* Thêm biến cho màu chữ trong header bảng */
-  --color-table-header-text: #e6edf3; /* Màu chữ sáng cho header bảng trong dark mode */
-  
+  --color-table-header-text: #e6edf3;
+  /* Màu chữ sáng cho header bảng trong dark mode */
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --color-success: #2ecc71;
   --color-border: #444c56;
@@ -63,16 +64,30 @@ body,
   line-height: var(--ifm-line-height-base);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-weight: 700;
 }
 
-h1 { font-size: 32px; }
-h2 { font-size: 24px; }
-h3 { font-size: 20px; }
+h1 {
+  font-size: 32px;
+}
 
-pre, code {
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+pre,
+code {
   font-family: 'Source Code Pro', monospace;
   font-size: 14px;
 }
@@ -92,7 +107,8 @@ table th {
   border: 1px solid var(--color-border);
   font-size: 13px;
   font-weight: 600;
-  color: #555; /* Màu chữ cho light mode */
+  color: #555;
+  /* Màu chữ cho light mode */
 }
 
 table td {
@@ -100,6 +116,7 @@ table td {
   padding: 8px;
   border: 1px solid var(--color-border);
 }
+
 /* Ghi đè màu chữ cho header bảng trong dark mode */
 [data-theme='dark'] table th {
   color: var(--color-table-header-text);
@@ -141,7 +158,7 @@ table th:nth-child(3) {
   margin-right: 10px;
 }
 
-.example-text, 
+.example-text,
 .regex-pattern {
   font-family: 'Source Code Pro', monospace;
   font-size: 11px;
@@ -243,6 +260,12 @@ html[data-theme='dark'] .menu__link--sublist.menu__link--active {
   background-color: transparent;
   color: var(--ifm-color-primary-light) !important;
   font-weight: 600;
+}
+
+/* File: src/css/custom.css */
+html[lang="vi"] .navbar__item[data-locale-specific="en"],
+html[lang="en"] .navbar__item[data-locale-specific="vi"] {
+  display: none;
 }
 
 /* ===== FONTS ===== */

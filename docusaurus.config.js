@@ -13,7 +13,7 @@ const config = {
   baseUrl: '/',
 
   // Thông tin GitHub (nếu triển khai trên GitHub Pages)
-  organizationName: 'your-organization',
+  organizationName: 'minhthinh06695',
   projectName: 'api-docs',
 
   onBrokenLinks: 'warn',

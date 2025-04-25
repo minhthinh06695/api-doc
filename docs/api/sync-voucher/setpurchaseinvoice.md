@@ -174,6 +174,10 @@ public class PurchaseInvoice
     public string Description { get; set; }
     public string Currency { get; set; }
     public decimal ExchangeRate { get; set; }
+    public decimal TotalQuantity { get; set; }
+    public decimal TotalNetAmount { get; set; }
+    public decimal TotalTaxAmount { get; set; }
+    public decimal TotalAmount { get; set; }
     public List<PurchaseInvoiceDetail> detail { get; set; }
     public List<PurchaseInvoiceTax> tax { get; set; }
 }

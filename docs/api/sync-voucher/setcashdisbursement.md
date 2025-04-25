@@ -56,7 +56,7 @@ Chứng từ phiếu chi tiền gồm 2 phần chính:
       "Description": "Chi tiền cho nhà cung cấp",
       "Currency": "VND",
       "ExchangeRate": 1,
-      "Amount": 11000000,
+      "TotalAmount": 11000000,
       "detail": [
         {
           "RefNumber": 1,
@@ -147,6 +147,7 @@ public class CashDisbursement
     public string Description { get; set; }
     public string Currency { get; set; }
     public decimal ExchangeRate { get; set; }
+    public decimal TotalAmount { get; set; }
     public List<CashDisbursementDetail> detail { get; set; }
 }
 

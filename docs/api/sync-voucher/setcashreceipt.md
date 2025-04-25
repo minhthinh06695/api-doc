@@ -56,7 +56,7 @@ Chứng từ phiếu thu tiền gồm 2 phần chính:
       "Description": "Thu tiền khách hàng",
       "Currency": "VND",
       "ExchangeRate": 1,
-      "Amount": 15000000,
+      "TotalAmount": 15000000,
       "detail": [
         {
           "RefNumber": 1,
@@ -147,6 +147,7 @@ public class CashReceipt
     public string Description { get; set; }
     public string Currency { get; set; }
     public decimal ExchangeRate { get; set; }
+    public decimal TotalAmount { get; set; }
     public List<CashReceiptDetail> detail { get; set; }
 }
 

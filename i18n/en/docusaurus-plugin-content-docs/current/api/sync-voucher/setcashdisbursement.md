@@ -147,6 +147,7 @@ public class CashDisbursement
     public string Description { get; set; }
     public string Currency { get; set; }
     public decimal ExchangeRate { get; set; }
+    public decimal TotalAmount { get; set; }
     public List<CashDisbursementDetail> Detail { get; set; }
 }
 

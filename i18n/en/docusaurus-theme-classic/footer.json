@@ -1,30 +1,30 @@
 {
   "link.title.Tài liệu": {
-    "message": "Tài liệu",
+    "message": "Documentation",
     "description": "The title of the footer links column with title=Tài liệu in the footer"
   },
   "link.title.Tài nguyên": {
-    "message": "Tài nguyên",
+    "message": "Resources",
     "description": "The title of the footer links column with title=Tài nguyên in the footer"
   },
   "link.title.Liên hệ": {
-    "message": "Liên hệ",
+    "message": "Contact",
     "description": "The title of the footer links column with title=Liên hệ in the footer"
   },
   "link.item.label.Tổng quan": {
-    "message": "Tổng quan",
+    "message": "Overview",
     "description": "The label of footer link with label=Tổng quan linking to /docs/intro"
   },
   "link.item.label.Tải SDK": {
-    "message": "Tải SDK",
+    "message": "Download SDK",
     "description": "The label of footer link with label=Tải SDK linking to https://your-website.com/sdk"
   },
   "link.item.label.Code mẫu": {
-    "message": "Code mẫu",
+    "message": "Code Samples",
     "description": "The label of footer link with label=Code mẫu linking to https://github.com/your-organization/api-examples"
   },
   "link.item.label.Hỗ trợ": {
-    "message": "Hỗ trợ",
+    "message": "Support",
     "description": "The label of footer link with label=Hỗ trợ linking to https://your-website.com/support"
   },
   "link.item.label.Developer Portal": {

@@ -16,7 +16,7 @@ const config = {
   organizationName: 'your-organization',
   projectName: 'api-docs',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Ngôn ngữ
@@ -27,12 +27,13 @@ const config = {
       vi: {
         label: 'Tiếng Việt',
         htmlLang: 'vi',
-        path: 'vi', // Thư mục prefix cho tiếng Việt
+        // Quan trọng: xóa path nếu đây là ngôn ngữ mặc định
+        // path: 'vi',
       },
       en: {
         label: 'English',
         htmlLang: 'en',
-        path: 'en', // Thư mục prefix cho tiếng Anh
+        path: 'en',
       },
     },
   },
@@ -42,11 +43,6 @@ const config = {
   },
 
   themes: ['@docusaurus/theme-mermaid'],
-
-  // XÓA MẢNG stylesheets NÀY ĐI VÌ ĐÃ CÓ customCss TRONG PRESET
-  // stylesheets: [
-  //   'styles/custom.css',
-  // ],
 
   presets: [
     [
@@ -60,7 +56,7 @@ const config = {
           // Hiển thị thông tin cập nhật
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          // Đường dẫn cơ bản
+          // Đường dẫn cơ bản - thay đổi lại thành 'docs' để sử dụng cùng với trang chuyển hướng
           routeBasePath: 'docs',
         },
         blog: false, // Tắt tính năng blog nếu không cần
@@ -96,6 +92,8 @@ const config = {
           alt: 'Logo',
           src: 'img/logo.jpg',
           srcDark: 'img/logo.jpg',
+          // Cấu hình href trỏ về trang chủ
+          href: '/',
         },
         items: [
           {

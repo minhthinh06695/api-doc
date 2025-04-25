@@ -13,7 +13,7 @@ The `setExpense` form is used to synchronize expense information from the partne
 | ExpenseCode  | String(32)  | ✔️       | Expense code         |
 | ExpenseName  | String(256) | ✔️       | Expense name         |
 | OtherName    | String(256) |          | Alternate name (English name) |
-| DeptCode     | String(256) |          | Department code      |
+| DeptCode     | String(32) |          | Department code      |
 | Note         | String(512) |          | Notes                |
 | Status       | String(1)   | ✔️       | Status ("1": Active, "0": Inactive) |
 

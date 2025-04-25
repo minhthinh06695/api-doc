@@ -40,7 +40,7 @@ The sales invoice consists of two main parts:
 | Amount            | Long        | ✔️       | Amount before tax                    |
 | Discount          | Long        | ✔️       | Discount amount                      |
 | TaxRate           | String(8)   | ✔️       | Tax rate                             |
-| TaxAmount         | Long        | ✔️       | Tax amount                           |
+| TaxAmount         | Long        | ✔️       | Tax amount  **Formula:** (Amount - Discount) × (TaxRate/100) |
 | TotalAmount       | Long        | ✔️       | Total amount after tax               |
 | JobCode           | String(32)  |          | Job code                             |
 | DeptCode          | String(32)  |          | Department code                      |
@@ -107,8 +107,7 @@ The sales invoice consists of two main parts:
 
 ## Important Notes
 
-1. Unlike purchase invoices, sales invoices include tax information directly in the item details (no separate `tax` array).
-2. Each item detail includes tax rate and tax amount information.
-3. The `TotalAmount` field in the item details is the total amount including tax (`Amount - Discount + TaxAmount`).
-4. The `TotalQuantity` field is the total quantity of items in the invoice, calculated as the sum of all `Quantity` fields in the details.
-5. Ensure that the total fields accurately reflect the sum of the details to avoid errors during synchronization.
+1. The `VoucherId` field must be unique in the system to avoid duplicate invoices.
+2. Each item detail in the sales invoice includes information about the tax rate and tax amount.
+3. Dates must be formatted according to the ISO standard (yyyy-MM-dd).
+4. The `TotalAmount` field in the item details is the total amount including tax (`Amount - Discount + TaxAmount`).

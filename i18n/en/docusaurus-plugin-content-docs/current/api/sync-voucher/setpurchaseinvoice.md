@@ -117,4 +117,4 @@ The purchase invoice consists of three main parts:
 
 1. The `VoucherId` field must be unique in the system to avoid duplicate vouchers.
 2. Ensure all required fields are filled in.
-3. Dates must follow the ISO format (YYYY-MM-DD).
+3. Dates must follow the ISO format (yyyy-MM-dd).

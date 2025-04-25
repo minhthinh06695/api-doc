@@ -86,5 +86,5 @@ The cash receipt voucher consists of two main parts:
 
 1. The `VoucherId` field must be unique in the system to avoid duplicate vouchers.
 2. Ensure all required fields are filled in.
-3. Dates must follow the ISO format (YYYY-MM-DD).
+3. Dates must follow the ISO format (yyy-MM-dd).
 4. The debit account (`DebitAccount`) and credit account (`CreditAccount`) must be valid accounts in the accounting system.

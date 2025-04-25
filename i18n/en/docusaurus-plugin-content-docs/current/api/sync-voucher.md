@@ -133,3 +133,100 @@ When an error occurs, the API will return detailed error messages in the `messag
 1. **Form does not exist (201)**: Check the form name in the request.
 2. **Data is empty (202)**: Ensure the data array is not empty.
 3. **Data structure error (601)**: Verify the data structure, especially the required fields and data types.
+
+## C# Code Example
+
+```csharp
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+
+public class SyncPurchaseInvoice
+{
+    private readonly HttpClient _client = new HttpClient();
+    private readonly string _baseUrl = "https://api.example.com/api";
+    private readonly string _authToken;
+
+    public SyncPurchaseInvoice(string authToken)
+    {
+        _authToken = authToken;
+        _client.DefaultRequestHeaders.Authorization = 
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _authToken);
+    }
+
+    public async Task<ApiResult> SyncInvoice(PurchaseInvoice invoice)
+    {
+        // Create request body
+        var requestBody = new
+        {
+            form = "setPurchaseInvoice",
+            data = new[] { invoice }
+        };
+
+        // Call API
+        var content = new StringContent(
+            JsonConvert.SerializeObject(requestBody),
+            Encoding.UTF8,
+            "application/json");
+
+        var response = await _client.PostAsync($"{_baseUrl}/SyncVoucher", content);
+        response.EnsureSuccessStatusCode();
+
+        return JsonConvert.DeserializeObject<ApiResult>(
+            await response.Content.ReadAsStringAsync());
+    }
+}
+
+public class PurchaseInvoice
+{
+    public string VoucherId { get; set; }
+    public string SupplierCode { get; set; }
+    public DateTime VoucherDate { get; set; }
+    public string VoucherNumber { get; set; }
+    public string Description { get; set; }
+    public string Currency { get; set; }
+    public decimal ExchangeRate { get; set; }
+    public decimal TotalQuantity { get; set; }
+    public decimal TotalNetAmount { get; set; }
+    public decimal TotalTaxAmount { get; set; }
+    public decimal TotalAmount { get; set; }
+    public List<PurchaseInvoiceDetail> detail { get; set; }
+    public List<PurchaseInvoiceTax> tax { get; set; }
+}
+
+public class PurchaseInvoiceDetail
+{
+    public int RefNumber { get; set; }
+    public string ItemCode { get; set; }
+    public string Uom { get; set; }
+    public decimal Quantity { get; set; }
+    public decimal UnitPrice { get; set; }
+    public decimal Amount { get; set; }
+    public string JobCode { get; set; }
+    public string DeptCode { get; set; }
+    public string ContractCode { get; set; }
+    public string ExpenseCode { get; set; }
+}
+
+public class PurchaseInvoiceTax
+{
+    public string VatInvoiceNumber { get; set; }
+    public DateTime VatInvoiceDate { get; set; }
+    public string VatInvoiceSymbol { get; set; }
+    public decimal TotalAmount { get; set; }
+    public string TaxRate { get; set; }
+    public decimal TaxAmount { get; set; }
+}
+
+public class ApiResult
+{
+    public bool Success { get; set; }
+    public string Messages { get; set; }
+    public int Records { get; set; }
+    public string Fkey { get; set; }
+    public int Code { get; set; }
+}
+```

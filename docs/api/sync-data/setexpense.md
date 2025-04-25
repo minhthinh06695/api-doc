@@ -13,7 +13,7 @@ Form `setExpense` được sử dụng để đồng bộ thông tin phí từ h
 | ExpenseCode  | String(32)  | ✔️       | Mã phí               |
 | ExpenseName  | String(256) | ✔️       | Tên phí              |
 | OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
-| DeptCode     | String(256) |          | Mã bộ phận           |
+| DeptCode     | String(32)  |          | Mã bộ phận           |
 | Note         | String(512) |          | Ghi chú              |
 | Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
 

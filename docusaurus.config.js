@@ -47,7 +47,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Thêm link chỉnh sửa (nếu muốn)
-          editUrl: 'https://github.com/your-organization/api-docs/tree/main/',
+          editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master',
           // Hiển thị thông tin cập nhật
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,

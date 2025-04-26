@@ -1,0 +1,313 @@
+/**
+ * Cấu trúc CSS được tổ chức lại để dễ bảo trì
+ */
+
+/* ===== BIẾN VÀ THEME ===== */
+:root {
+  /* Typography */
+  --ifm-font-family-base: 'Inter', Arial, Helvetica, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.5;
+  --ifm-code-font-size: 95%;
+
+  /* Primary Colors */
+  --ifm-color-primary: #1877F2;
+  --ifm-color-primary-dark: #166FE5;
+  --ifm-color-primary-darker: #1467D8;
+  --ifm-color-primary-darkest: #1155B3;
+  --ifm-color-primary-light: #3085F4;
+  --ifm-color-primary-lighter: #4893F6;
+  --ifm-color-primary-lightest: #77AEF9;
+
+  /* UI Elements */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-blockquote-border-left-width: 4px;
+  --ifm-blockquote-padding-vertical: 0px;
+  --ifm-blockquote-padding-horizontal: 1px;
+
+  /* Custom Colors */
+  --color-success: #00B14F;
+  --color-border: #ddd;
+  --color-bg-light: #f5f5f5;
+  --color-bg-code: #f6f8fa;
+  --color-text-muted: #666;
+}
+
+.highlight-key {
+  color: var(--ifm-color-primary); /* Lấy màu từ biến chính */
+  border: none; 
+}
+
+/* Dark Theme Variables */
+[data-theme='dark'] {
+  --ifm-color-primary: #4893F6;
+  --ifm-color-primary-dark: #3085F4;
+  --ifm-color-primary-darker: #1877F2;
+  --ifm-color-primary-darkest: #1467D8;
+  --ifm-color-primary-light: #60A1F8;
+  --ifm-color-primary-lighter: #78AFFA;
+  --ifm-color-primary-lightest: #A7C7FC;
+  /* Thêm biến cho màu chữ trong header bảng */
+  --color-table-header-text: #e6edf3;
+  /* Màu chữ sáng cho header bảng trong dark mode */
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --color-success: #2ecc71;
+  --color-border: #444c56;
+  --color-bg-light: #2d333b;
+  --color-bg-code: #1e2125;
+  --color-text-muted: #a0a0a0;
+}
+
+/* ===== TYPOGRAPHY ===== */
+body,
+.markdown,
+.navbar,
+.footer {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  line-height: var(--ifm-line-height-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+pre,code {
+  font-size: 14px; /* 1. Đặt màu chữ thành màu chủ đạo */
+}
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+table th {
+  background-color: var(--color-bg-light);
+  text-align: center;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  /* Màu chữ cho light mode */
+}
+
+table td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+}
+
+/* Ghi đè màu chữ cho header bảng trong dark mode */
+[data-theme='dark'] table th {
+  color: var(--color-table-header-text);
+}
+
+/* Đảm bảo tất cả ô và viền bảng trong dark mode đều có màu phù hợp */
+[data-theme='dark'] table th,
+[data-theme='dark'] table td {
+  border-color: var(--color-border);
+}
+
+[data-theme='dark'] table tr {
+  border-bottom-color: var(--color-border);
+}
+
+table tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Căn giữa cột Required */
+table td:nth-child(3),
+table th:nth-child(3) {
+  text-align: center;
+}
+
+/* ===== API ELEMENTS ===== */
+.api-endpoint {
+  padding: 10px;
+  background-color: var(--color-bg-light);
+  border-left: 4px solid var(--ifm-color-primary);
+  margin-bottom: 15px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+}
+
+.api-method {
+  color: var(--ifm-color-primary);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.example-text,
+.regex-pattern {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+/* Utility Classes */
+.checkmark {
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+.highlight {
+  color: var(--ifm-color-primary);
+  font-weight: bold;
+}
+
+/* ===== BLOCKQUOTES & CODE ===== */
+blockquote {
+  border-left: var(--ifm-blockquote-border-left-width) solid var(--ifm-color-primary);
+  padding: var(--ifm-blockquote-padding-vertical) var(--ifm-blockquote-padding-horizontal);
+  color: inherit;
+}
+
+pre {
+  background-color: var(--color-bg-code);
+  border-radius: 6px;
+  padding: 16px;
+  overflow: auto;
+}
+
+/* ===== ADMONITIONS ===== */
+.admonition {
+  margin-bottom: 1.5rem;
+  border-left: 6px solid;
+  border-radius: 4px;
+}
+
+.admonition-tip {
+  border-color: #4caf50;
+  background-color: #e8f5e9;
+}
+
+.admonition-caution {
+  border-color: #ff9800;
+  background-color: #fff3e0;
+}
+
+.admonition-danger {
+  border-color: #f44336;
+  background-color: #ffebee;
+}
+
+[data-theme='dark'] .admonition-tip {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+[data-theme='dark'] .admonition-caution {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+
+[data-theme='dark'] .admonition-danger {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* ===== SIDEBAR MENU ===== */
+.menu__link {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu__link:hover:not(.menu__link--active) {
+  background-color: rgba(125, 155, 238, 0.363);
+  color: var(--ifm-color-primary);
+}
+
+/* Light Theme Active Menu */
+html[data-theme='light'] .menu__link--active:not(.menu__link--sublist) {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Dark Theme Active Menu */
+html[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Parent menu when active */
+html[data-theme='light'] .menu__link--sublist.menu__link--active {
+  background-color: transparent;
+  color: var(--ifm-color-primary) !important;
+  font-weight: 600;
+}
+
+html[data-theme='dark'] .menu__link--sublist.menu__link--active {
+  background-color: transparent;
+  color: var(--ifm-color-primary-light) !important;
+  font-weight: 600;
+}
+
+/* File: src/css/custom.css */
+html[lang="vi"] .navbar__item[data-locale-specific="en"],
+html[lang="en"] .navbar__item[data-locale-specific="vi"] {
+  display: none;
+}
+
+/* ===== FONTS ===== */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2?v=1.0.0') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-SemiBold.woff2?v=1.0.0') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold.woff2?v=1.0.0') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-ExtraBold.woff2?v=1.0.0') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('/fonts/SourceCodePro-Regular.woff2?v=1.0.0') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

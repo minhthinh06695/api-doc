@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Fast Developers",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Tài liệu API": {
+    "message": "API Documentation",
+    "description": "Navbar item with label Tài liệu API"
+  }
+}

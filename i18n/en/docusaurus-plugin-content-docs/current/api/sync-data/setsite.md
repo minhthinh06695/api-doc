@@ -15,7 +15,7 @@ The `setSite` form is used to synchronize warehouse information from the partner
 | OtherName    | String(256) |          | Alternate name (English name) |
 | Address      | String(256) |          | Address              |
 | GroupCode    | String(32)  |          | Warehouse group      |
-| AgentYN      | Byte        |          | Agent warehouse (1: Yes, 0: No) |
+| AgentYN      | Byte        |          | {{IS_SITEAGENT_EN}} |
 | Note         | String(512) |          | Notes                |
 | Status        | String(1)   | ✔️      | {{STATUS_EN}}|
 

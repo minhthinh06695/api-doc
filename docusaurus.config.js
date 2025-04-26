@@ -3,7 +3,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 
 const markdownVariables = {
-  CURRENCY_DEFAULT: '**Default:** `VND`',
+  CURRENCY_DEFAULT: '**Default:** `"VND"`',
   EXRATE_DEFAULT: '**Default:** `1`',
   TAX_RATE: '**Thuế suất**. Nhận các giá trị số:<br/>* `0` : Thuế suất 0%<br/>* `5` : Thuế suất 5%<br/>* `8` : Thuế suất 8%<br/>* `10` : Thuế suất 10%<br/>* `-1` : KCT: Không chịu thuế.<br/>* `-2` : Không kê khai tính thuế.<br/>',
   STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Đang hoạt động<br/>&nbsp;`"0"` : Không hoạt động',
@@ -13,7 +13,7 @@ const markdownVariables = {
   ZERO_DEFAULT: '**Default:** `0`',
 
   // === Biến Tiếng Anh (Thêm mới) ===
-  CURRENCY_DEFAULT_EN: '**Default:** `VND`',
+  CURRENCY_DEFAULT_EN: '**Default:** `"VND"`',
   EXRATE_DEFAULT_EN: '**Default:** `1`',
   TAX_RATE_EN: '**Tax Rate**. Accepts numeric values:<br/>* `0` : 0% Tax Rate<br/>* `5` : 5% Tax Rate<br/>* `8` : 8% Tax Rate<br/>* `10` : 10% Tax Rate<br/>* `-1` : Non-taxable.<br/>* `-2` : Not declared/calculated.<br/>',
   STATUS_EN: 'Status<br/>&nbsp;`"1"` : Active<br/>&nbsp;`"0"` : Inactive',

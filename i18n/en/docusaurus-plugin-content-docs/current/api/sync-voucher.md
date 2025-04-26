@@ -101,7 +101,8 @@ The `SyncVoucher` API supports the following forms:
 - [Sales Invoice (setSaleInvoice)](sync-voucher/setsaleinvoice)
 - [Cash Receipt Voucher (setCashReceipt)](sync-voucher/setcashreceipt)
 - [Cash Disbursement Voucher (setCashDisbursement)](sync-voucher/setcashdisbursement)
-
+- [Warehouse Receipt (setReceipt)](sync-voucher/setreceipt)
+- [Issue Voucher (setIssue)](sync-voucher/setissue)
 ## Handling Hierarchical Data
 
 ### Relationship Between Tables

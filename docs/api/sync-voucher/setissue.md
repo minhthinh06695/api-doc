@@ -1,6 +1,6 @@
 # Phiếu xuất kho
 
-Form `setIssue` được sử dụng để đồng bộ thông tin phiếu xuất kho vào hệ thống Fast thông qua API Đồng bộ chứng từ.
+Form `setIssue` được sử dụng để đồng bộ thông tin phiếu xuất kho vào hệ thống Fast thông qua [API Đồng bộ chứng từ](../sync-voucher).
 
 ## Cấu trúc chứng từ
 

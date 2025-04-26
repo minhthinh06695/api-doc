@@ -1,6 +1,6 @@
 # Phiếu nhập kho
 
-Form `setReceipt` được sử dụng để đồng bộ thông tin phiếu nhập kho vào hệ thống Fast thông qua API Đồng bộ chứng từ.
+Form `setReceipt` được sử dụng để đồng bộ thông tin phiếu nhập kho vào hệ thống Fast thông qua [API Đồng bộ chứng từ](../sync-voucher).
 
 ## Cấu trúc chứng từ
 

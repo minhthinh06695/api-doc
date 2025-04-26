@@ -41,6 +41,7 @@ const sidebars = {
             'api/sync-voucher/setcashreceipt',
             'api/sync-voucher/setcashdisbursement',
             'api/sync-voucher/setreceipt',
+            'api/sync-voucher/setissue',
           ],
         },
       ],

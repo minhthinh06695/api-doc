@@ -82,7 +82,7 @@ const config = {
           // Thêm link chỉnh sửa (nếu muốn)
           editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master/docs',
           // Hiển thị thông tin cập nhật
-          showLastUpdateAuthor: true,
+          showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           // Đường dẫn cơ bản - thay đổi lại thành 'docs' để sử dụng cùng với trang chuyển hướng
           routeBasePath: 'docs',
@@ -137,7 +137,7 @@ const config = {
           },
           // Thêm link đến GitHub repo
           {
-            href: 'https://github.com/your-organization/api-docs',
+            href: 'https://github.com/minhthinh06695/api-doc',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository', // Nhãn này sẽ được dịch qua i18n/en.json

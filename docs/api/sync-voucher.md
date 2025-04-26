@@ -48,7 +48,7 @@ Request body có cấu trúc như sau:
 
 Trong đó:
 - **form**: Tên form được định nghĩa trong phần chi tiết đồng bộ của từng chứng từ
-- **data**: Mảng các object chứng từ, mỗi object có thể chứa các mảng con đại diện cho các bảng con
+- **data**: Mảng các object chứng từ, mỗi object có thể chứa các mảng con
 
 ## Response
 

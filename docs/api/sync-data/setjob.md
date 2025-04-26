@@ -14,7 +14,7 @@ Form `setJob` được sử dụng để đồng bộ thông tin vụ việc t�
 | JobName      | String(256) | ✔️       | Tên vụ việc          |
 | OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
 | Note         | String(512) |          | Ghi chú              |
-| Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
+| Status       | String(1)   | ✔️       | {{STATUS}} |
 
 ## Ví dụ request
 

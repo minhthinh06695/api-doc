@@ -19,22 +19,25 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | VoucherId    | String(64)  | ✔️       | Mã chứng từ          |
 | SupplierCode | String(32)  | ✔️       | Mã nhà cung cấp, chính là mã khách hàng trong Danh mục khách hàng |
 | VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
-| VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
+| VoucherNumber| String(12)  |        | Số chứng từ, nếu bằng rỗng thi hệ thống Fast sẽ cấp theo quyển chứng từ được khai báo, nếu không khai báo quyển thì sẽ cấp tự tăng|
 | Description  | String(512) |          | Diễn giải            |
-| Currency     | String(3)   | ✔️       | Loại tiền ("VND","USD","EUR"...)|
-| ExchangeRate | Long        | ✔️       | Tỷ giá               |
-| TotalQuantity    | Long    | ✔️   | Tổng số lượng |
-| TotalNetAmount    | Long   | ✔️   | Tổng tiền hàng trước thuế|
-| TotalTaxAmount    | Long   | ✔️   | Tổng tiền thuế |
+| Currency     | String(3)   |           | Loại tiền ("VND","USD","EUR"...).<br/>{{CURRENCY_DEFAULT}}<br/>|
+| ExchangeRate | Long        |           | Tỷ giá <br/>{{EXRATE_DEFAULT}}<br/>|
+| <span class="highlight-key">detail</span>| List[Object]  | ✔️         | Danh sách chi tiết hàng hoá |
+| <span class="highlight-key">tax</span>| List[Object]  |          | Danh sách thông tin thuế |
+| TotalQuantity    | Long    | ✔️   | Tổng số lượng hàng hoá của <span class="highlight-key">detail</span> |
+| TotalNetAmount    | Long   | ✔️   | Tổng tiền hàng trước thuế của <span class="highlight-key">detail</span>|
+| TotalTaxAmount    | Long   | ✔️   | Tổng tiền thuế của <span class="highlight-key">tax</span> |
 | TotalAmount    | Long      | ✔️       | Tổng tiền sau thuế |
 
-### Detail (Chi tiết hàng hóa)
+### Nội dung của <span class="highlight-key">detail</span>
 
 | Attribute    | Type        | Required | Description          |
 |--------------|-------------|----------|----------------------|
 | RefNumber    | Long        | ✔️       | Số thứ tự            |
 | ItemCode     | String(32)  | ✔️       | Mã hàng              |
 | Uom          | String(32)  | ✔️       | Đơn vị tính          |
+| SiteCode     | String(32)  | ✔️       | Mã kho               |
 | Quantity     | Long        | ✔️       | Số lượng             |
 | UnitPrice    | Long        | ✔️       | Đơn giá              |
 | Amount       | Long        | ✔️       | Thành tiền           |
@@ -43,7 +46,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | ContractCode | String(32)  |          | Mã hợp đồng          |
 | ExpenseCode  | String(32)  |          | Mã phí               |
 
-### Tax (Thông tin thuế)
+### Nội dung của <span class="highlight-key">tax</span>
 
 | Attribute        | Type        | Required | Description          |
 |------------------|-------------|----------|----------------------|
@@ -77,6 +80,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
           "RefNumber": 1,
           "ItemCode": "VT001",
           "Uom": "Cái",
+          "SiteCode": "KHOHANG",
           "Quantity": 2,
           "UnitPrice": 10000000,
           "Amount": 20000000,
@@ -89,6 +93,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
           "RefNumber": 2,
           "ItemCode": "VT002",
           "Uom": "Cái",
+          "SiteCode": "KHOHANG",
           "Quantity": 3,
           "UnitPrice": 5000000,
           "Amount": 15000000,

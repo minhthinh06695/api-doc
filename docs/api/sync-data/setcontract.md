@@ -18,9 +18,9 @@ Form `setContract` được sử dụng để đồng bộ thông tin hợp đ�
 | FromDate      | Date        |          | Ngày bắt đầu hiệu lực |
 | ToDate        | Date        |          | Ngày kết thúc hiệu lực |
 | TotalAmount   | Long        |          | Giá trị hợp đồng     |
-| Currency      | String(3)   | ✔️       | Loại tiền ("VND","USD","EUR"...) |
+| Currency     | String(3)   |           | Loại tiền ("VND","USD","EUR"...).<br/>{{CURRENCY_DEFAULT}}<br/>|
 | Note          | String(512) |          | Ghi chú |
-| Status        | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
+| Status        | String(1)   | ✔️      | {{STATUS}} |
 
 ## Ví dụ request
 

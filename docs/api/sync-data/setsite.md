@@ -15,9 +15,9 @@ Form `setSite` được sử dụng để đồng bộ thông tin kho từ hệ 
 | OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
 | Address      | String(256) |          | Địa chỉ              |
 | GroupCode    | String(32)  |          | Nhóm kho             |
-| AgentYN      | Byte        |          | Kho đại lý (1: Có, 0: không)      |
+| AgentYN      | Byte        |          | {{IS_SITEAGENT}}|
 | Note         | String(512) |          | Ghi chú              |
-| Status       | String(1)   | ✔️       | Trạng thái ("1": Hoạt động, "0": Không hoạt động) |
+| Status       | String(1)   | ✔️       | {{STATUS}} |
 
 ## Ví dụ request
 

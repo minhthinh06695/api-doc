@@ -17,17 +17,18 @@ Chứng từ phiếu thu tiền gồm 2 phần chính:
 |--------------|-------------|----------|----------------------|
 | VoucherId    | String(64)  | ✔️       | Mã chứng từ          |
 | VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
-| VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
+| VoucherNumber| String(12)  |        | Số chứng từ, nếu bằng rỗng thi hệ thống Fast sẽ cấp theo quyển chứng từ được khai báo, nếu không khai báo quyển thì sẽ cấp tự tăng|
 | CustomerCode | String(32)  | ✔️       | Mã khách hàng        |
 | Payer        | String(128) |          | Người nộp tiền       |
 | Address      | String(128) |          | Địa chỉ người nộp tiền |
 | DebitAccount | String(32)  | ✔️       | Tài khoản nợ (Tài khoản kế toán) |
 | Description  | String(512) |          | Diễn giải            |
-| Currency     | String(3)   | ✔️       | Loại tiền ("VND","USD","EUR"...)|
-| ExchangeRate | Long        | ✔️       | Tỷ giá               |
-| TotalAmount  | Long        | ✔️       | Tổng số tiền              |
+| Currency     | String(3)   |          | Loại tiền ("VND","USD","EUR"...).<br/>{{CURRENCY_DEFAULT}}<br/>|
+| ExchangeRate | Long        |           | Tỷ giá <br/>{{EXRATE_DEFAULT}}<br/>|
+| <span class="highlight-key">detail</span>| List[Object]  |✔️        | Danh sách chi tiết thu tiền|
+| TotalAmount  | Long        | ✔️       | Tổng số tiền thu của <span class="highlight-key">detail</span>|
 
-### Detail (Chi tiết)
+### Nội dung của <span class="highlight-key">detail</span>
 
 | Attribute    | Type        | Required | Description          |
 |--------------|-------------|----------|----------------------|

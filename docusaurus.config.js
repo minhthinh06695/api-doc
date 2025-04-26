@@ -2,9 +2,20 @@
 
 import { themes as prismThemes } from 'prism-react-renderer';
 
+const markdownVariables = {
+  CURRENCY_DEFAULT: '**Default:** `VND`',
+  EXRATE_DEFAULT: '**Default:** `1`',
+  TAX_RATE: '**Thuế suất**. Nhận các giá trị số:<br/>* `0` : Thuế suất 0%<br/>* `5` : Thuế suất 5%<br/>* `8` : Thuế suất 8%<br/>* `10` : Thuế suất 10%<br/>* `-1` : KCT: Không chịu thuế.<br/>* `-2` : Không kê khai tính thuế.<br/>',
+  STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Đang hoạt động<br/>&nbsp;`"0"` : Không hoạt động',
+  IS_SUPPLIER: 'Là nhà cung cấp <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
+  IS_EMPLOYEE: 'Là nhân viên <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
+  IS_SITEAGENT: 'Kho đại lý <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
+  ZERO_DEFAULT: '**Default:** `0`',
+};
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Fast Developer',
+  title: 'Fast Developers',
   tagline: 'Tài liệu API cho nhà phát triển',
   favicon: 'img/favicon.ico',
 
@@ -27,8 +38,6 @@ const config = {
       vi: {
         label: 'Tiếng Việt',
         htmlLang: 'vi',
-        // Quan trọng: xóa path nếu đây là ngôn ngữ mặc định
-        // path: 'vi',
       },
       en: {
         label: 'English',
@@ -43,6 +52,15 @@ const config = {
   },
 
   themes: ['@docusaurus/theme-mermaid'],
+
+  plugins: [
+    [
+      './plugins/markdown-variables-plugin',
+      {
+        variables: markdownVariables,
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -66,6 +84,7 @@ const config = {
       }),
     ],
   ],
+  
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */

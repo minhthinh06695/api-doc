@@ -33,6 +33,11 @@
   --color-text-muted: #666;
 }
 
+.highlight-key {
+  color: var(--ifm-color-primary); /* Lấy màu từ biến chính */
+  border: none; 
+}
+
 /* Dark Theme Variables */
 [data-theme='dark'] {
   --ifm-color-primary: #4893F6;
@@ -86,10 +91,8 @@ h3 {
   font-size: 20px;
 }
 
-pre,
-code {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 14px;
+pre,code {
+  font-size: 14px; /* 1. Đặt màu chữ thành màu chủ đạo */
 }
 
 /* ===== TABLES ===== */

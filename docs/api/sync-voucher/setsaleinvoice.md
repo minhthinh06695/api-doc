@@ -18,34 +18,37 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 | VoucherId    | String(64)  | ✔️       | Mã chứng từ          |
 | CustomerCode | String(32)  | ✔️       | Mã khách hàng        |
 | VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
-| VoucherNumber| String(12)  | ✔️       | Số chứng từ          |
-| Description  | String(512) |          | Diễn giải            |
-| Currency     | String(3)   | ✔️       | Loại tiền ("VND","USD","EUR"...) |
-| ExchangeRate | Long        | ✔️       | Tỷ giá               |
-| TotalQuantity| Long        | ✔️       | Tổng số lượng        |
-| TotalNetAmount| Long        | ✔️       | Tổng tiền hàng trước thuế |
-| TotalDiscountAmount| Long        | ✔️   | Tổng tiền chiết khấu |
-| TotalTaxAmount| Long        | ✔️       | Tổng tiền thuế       |
-| TotalAmount  | Long        | ✔️       | Tổng tiền sau thuế   |
+| VoucherNumber| String(12)  |       | Số chứng từ, nếu bằng rỗng thi hệ thống Fast sẽ cấp theo quyển chứng từ được khai báo, nếu không khai báo quyển thì sẽ cấp tự tăng|
+| Description  | String(512) |           | Diễn giải            |
+| Currency     | String(3)   |           | Loại tiền ("VND","USD","EUR"...).<br/>{{CURRENCY_DEFAULT}}<br/>|
+| ExchangeRate | Long        |           | Tỷ giá <br/>{{EXRATE_DEFAULT}}<br/>|
+| <span class="highlight-key">detail</span>          | List[Object]  |✔️      | Danh sách chi tiết hàng hoá |
+| TotalQuantity| Long        | ✔️       | Tổng số lượng của <span class="highlight-key">detail</span>|
+| TotalNetAmount| Long        | ✔️       | Tổng tiền hàng trước thuế của <span class="highlight-key">detail</span>|
+| TotalDiscountAmount| Long        | ✔️   | Tổng tiền chiết khấu của <span class="highlight-key">detail</span>|
+| TotalTaxAmount| Long        | ✔️       | Tổng tiền thuế của <span class="highlight-key">detail</span>|
+| TotalAmount  | Long        | ✔️       | Tổng tiền sau thuế <span class="highlight-key">detail</span>|
 
-### Detail (Chi tiết hàng hóa)
+### Nội dung của <span class="highlight-key">detail</span>
 
 | Attribute    | Type        | Required | Description          |
 |--------------|-------------|----------|----------------------|
 | RefNumber    | Long        | ✔️       | Số thứ tự            |
 | ItemCode     | String(32)  | ✔️       | Mã hàng              |
 | Uom          | String(32)  | ✔️       | Đơn vị tính          |
+| SiteCode     | String(32)  | ✔️       | Mã kho               |
 | Quantity     | Long        | ✔️       | Số lượng             |
 | UnitPrice    | Long        | ✔️       | Đơn giá              |
 | Amount       | Long        | ✔️       | Thành tiền trước thuế|
-| Discount     | Long        | ✔️       | Tiền chiết khấu      |
-| TaxRate      | String(8)   | ✔️       | Thuế suất            |
-| TaxAmount    | Long        | ✔️       | Tiền thuế  **Công thức:** (Amount - Discount) × (TaxRate/100) |
+| Discount     | Long        |         | Tiền chiết khấu      |
+| TaxRate      | Long        | ✔️       | {{TAX_RATE}}        |
+| TaxAmount    | Long        | ✔️       | Tiền thuế. **Công thức:** (Amount - Discount) × (TaxRate/100) |
 | TotalAmount  | Long        | ✔️       | Tổng tiền sau thuế   |
 | JobCode      | String(32)  |          | Mã vụ việc           |
 | DeptCode     | String(32)  |          | Mã bộ phận           |
 | ContractCode | String(32)  |          | Mã hợp đồng          |
 | ExpenseCode  | String(32)  |          | Mã phí               |
+
 
 
 ## Ví dụ request
@@ -72,11 +75,12 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
           "RefNumber": 1,
           "ItemCode": "VT001",
           "Uom": "Cái",
+          "SiteCode": "KHOHANG",
           "Quantity": 1,
           "UnitPrice": 12000000,
           "Amount": 12000000,
           "Discount": 500000,
-          "TaxRate": "10",
+          "TaxRate": 10,
           "TaxAmount": 1150000,
           "TotalAmount": 12650000,
           "JobCode": "VV001",
@@ -88,11 +92,12 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
           "RefNumber": 2,
           "ItemCode": "VT002",
           "Uom": "Cái",
+          "SiteCode": "KHOHANG",
           "Quantity": 2,
           "UnitPrice": 6000000,
           "Amount": 12000000,
           "Discount": 500000,
-          "TaxRate": "10",
+          "TaxRate": 10,
           "TaxAmount": 1150000,
           "TotalAmount": 12650000,
           "JobCode": "VV001",

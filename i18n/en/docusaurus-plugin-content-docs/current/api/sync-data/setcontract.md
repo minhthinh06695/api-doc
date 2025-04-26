@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Contract List
+# Contract Category
 
 The `setContract` form is used to synchronize contract information from the partner's system into the Fast system via the [Sync Data API](../sync-data).
 

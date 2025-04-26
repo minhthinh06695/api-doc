@@ -16,7 +16,7 @@ FastAPI là hệ thống API được phát triển để nhận dữ liệu t�
 - **Đồng bộ chứng từ phức tạp**: Hỗ trợ đồng bộ các dữ liệu chứng từ đa cấp như hóa đơn mua hàng, hóa đơn bán hàng...
 - **Truy vấn dữ liệu**: Cung cấp khả năng truy vấn dữ liệu từ hệ thống.
 - **Caching thông minh**: Tối ưu hiệu suất bằng cách cache dữ liệu và sử dụng cơ chế deduplicate requests.
-
+ 
 ## Luồng xử lý dữ liệu
 
 ```mermaid

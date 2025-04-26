@@ -35,7 +35,6 @@ The warehouse issue voucher consists of 2 main parts:
 | Uom          | String(32)  | ✔️       | Unit of measure      |
 | SiteCode     | String(32)  | ✔️       | Warehouse code       |
 | Quantity     | Long        | ✔️       | Quantity             |
-| AverageCost  | Byte        | ✔️       | {{AverageCost}}      |
 | UnitPrice    | Long        | ✔️       | Unit price           |
 | Amount       | Long        | ✔️       | Total amount         |
 | JobCode      | String(32)  |          | Job code             |
@@ -66,7 +65,6 @@ The warehouse issue voucher consists of 2 main parts:
           "Uom": "Piece",
           "SiteCode": "WAREHOUSE",
           "Quantity": 2,
-          "AverageCost": 0,
           "UnitPrice": 6000000,
           "Amount": 12000000,
           "JobCode": "JOB001",
@@ -80,7 +78,6 @@ The warehouse issue voucher consists of 2 main parts:
           "Uom": "Piece",
           "SiteCode": "WAREHOUSE",
           "Quantity": 3,
-          "AverageCost": 0,
           "UnitPrice": 5333333,
           "Amount": 16000000,
           "JobCode": "JOB002",

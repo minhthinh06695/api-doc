@@ -35,7 +35,6 @@ The warehouse receipt voucher consists of 2 main parts:
 | Uom          | String(32)  | ✔️       | Unit of measure      |
 | SiteCode     | String(32)  | ✔️       | Warehouse code       |
 | Quantity     | Long        | ✔️       | Quantity             |
-| AverageCost  | Byte        | ✔️       | {{AverageCost}}      |
 | UnitPrice    | Long        | ✔️       | Unit price           |
 | Amount       | Long        | ✔️       | Total amount         |
 | JobCode      | String(32)  |          | Job code             |

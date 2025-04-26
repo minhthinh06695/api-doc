@@ -106,7 +106,7 @@ const config = {
 
       // Thay logo
       navbar: {
-        title: 'Fast Developer',
+        title: 'Fast Developers',
         logo: {
           alt: 'Logo',
           src: 'img/logo.jpg',

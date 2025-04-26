@@ -82,8 +82,8 @@ const config = {
           // Thêm link chỉnh sửa (nếu muốn)
           editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master/docs',
           // Hiển thị thông tin cập nhật
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: false,
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           // Đường dẫn cơ bản - thay đổi lại thành 'docs' để sử dụng cùng với trang chuyển hướng
           routeBasePath: 'docs',
         },

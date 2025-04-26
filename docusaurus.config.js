@@ -42,7 +42,7 @@ const config = {
 
   // Ngôn ngữ
   i18n: {
-    defaultLocale: 'vi',
+    defaultLocale: 'en',
     locales: ['vi', 'en'],
     localeConfigs: {
       vi: {

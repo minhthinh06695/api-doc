@@ -18,8 +18,7 @@ The `setItem` form is used to synchronize item information from the partner's sy
 | ItemGroup1   | String(32)  |          | Item group 1         |
 | ItemGroup2   | String(32)  |          | Item group 2         |
 | ItemGroup3   | String(32)  |          | Item group 3         |
-| Status       | String(1)   | ✔️       | Status ("1": Active, "0": Inactive) |
-
+| Status        | String(1)   | ✔️      | {{STATUS_EN}}|
 ## Example Request
 
 ```json

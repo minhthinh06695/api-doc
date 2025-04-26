@@ -1,10 +1,10 @@
 # Sales Invoice
 
-The `setSaleInvoice` form is used to synchronize sales invoice information into the Fast system via the [Sync Voucher API](../sync-voucher).
+The `setSaleInvoice` form is used to synchronize sales invoice information into the Fast system via the [Document Synchronization API](../sync-voucher).
 
-## Voucher Structure
+## Document Structure
 
-The sales invoice consists of two main parts:
+The sales invoice document consists of two main parts:
 
 1. **Header (General Information)**: Contains the main information of the sales invoice.
 2. **Detail (Item Details)**: Contains detailed information about the sold items.
@@ -13,39 +13,41 @@ The sales invoice consists of two main parts:
 
 ### Header (General Information)
 
-| Attribute         | Type        | Required | Description                          |
-|-------------------|-------------|----------|--------------------------------------|
-| VoucherId         | String(64)  | ✔️       | Voucher ID                           |
-| CustomerCode      | String(32)  | ✔️       | Customer code                        |
-| VoucherDate       | Date        | ✔️       | Voucher date                         |
-| VoucherNumber     | String(12)  | ✔️       | Voucher number                       |
-| Description       | String(512) |          | Description                          |
-| Currency          | String(3)   | ✔️       | Currency code ("VND", "USD", "EUR", etc.) |
-| ExchangeRate      | Long        | ✔️       | Exchange rate                        |
-| TotalQuantity     | Long        | ✔️       | Total quantity                       |
-| TotalNetAmount    | Long        | ✔️       | Total amount before tax              |
-| TotalDiscountAmount | Long      | ✔️       | Total discount amount                |
-| TotalTaxAmount    | Long        | ✔️       | Total tax amount                     |
-| TotalAmount       | Long        | ✔️       | Total amount after tax               |
+| Attribute       | Type        | Required | Description                                                                 |
+|-----------------|-------------|----------|-----------------------------------------------------------------------------|
+| VoucherId       | String(64)  | ✔️       | Partner's document ID: a **unique** and **identifying** code for the transaction sent to Fast to request document creation. |
+| CustomerCode    | String(32)  | ✔️       | Customer code                                                              |
+| VoucherDate     | Date        | ✔️       | Document date                                                              |
+| VoucherNumber   | String(12)  |          | Document number. If empty, the Fast system will assign it based on the declared document book. If no book is declared, it will auto-increment. |
+| Description     | String(512) |          | Description                                                                |
+| Currency        | String(3)   |          | Currency type ("VND", "USD", "EUR", etc.).<br/>{{CURRENCY_DEFAULT}}<br/>   |
+| ExchangeRate    | Long        |          | Exchange rate <br/>{{EXRATE_DEFAULT}}<br/>                                 |
+| <span class="highlight-key">detail</span> | List[Object]  | ✔️       | List of item details                                                       |
+| TotalQuantity   | Long        | ✔️       | Total quantity of <span class="highlight-key">detail</span>                |
+| TotalNetAmount  | Long        | ✔️       | Total pre-tax amount of <span class="highlight-key">detail</span>          |
+| TotalDiscountAmount | Long    | ✔️       | Total discount amount of <span class="highlight-key">detail</span>         |
+| TotalTaxAmount  | Long        | ✔️       | Total tax amount of <span class="highlight-key">detail</span>              |
+| TotalAmount     | Long        | ✔️       | Total post-tax amount of <span class="highlight-key">detail</span>         |
 
-### Detail (Item Details)
+### Content of <span class="highlight-key">detail</span>
 
-| Attribute         | Type        | Required | Description                          |
-|-------------------|-------------|----------|--------------------------------------|
-| RefNumber         | Long        | ✔️       | Reference number                     |
-| ItemCode          | String(32)  | ✔️       | Item code                            |
-| Uom               | String(32)  | ✔️       | Unit of measure                      |
-| Quantity          | Long        | ✔️       | Quantity                             |
-| UnitPrice         | Long        | ✔️       | Unit price                           |
-| Amount            | Long        | ✔️       | Amount before tax                    |
-| Discount          | Long        | ✔️       | Discount amount                      |
-| TaxRate           | String(8)   | ✔️       | Tax rate                             |
-| TaxAmount         | Long        | ✔️       | Tax amount  **Formula:** (Amount - Discount) × (TaxRate/100) |
-| TotalAmount       | Long        | ✔️       | Total amount after tax               |
-| JobCode           | String(32)  |          | Job code                             |
-| DeptCode          | String(32)  |          | Department code                      |
-| ContractCode      | String(32)  |          | Contract code                        |
-| ExpenseCode       | String(32)  |          | Expense code                         |
+| Attribute       | Type        | Required | Description                                                                 |
+|-----------------|-------------|----------|-----------------------------------------------------------------------------|
+| RefNumber       | Long        | ✔️       | Sequence number                                                            |
+| ItemCode        | String(32)  | ✔️       | Item code                                                                  |
+| Uom             | String(32)  | ✔️       | Unit of measurement                                                        |
+| SiteCode        | String(32)  | ✔️       | Warehouse code                                                             |
+| Quantity        | Long        | ✔️       | Quantity                                                                   |
+| UnitPrice       | Long        | ✔️       | Unit price                                                                 |
+| Amount          | Long        | ✔️       | Pre-tax amount                                                             |
+| Discount        | Long        |          | Discount amount                                                            |
+| TaxRate         | Long        | ✔️       | {{TAX_RATE}}                                                               |
+| TaxAmount       | Long        | ✔️       | Tax amount. **Formula:** (Amount - Discount) × (TaxRate/100)               |
+| TotalAmount     | Long        | ✔️       | Total post-tax amount                                                      |
+| JobCode         | String(32)  |          | Job code                                                                   |
+| DeptCode        | String(32)  |          | Department code                                                            |
+| ContractCode    | String(32)  |          | Contract code                                                              |
+| ExpenseCode     | String(32)  |          | Expense code                                                               |
 
 ## Example Request
 
@@ -58,7 +60,7 @@ The sales invoice consists of two main parts:
       "CustomerCode": "KH001",
       "VoucherDate": "2023-04-15",
       "VoucherNumber": "HD0001",
-      "Description": "Bán hàng cho khách hàng ABC",
+      "Description": "Sales to customer ABC",
       "Currency": "VND",
       "ExchangeRate": 1,
       "TotalQuantity": 3,
@@ -70,8 +72,8 @@ The sales invoice consists of two main parts:
         {
           "RefNumber": 1,
           "ItemCode": "VT001",
-          "Uom": "Cái",
-          "SiteCode": "KHOHANG",
+          "Uom": "Piece",
+          "SiteCode": "WAREHOUSE",
           "Quantity": 1,
           "UnitPrice": 12000000,
           "Amount": 12000000,
@@ -79,16 +81,16 @@ The sales invoice consists of two main parts:
           "TaxRate": 10,
           "TaxAmount": 1150000,
           "TotalAmount": 12650000,
-          "JobCode": "VV001",
-          "DeptCode": "BP001",
-          "ContractCode": "HD001",
-          "ExpenseCode": "PHI001"
+          "JobCode": "JOB001",
+          "DeptCode": "DEPT001",
+          "ContractCode": "CON001",
+          "ExpenseCode": "EXP001"
         },
         {
           "RefNumber": 2,
           "ItemCode": "VT002",
-          "Uom": "Cái",
-          "SiteCode": "KHOHANG",
+          "Uom": "Piece",
+          "SiteCode": "WAREHOUSE",
           "Quantity": 2,
           "UnitPrice": 6000000,
           "Amount": 12000000,
@@ -96,10 +98,10 @@ The sales invoice consists of two main parts:
           "TaxRate": 10,
           "TaxAmount": 1150000,
           "TotalAmount": 12650000,
-          "JobCode": "VV001",
-          "DeptCode": "BP001",
-          "ContractCode": "HD001",
-          "ExpenseCode": "PHI002"
+          "JobCode": "JOB001",
+          "DeptCode": "DEPT001",
+          "ContractCode": "CON001",
+          "ExpenseCode": "EXP002"
         }
       ]
     }

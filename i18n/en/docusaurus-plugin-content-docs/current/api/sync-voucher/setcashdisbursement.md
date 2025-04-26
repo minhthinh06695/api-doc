@@ -15,19 +15,20 @@ The cash disbursement voucher consists of two main parts:
 
 | Attribute      | Type        | Required | Description                          |
 |----------------|-------------|----------|--------------------------------------|
-| VoucherId      | String(64)  | ✔️       | Voucher ID                           |
+| VoucherId      | String(64)  | ✔️       | Voucher ID: a **unique** identifier for the transaction sent by the partner to Fast for voucher creation. |
 | VoucherDate    | Date        | ✔️       | Voucher date                         |
-| VoucherNumber  | String(12)  | ✔️       | Voucher number                       |
+| VoucherNumber  | String(12)  |          | Voucher number. If empty, the Fast system will assign a number based on the configured voucher book. If no book is configured, it will auto-increment. |
 | CustomerCode   | String(32)  | ✔️       | Customer code                        |
 | Recipient      | String(128) |          | Name of the recipient                |
 | Address        | String(128) |          | Address of the recipient             |
 | CreditAccount  | String(32)  | ✔️       | Credit account (Accounting account)  |
 | Description    | String(512) |          | Description                          |
-| Currency       | String(3)   | ✔️       | Currency code ("VND", "USD", "EUR", etc.) |
-| ExchangeRate   | Long        | ✔️       | Exchange rate                        |
-| TotalAmount    | Long        | ✔️       | Total amount                         |
+| Currency       | String(3)   |          | Currency code ("VND", "USD", "EUR", etc.).<br/>{{CURRENCY_DEFAULT_EN}}<br/> |
+| ExchangeRate   | Long        |          | Exchange rate <br/>{{EXRATE_DEFAULT}}<br/> |
+| <span class="highlight-key">detail</span> | List[Object]  | ✔️       | List of disbursement details         |
+| TotalAmount    | Long        | ✔️       | Total disbursement amount of <span class="highlight-key">detail</span> |
 
-### Detail (Details)
+### Content of <span class="highlight-key">detail</span>
 
 | Attribute      | Type        | Required | Description                          |
 |----------------|-------------|----------|--------------------------------------|

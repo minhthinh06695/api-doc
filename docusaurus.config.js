@@ -11,6 +11,16 @@ const markdownVariables = {
   IS_EMPLOYEE: 'Là nhân viên <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
   IS_SITEAGENT: 'Kho đại lý <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
   ZERO_DEFAULT: '**Default:** `0`',
+
+  // === Biến Tiếng Anh (Thêm mới) ===
+  CURRENCY_DEFAULT_EN: '**Default:** `VND`',
+  EXRATE_DEFAULT_EN: '**Default:** `1`',
+  TAX_RATE_EN: '**Tax Rate**. Accepts numeric values:<br/>* `0` : 0% Tax Rate<br/>* `5` : 5% Tax Rate<br/>* `8` : 8% Tax Rate<br/>* `10` : 10% Tax Rate<br/>* `-1` : Non-taxable.<br/>* `-2` : Not declared/calculated.<br/>',
+  STATUS_EN: 'Status<br/>&nbsp;`"1"` : Active<br/>&nbsp;`"0"` : Inactive',
+  IS_SUPPLIER_EN: 'Is Supplier<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No',
+  IS_EMPLOYEE_EN: 'Is Employee<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No',
+  IS_SITEAGENT_EN: 'Site Agent<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No', // "Site Agent" là một cách dịch phổ biến, hoặc có thể là "Agent Warehouse" tùy ngữ cảnh
+  ZERO_DEFAULT_EN: '**Default:** `0`',
 };
 
 /** @type {import('@docusaurus/types').Config} */

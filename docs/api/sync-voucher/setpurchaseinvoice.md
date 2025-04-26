@@ -16,7 +16,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 
 | Attribute    | Type        | Required | Description          |
 |--------------|-------------|----------|----------------------|
-| VoucherId    | String(64)  | ✔️       | Mã chứng từ          |
+| VoucherId    | String(64)  | ✔️       | Mã chứng từ của đối tác : là mã **duy nhất** và **định danh** cho giao dịch của đối tác khi gửi qua Fast để yêu cầu tạo chứng từ.|
 | SupplierCode | String(32)  | ✔️       | Mã nhà cung cấp, chính là mã khách hàng trong Danh mục khách hàng |
 | VoucherDate  | Date        | ✔️       | Ngày chứng từ        |
 | VoucherNumber| String(12)  |        | Số chứng từ, nếu bằng rỗng thi hệ thống Fast sẽ cấp theo quyển chứng từ được khai báo, nếu không khai báo quyển thì sẽ cấp tự tăng|

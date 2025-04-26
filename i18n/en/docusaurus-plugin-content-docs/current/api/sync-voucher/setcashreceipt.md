@@ -15,19 +15,20 @@ The cash receipt voucher consists of two main parts:
 
 | Attribute      | Type        | Required | Description                          |
 |----------------|-------------|----------|--------------------------------------|
-| VoucherId      | String(64)  | ✔️       | Voucher ID                           |
+| VoucherId      | String(64)  | ✔️       | Voucher ID: a **unique** identifier for the transaction sent by the partner to Fast for voucher creation. |
 | VoucherDate    | Date        | ✔️       | Voucher date                         |
-| VoucherNumber  | String(12)  | ✔️       | Voucher number                       |
+| VoucherNumber  | String(12)  |          | Voucher number. If empty, the Fast system will assign a number based on the configured voucher book. If no book is configured, it will auto-increment. |
 | CustomerCode   | String(32)  | ✔️       | Customer code                        |
 | Payer          | String(128) |          | Name of the payer                    |
 | Address        | String(128) |          | Address of the payer                 |
 | DebitAccount   | String(32)  | ✔️       | Debit account (Accounting account)   |
 | Description    | String(512) |          | Description                          |
-| Currency       | String(3)   | ✔️       | Currency code ("VND", "USD", "EUR", etc.) |
-| ExchangeRate   | Long        | ✔️       | Exchange rate                        |
-| TotalAmount    | Long        | ✔️       | Total amount                         |
+| Currency       | String(3)   |          | Currency code ("VND", "USD", "EUR", etc.).<br/>{{CURRENCY_DEFAULT_EN}}<br/> |
+| ExchangeRate   | Long        |          | Exchange rate <br/>{{EXRATE_DEFAULT_EN}}<br/> |
+| <span class="highlight-key">detail</span> | List[Object]  | ✔️       | List of receipt details              |
+| TotalAmount    | Long        | ✔️       | Total receipt amount of <span class="highlight-key">detail</span> |
 
-### Detail (Details)
+### Content of <span class="highlight-key">detail</span>
 
 | Attribute      | Type        | Required | Description                          |
 |----------------|-------------|----------|--------------------------------------|
@@ -46,10 +47,10 @@ The cash receipt voucher consists of two main parts:
   "form": "setCashReceipt",
   "data": [
     {
-      "VoucherId": "PT20230001",
+      "VoucherId": "CR20230001",
       "VoucherDate": "2023-04-15",
-      "VoucherNumber": "PT0001",
-      "CustomerCode": "KH001",
+      "VoucherNumber": "CR0001",
+      "CustomerCode": "CUST001",
       "Payer": "John Doe",
       "Address": "123 ABC Street, District 1, Ho Chi Minh City",
       "DebitAccount": "111",
@@ -62,19 +63,19 @@ The cash receipt voucher consists of two main parts:
           "RefNumber": 1,
           "CreditAccount": "131",
           "Amount": 10000000,
-          "JobCode": "VV001",
-          "DeptCode": "BP001",
-          "ContractCode": "HD001",
-          "ExpenseCode": "PHI001"
+          "JobCode": "JOB001",
+          "DeptCode": "DEPT001",
+          "ContractCode": "CON001",
+          "ExpenseCode": "EXP001"
         },
         {
           "RefNumber": 2,
           "CreditAccount": "511",
           "Amount": 5000000,
-          "JobCode": "VV002",
-          "DeptCode": "BP002",
-          "ContractCode": "HD002",
-          "ExpenseCode": "PHI002"
+          "JobCode": "JOB002",
+          "DeptCode": "DEPT002",
+          "ContractCode": "CON002",
+          "ExpenseCode": "EXP002"
         }
       ]
     }
@@ -86,5 +87,5 @@ The cash receipt voucher consists of two main parts:
 
 1. The `VoucherId` field must be unique in the system to avoid duplicate vouchers.
 2. Ensure all required fields are filled in.
-3. Dates must follow the ISO format (yyy-MM-dd).
+3. Dates must follow the ISO format (yyyy-MM-dd).
 4. The debit account (`DebitAccount`) and credit account (`CreditAccount`) must be valid accounts in the accounting system.

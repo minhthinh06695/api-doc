@@ -15,7 +15,7 @@ Form `setExpense` được sử dụng để đồng bộ thông tin phí từ h
 | OtherName    | String(256) |          | Tên khác (Tên tiếng Anh) |
 | DeptCode     | String(32)  |          | Mã bộ phận           |
 | Note         | String(512) |          | Ghi chú              |
-| Status       | String(1)   | ✔️       | {{STATUS}} |
+| Status       | String(1)   |        | {{STATUS}} |
 
 ## Ví dụ request
 

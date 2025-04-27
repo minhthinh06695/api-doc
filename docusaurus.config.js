@@ -6,11 +6,12 @@ const markdownVariables = {
   CURRENCY_DEFAULT: '**Default:** `"VND"`',
   EXRATE_DEFAULT: '**Default:** `1`',
   TAX_RATE: '**Thuế suất**. Nhận các giá trị số:<br/>* `0` : Thuế suất 0%<br/>* `5` : Thuế suất 5%<br/>* `8` : Thuế suất 8%<br/>* `10` : Thuế suất 10%<br/>* `-1` : KCT: Không chịu thuế.<br/>* `-2` : Không kê khai tính thuế.<br/>',
-  STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Đang hoạt động<br/>&nbsp;`"0"` : Không hoạt động',
+  STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Đang hoạt động<br/>&nbsp;`"0"` : Ngưng hoạt động<br/> **Default:** `"1"`',
   IS_SUPPLIER: 'Là nhà cung cấp <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
   IS_EMPLOYEE: 'Là nhân viên <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
   IS_SITEAGENT: 'Kho đại lý <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
   ZERO_DEFAULT: '**Default:** `0`',
+  VC_STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Thêm mới<br/>&nbsp;`"0"` : Xóa/Hủy chứng từ<br/> **Default:** `"1"`',
 
   // === Biến Tiếng Anh (Thêm mới) ===
   CURRENCY_DEFAULT_EN: '**Default:** `"VND"`',
@@ -21,6 +22,7 @@ const markdownVariables = {
   IS_EMPLOYEE_EN: 'Is Employee<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No',
   IS_SITEAGENT_EN: 'Site Agent<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No', // "Site Agent" là một cách dịch phổ biến, hoặc có thể là "Agent Warehouse" tùy ngữ cảnh
   ZERO_DEFAULT_EN: '**Default:** `0`',
+  VC_STATUS_EN: 'Status<br/> "1" : Create new document<br/> "0" : Delete/Cancel document<br/> **Default:** `1`',
 };
 
 /** @type {import('@docusaurus/types').Config} */
@@ -82,7 +84,7 @@ const config = {
           // Thêm link chỉnh sửa (nếu muốn)
           editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master/docs',
           // Hiển thị thông tin cập nhật
-          showLastUpdateAuthor: false,
+          showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           // Đường dẫn cơ bản - thay đổi lại thành 'docs' để sử dụng cùng với trang chuyển hướng
           routeBasePath: 'docs',
@@ -147,16 +149,45 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Home', // Tiêu đề này sẽ được dịch qua i18n/en.json
+            title: 'Về chúng tôi', // Tiêu đề này sẽ được dịch qua i18n/en.json
             items: [
               {
-                label: 'Fast.com.vn', // Nhãn này sẽ được dịch qua i18n/en.json
-                href: 'https://fast.com.vn',
+                html: `<a href="https://fast.com.vn" target="_blank" rel="noopener noreferrer" class="footer-link-with-icon">
+                  <img src="/img/logo.svg" alt="Fast" width="20" height="20" />
+                  Fast.com.vn
+                  <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="external-link-icon">
+                    <path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path>
+                  </svg>
+                </a>`,
+              },
+              {
+                html: `<div class="footer-contact-info">
+                  <p><strong>Address:</strong> Số 29, Đường số 18, Khu phố 4, P. Hiệp Bình Chánh, TP. Thủ Đức, TP. HCM</p>
+                  <p><strong>Email:</strong> info@fast.com.vn</p>
+                  <p><strong>Hotline:</strong> (028) 7108-8788</p>
+                </div>`,
               }
             ],
           },
           {
-            title: 'Connect',
+            title: 'Tài nguyên',
+            items: [
+              {
+                label: 'Tài liệu API',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Hướng dẫn sử dụng',
+                to: '/docs/setup',
+              },
+              {
+                label: 'Hỗ trợ kỹ thuật',
+                href: 'https://fast.com.vn/lien-he',
+              },
+            ],
+          },
+          {
+            title: 'Kết nối',
             items: [
               {
                 html: `
@@ -175,15 +206,21 @@ const config = {
                      aria-label="Zalo">
                     <img src="/img/zalo-icon.svg" alt="Zalo" width="24" height="24" />
                   </a>
+                  <a href="https://www.youtube.com/@videophanmemfast/featured" 
+                     class="footer-social-link" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     aria-label="Youtube">
+                    <img src="/img/youtube-logo.png" alt="YouTube" width="24" height="24" />
+                  </a>
                 </div>
                 `,
               }
-           ],
+            ],
           },
         ],
-        // Bản quyền sẽ được dịch qua i18n/en.json
-        copyright: `Copyright © ${new Date().getFullYear()} Fast software company, Inc.`,
-        
+        // Bản quyền với styling
+        copyright: `<div class="footer-copyright">Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.</div>`,
       },
 
       // Cấu hình prism cho syntax highlighting

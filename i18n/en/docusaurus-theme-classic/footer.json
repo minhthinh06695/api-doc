@@ -1,38 +1,30 @@
 {
-  "link.title.Tài liệu": {
-    "message": "Documentation",
-    "description": "The title of the footer links column with title=Tài liệu in the footer"
+  "link.title.Về chúng tôi": {
+    "message": "About Us",
+    "description": "The title of the footer links column with title=Về chúng tôi in the footer"
   },
   "link.title.Tài nguyên": {
     "message": "Resources",
     "description": "The title of the footer links column with title=Tài nguyên in the footer"
   },
-  "link.title.Liên hệ": {
-    "message": "Contact",
-    "description": "The title of the footer links column with title=Liên hệ in the footer"
+  "link.title.Kết nối": {
+    "message": "Connect",
+    "description": "The title of the footer links column with title=Kết nối in the footer"
   },
-  "link.item.label.Tổng quan": {
-    "message": "Overview",
-    "description": "The label of footer link with label=Tổng quan linking to /docs/intro"
+  "link.item.label.Tài liệu API": {
+    "message": "API Documentation",
+    "description": "The label of footer link with label=Tài liệu API linking to /docs/intro"
   },
-  "link.item.label.Tải SDK": {
-    "message": "Download SDK",
-    "description": "The label of footer link with label=Tải SDK linking to https://your-website.com/sdk"
+  "link.item.label.Hướng dẫn sử dụng": {
+    "message": "User Guide",
+    "description": "The label of footer link with label=Hướng dẫn sử dụng linking to /docs/setup"
   },
-  "link.item.label.Connect": {
-    "message": "Connect with Us",
-    "description": "Connect with Us"
-  },
-  "link.item.label.Home": {
-    "message": "Support",
-    "description": "The label of footer link with label=Hỗ trợ linking to https://your-website.com/support"
-  },
-  "link.item.label.Developer Portal": {
-    "message": "Developer Portal",
-    "description": "The label of footer link with label=Developer Portal linking to https://your-website.com/developer"
+  "link.item.label.Hỗ trợ kỹ thuật": {
+    "message": "Technical Support",
+    "description": "The label of footer link with label=Hỗ trợ kỹ thuật linking to https://fast.com.vn/lien-he"
   },
   "copyright": {
-    "message": "Copyright © 2025 Fast software company, Inc.",
+    "message": "Copyright © 2025 Fast Software Company, Inc.",
     "description": "The footer copyright"
   }
 }

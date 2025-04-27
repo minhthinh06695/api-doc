@@ -18,7 +18,7 @@ Form `setItem` được sử dụng để đồng bộ thông tin vật tư/hàn
 | ItemGroup1   | String(32)  |          | Nhóm vật tư 1        |
 | ItemGroup2   | String(32)  |          | Nhóm vật tư 2        |
 | ItemGroup3   | String(32)  |          | Nhóm vật tư 3        |
-| Status       | String(1)   | ✔️       | {{STATUS}} |
+| Status       | String(1)   |          | {{STATUS}} |
 
 ## Ví dụ request
 

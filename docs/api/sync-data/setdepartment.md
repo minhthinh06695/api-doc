@@ -16,7 +16,7 @@ Form `setDepartment` được sử dụng để đồng bộ thông tin bộ ph�
 | Address      | String(256) |          | Địa chỉ              |
 | PhoneNumber  | String(32) |          | Số điện thoại        |
 | Note         | String(512) |          | Ghi chú       |
-| Status       | String(1)   | ✔️       | {{STATUS}} |
+| Status       | String(1)   |        | {{STATUS}} |
 
 ## Ví dụ request
 

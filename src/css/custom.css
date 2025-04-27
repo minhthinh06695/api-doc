@@ -294,32 +294,115 @@ html[lang="en"] .navbar__item[data-locale-specific="vi"] {
   background-size: contain;
 }
 
-/* Style chung cho container */
-.social-links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+/* === FOOTER NÂNG CẤP === */
+.footer {
+  padding: 40px 24px 24px;
 }
 
+.footer__links {
+  margin-bottom: 2rem;
+}
+
+.footer__col {
+  margin-bottom: 2rem;
+}
+
+.footer__title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.footer__title:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background-color: var(--ifm-color-primary);
+}
+
+/* Liên kết với biểu tượng */
+.footer-link-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #f0f0f0;
+  transition: color 0.2s;
+}
+
+.footer-link-with-icon:hover {
+  color: var(--ifm-color-primary-lightest);
+  text-decoration: none;
+}
+
+.external-link-icon {
+  margin-left: 4px;
+  opacity: 0.8;
+}
+
+/* Thông tin liên hệ */
+.footer-contact-info {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 1rem;
+  color: #bdc3c7;
+}
+
+.footer-contact-info p {
+  margin: 0.5rem 0;
+}
+
+.footer-contact-info strong {
+  color: #f0f0f0;
+}
+
+/* Nâng cấp social links */
 .social-links {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-bottom: 1rem;
 }
 
 .footer-social-link {
   display: flex;
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
 }
 
 .footer-social-link:hover {
-  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
 }
 
 .footer-social-link img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Copyright */
+.footer-copyright {
+  font-size: 14px;
+  color: #95a5a6;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .footer__col {
+    flex-basis: 100%;
+  }
 }
 
 @keyframes octocat-wave {

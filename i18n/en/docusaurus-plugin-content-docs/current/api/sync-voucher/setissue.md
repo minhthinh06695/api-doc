@@ -25,6 +25,7 @@ The issue voucher consists of two main parts:
 | <span class="highlight-key">detail</span> | List[Object]  | ✔️       | List of item details                 |
 | TotalQuantity  | Long        | ✔️       | Total quantity of items in <span class="highlight-key">detail</span> |
 | TotalAmount    | Long        | ✔️       | Total amount of <span class="highlight-key">detail</span> |
+| Status         | String(1)   |          | {{VC_STATUS_EN}} |
 
 ### Content of <span class="highlight-key">detail</span>
 
@@ -58,6 +59,7 @@ The issue voucher consists of two main parts:
       "ExchangeRate": 1,
       "TotalQuantity": 5,
       "TotalAmount": 28000000,
+      "Status": "1",
       "detail": [
         {
           "RefNumber": 1,

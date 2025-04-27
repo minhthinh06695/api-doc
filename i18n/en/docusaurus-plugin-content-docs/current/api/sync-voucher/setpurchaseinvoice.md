@@ -29,6 +29,7 @@ The purchase invoice consists of three main parts:
 | TotalNetAmount | Long        | ✔️       | Total net amount of <span class="highlight-key">detail</span> |
 | TotalTaxAmount | Long        | ✔️       | Total tax amount of <span class="highlight-key">tax</span> |
 | TotalAmount    | Long        | ✔️       | Total amount after tax               |
+| Status         | String(1)   |          | {{VC_STATUS_EN}} |
 
 ### Content of <span class="highlight-key">detail</span>
 
@@ -75,6 +76,7 @@ The purchase invoice consists of three main parts:
       "TotalNetAmount": 35000000,
       "TotalTaxAmount": 3500000,
       "TotalAmount": 38500000,
+      "Status": "1",
       "detail": [
         {
           "RefNumber": 1,

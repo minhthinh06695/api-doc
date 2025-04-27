@@ -14,7 +14,7 @@ The `setJob` form is used to synchronize job information from the partner's syst
 | JobName      | String(256) | ✔️       | Job name             |
 | OtherName    | String(256) |          | Alternate name (English name) |
 | Note         | String(512) |          | Notes                |
-| Status        | String(1)   | ✔️      | {{STATUS_EN}}|
+| Status       | String(1)   |          | {{STATUS_EN}}|
 
 ## Example Request
 

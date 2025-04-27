@@ -27,6 +27,7 @@ The cash disbursement voucher consists of two main parts:
 | ExchangeRate   | Long        |          | Exchange rate <br/>{{EXRATE_DEFAULT}}<br/> |
 | <span class="highlight-key">detail</span> | List[Object]  | ✔️       | List of disbursement details         |
 | TotalAmount    | Long        | ✔️       | Total disbursement amount of <span class="highlight-key">detail</span> |
+| Status         | String(1)   |          | {{VC_STATUS_EN}} |
 
 ### Content of <span class="highlight-key">detail</span>
 
@@ -58,6 +59,7 @@ The cash disbursement voucher consists of two main parts:
       "Currency": "VND",
       "ExchangeRate": 1,
       "TotalAmount": 11000000,
+      "Status": "1",
       "detail": [
         {
           "RefNumber": 1,

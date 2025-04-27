@@ -28,7 +28,7 @@ The `setCustomer` form is used to synchronize customer information from the part
 | BranchName   | String(256) |          | Branch/Province      |
 | AccountName  | String(256) |          | Bank account holder's name |
 | PaymentTerm  | String(2)   |          | Payment term code    |
-| Status       | String(1)   | ✔️      | {{STATUS_EN}}|
+| Status       | String(1)   |          | {{STATUS_EN}}|
 | SuplierYN    | Byte        |          | {{IS_SUPPLIER_EN}} |
 | EmployeeYN   | Byte        |          | {{IS_EMPLOYEE_EN}}|
 | Description  | String(512) |          | Notes                |

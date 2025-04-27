@@ -27,6 +27,7 @@ Chứng từ phiếu chi tiền gồm 2 phần chính:
 | ExchangeRate | Long        |           | Tỷ giá <br/>{{EXRATE_DEFAULT}}<br/>|
 | <span class="highlight-key">detail</span>          | List[Object]  | ✔️        | Danh sách chi tiết chi tiền|
 | TotalAmount  | Long        | ✔️       | Tổng số tiền chi của <span class="highlight-key">detail</span> |
+| Status       | String(1)   |          | {{VC_STATUS}} |
 
 ### Nội dung của <span class="highlight-key">detail</span>
 
@@ -58,6 +59,7 @@ Chứng từ phiếu chi tiền gồm 2 phần chính:
       "Currency": "VND",
       "ExchangeRate": 1,
       "TotalAmount": 11000000,
+      "Status": "1",
       "detail": [
         {
           "RefNumber": 1,

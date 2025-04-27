@@ -28,6 +28,7 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 | TotalDiscountAmount| Long        | ✔️   | Tổng tiền chiết khấu của <span class="highlight-key">detail</span>|
 | TotalTaxAmount| Long        | ✔️       | Tổng tiền thuế của <span class="highlight-key">detail</span>|
 | TotalAmount  | Long        | ✔️       | Tổng tiền sau thuế <span class="highlight-key">detail</span>|
+| Status       | String(1)   |          | {{VC_STATUS}} |
 
 ### Nội dung của <span class="highlight-key">detail</span>
 
@@ -70,6 +71,7 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
       "TotalDiscountAmount": 1000000,
       "TotalTaxAmount": 2300000,
       "TotalAmount": 25300000,
+      "Status": "1",
       "detail": [
         {
           "RefNumber": 1,

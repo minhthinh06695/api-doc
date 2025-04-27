@@ -28,6 +28,7 @@ The sales invoice document consists of two main parts:
 | TotalDiscountAmount | Long    | ✔️       | Total discount amount of <span class="highlight-key">detail</span>         |
 | TotalTaxAmount  | Long        | ✔️       | Total tax amount of <span class="highlight-key">detail</span>              |
 | TotalAmount     | Long        | ✔️       | Total post-tax amount of <span class="highlight-key">detail</span>         |
+| Status         | String(1)   |          | {{VC_STATUS_EN}} |
 
 ### Content of <span class="highlight-key">detail</span>
 
@@ -68,6 +69,7 @@ The sales invoice document consists of two main parts:
       "TotalDiscountAmount": 1000000,
       "TotalTaxAmount": 2300000,
       "TotalAmount": 25300000,
+      "Status": "1",
       "detail": [
         {
           "RefNumber": 1,

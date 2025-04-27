@@ -16,7 +16,7 @@ The `setDepartment` form is used to synchronize department information from the 
 | Address      | String(256) |          | Address              |
 | PhoneNumber  | String(32)  |          | Phone number         |
 | Note         | String(512) |          | Notes                |
-| Status        | String(1)   | ✔️      | {{STATUS_EN}}|
+| Status       | String(1)   |       | {{STATUS_EN}}|
 
 ## Example Request
 

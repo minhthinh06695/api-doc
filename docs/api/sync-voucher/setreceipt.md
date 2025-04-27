@@ -25,6 +25,7 @@ Chứng từ phiếu nhập kho gồm 2 phần chính:
 | <span class="highlight-key">detail</span>       | List[Object]| ✔️       | Danh sách chi tiết hàng hoá |
 | TotalQuantity| Long        | ✔️       | Tổng số lượng hàng hoá của <span class="highlight-key">detail</span>|
 | TotalAmount  | Long        | ✔️       | Tổng tiền sau thuế của <span class="highlight-key">detail</span>|
+| Status       | String(1)   |          | {{VC_STATUS}} |
 
 ### Nội dung của <span class="highlight-key">detail</span>
 
@@ -58,6 +59,7 @@ Chứng từ phiếu nhập kho gồm 2 phần chính:
       "ExchangeRate": 1,
       "TotalQuantity": 4,
       "TotalAmount": 24000000,
+      "Status": "1",
       "detail": [
         {
           "RefNumber": 1,

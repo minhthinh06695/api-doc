@@ -29,6 +29,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
 | TotalNetAmount    | Long   | ✔️   | Tổng tiền hàng trước thuế của <span class="highlight-key">detail</span>|
 | TotalTaxAmount    | Long   | ✔️   | Tổng tiền thuế của <span class="highlight-key">tax</span> |
 | TotalAmount    | Long      | ✔️       | Tổng tiền sau thuế |
+| Status       | String(1)   |          | {{VC_STATUS}} |
 
 ### Nội dung của <span class="highlight-key">detail</span>
 
@@ -75,6 +76,7 @@ Chứng từ hóa đơn mua hàng gồm 3 phần chính:
       "TotalNetAmount": 35000000,
       "TotalTaxAmount": 3500000,
       "TotalAmount": 38500000,
+      "Status": "1",
       "detail": [
         {
           "RefNumber": 1,

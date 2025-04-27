@@ -177,10 +177,6 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'Hướng dẫn sử dụng',
-                to: '/docs/setup',
-              },
-              {
                 label: 'Hỗ trợ kỹ thuật',
                 href: 'https://fast.com.vn/lien-he',
               },

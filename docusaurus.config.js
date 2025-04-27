@@ -13,6 +13,8 @@ const markdownVariables = {
   ZERO_DEFAULT: '**Default:** `0`',
   VC_STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Thêm mới<br/>&nbsp;`"0"` : Xóa/Hủy chứng từ<br/> **Default:** `"1"`',
 
+  PROMOTION: 'Khuyến mãi <br/>&nbsp;`0` : Hàng bán<br/>&nbsp;`1` : Hàng khuyến mãi<br/> **Default:** `0`',
+  
   // === Biến Tiếng Anh (Thêm mới) ===
   CURRENCY_DEFAULT_EN: '**Default:** `"VND"`',
   EXRATE_DEFAULT_EN: '**Default:** `1`',
@@ -22,7 +24,9 @@ const markdownVariables = {
   IS_EMPLOYEE_EN: 'Is Employee<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No',
   IS_SITEAGENT_EN: 'Site Agent<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No', // "Site Agent" là một cách dịch phổ biến, hoặc có thể là "Agent Warehouse" tùy ngữ cảnh
   ZERO_DEFAULT_EN: '**Default:** `0`',
-  VC_STATUS_EN: 'Status<br/> "1" : Create new document<br/> "0" : Delete/Cancel document<br/> **Default:** `1`',
+  VC_STATUS_EN: 'Status<br/>`"1"` : Create new document<br/>`"0"` : Delete/Cancel document<br/> **Default:** `1`',
+
+  PROMOTION_EN: 'Promotion <br/>&nbsp;`0` : Selling goods<br/>&nbsp;`1` : Promotional goods<br/> **Default:** `0`',
 };
 
 /** @type {import('@docusaurus/types').Config} */

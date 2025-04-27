@@ -38,6 +38,7 @@ The sales invoice document consists of two main parts:
 | ItemCode        | String(32)  | ✔️       | Item code                                                                  |
 | Uom             | String(32)  | ✔️       | Unit of measurement                                                        |
 | SiteCode        | String(32)  | ✔️       | Warehouse code                                                             |
+| Promotion       | Byte        |          | {{PROMOTION_EN}}        | 
 | Quantity        | Long        | ✔️       | Quantity                                                                   |
 | UnitPrice       | Long        | ✔️       | Unit price                                                                 |
 | Amount          | Long        | ✔️       | Pre-tax amount                                                             |
@@ -76,6 +77,7 @@ The sales invoice document consists of two main parts:
           "ItemCode": "VT001",
           "Uom": "Piece",
           "SiteCode": "WAREHOUSE",
+          "Promotion": 0,
           "Quantity": 1,
           "UnitPrice": 12000000,
           "Amount": 12000000,
@@ -93,6 +95,7 @@ The sales invoice document consists of two main parts:
           "ItemCode": "VT002",
           "Uom": "Piece",
           "SiteCode": "WAREHOUSE",
+          "Promotion": 0,
           "Quantity": 2,
           "UnitPrice": 6000000,
           "Amount": 12000000,

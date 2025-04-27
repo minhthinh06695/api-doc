@@ -39,6 +39,7 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
 | Uom          | String(32)  | ✔️       | Đơn vị tính          |
 | SiteCode     | String(32)  | ✔️       | Mã kho               |
 | Quantity     | Long        | ✔️       | Số lượng             |
+| Promotion    | Byte        |           | {{PROMOTION}}        |
 | UnitPrice    | Long        | ✔️       | Đơn giá              |
 | Amount       | Long        | ✔️       | Thành tiền trước thuế|
 | Discount     | Long        |         | Tiền chiết khấu      |
@@ -78,6 +79,7 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
           "ItemCode": "VT001",
           "Uom": "Cái",
           "SiteCode": "KHOHANG",
+          "Promotion": 0,
           "Quantity": 1,
           "UnitPrice": 12000000,
           "Amount": 12000000,
@@ -95,6 +97,7 @@ Chứng từ hóa đơn bán hàng gồm 2 phần chính:
           "ItemCode": "VT002",
           "Uom": "Cái",
           "SiteCode": "KHOHANG",
+          "Promotion": 0,
           "Quantity": 2,
           "UnitPrice": 6000000,
           "Amount": 12000000,

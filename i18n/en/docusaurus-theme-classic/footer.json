@@ -19,11 +19,11 @@
     "message": "Download SDK",
     "description": "The label of footer link with label=Tải SDK linking to https://your-website.com/sdk"
   },
-  "link.item.label.Code mẫu": {
-    "message": "Code Samples",
-    "description": "The label of footer link with label=Code mẫu linking to https://github.com/your-organization/api-examples"
+  "link.item.label.Connect": {
+    "message": "Connect with Us",
+    "description": "Connect with Us"
   },
-  "link.item.label.Hỗ trợ": {
+  "link.item.label.Home": {
     "message": "Support",
     "description": "The label of footer link with label=Hỗ trợ linking to https://your-website.com/support"
   },
@@ -32,7 +32,7 @@
     "description": "The label of footer link with label=Developer Portal linking to https://your-website.com/developer"
   },
   "copyright": {
-    "message": "Copyright © 2025 Fast Software Company, Inc.",
+    "message": "Copyright © 2025 Fast software company, Inc.",
     "description": "The footer copyright"
   }
 }

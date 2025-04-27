@@ -7,7 +7,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 ## FastAPI là gì?
 
-FastAPI là hệ thống API được phát triển để nhận dữ liệu từ đối tác và đồng bộ vào hệ thống nội bộ. API được xây dựng trên nền tảng .NET, cung cấp khả năng nhận dữ liệu master, chứng từ và dữ liệu giao dịch từ các hệ thống của đối tác.
+FastAPI là hệ thống API được phát triển để nhận dữ liệu từ đối tác và đồng bộ vào hệ thống Fast. API được xây dựng trên nền tảng .NET, cung cấp khả năng nhận dữ liệu danh mục, chứng từ và dữ liệu giao dịch từ các hệ thống của đối tác.
 
 ## Tính năng chính
 
@@ -15,7 +15,6 @@ FastAPI là hệ thống API được phát triển để nhận dữ liệu t�
 - **Đồng bộ dữ liệu master**: Hỗ trợ đồng bộ các dữ liệu danh mục như khách hàng, vật tư, vụ việc...
 - **Đồng bộ chứng từ phức tạp**: Hỗ trợ đồng bộ các dữ liệu chứng từ đa cấp như hóa đơn mua hàng, hóa đơn bán hàng...
 - **Truy vấn dữ liệu**: Cung cấp khả năng truy vấn dữ liệu từ hệ thống.
-- **Caching thông minh**: Tối ưu hiệu suất bằng cách cache dữ liệu và sử dụng cơ chế deduplicate requests.
  
 ## Luồng xử lý dữ liệu
 
@@ -86,4 +85,9 @@ sequenceDiagram
 
 1. Đăng ký và nhận thông tin xác thực (username/password).
 2. Tìm hiểu về [xác thực và bảo mật](./authentication).
-3. Khám phá các endpoint API sẵn có trong phần [Danh sách API](./api/sync-data).
+3. Khám phá các endpoint API sẵn có trong danh sách sau :
+
+| API | Format | API Defined by |
+|-----|--------|-------|
+| [Đồng bộ dữ liệu danh mục](./api/sync-data)| POST /api/SyncData | Fast |
+| [Đồng bộ dữ liệu chứng từ](./api/sync-voucher)| POST /api/SyncVoucher | Fast |

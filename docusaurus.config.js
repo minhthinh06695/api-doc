@@ -42,7 +42,7 @@ const config = {
 
   // Ngôn ngữ
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'vi',
     locales: ['vi', 'en'],
     localeConfigs: {
       vi: {
@@ -135,7 +135,6 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
-          // Thêm link đến GitHub repo
           {
             href: 'https://github.com/minhthinh06695/api-doc',
             position: 'right',
@@ -148,43 +147,43 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Tài liệu', // Tiêu đề này sẽ được dịch qua i18n/en.json
+            title: 'Home', // Tiêu đề này sẽ được dịch qua i18n/en.json
             items: [
               {
-                label: 'Tổng quan', // Nhãn này sẽ được dịch qua i18n/en.json
-                to: '/docs/intro',
+                label: 'Fast.com.vn', // Nhãn này sẽ được dịch qua i18n/en.json
+                href: 'https://fast.com.vn',
               }
             ],
           },
           {
-            title: 'Tài nguyên', // Tiêu đề này sẽ được dịch qua i18n/en.json
+            title: 'Connect',
             items: [
               {
-                label: 'Tải SDK', // Nhãn này sẽ được dịch qua i18n/en.json
-                href: 'https://your-website.com/sdk',
-              },
-              {
-                label: 'Code mẫu', // Nhãn này sẽ được dịch qua i18n/en.json
-                href: 'https://github.com/your-organization/api-examples',
-              },
-            ],
-          },
-          {
-            title: 'Liên hệ', // Tiêu đề này sẽ được dịch qua i18n/en.json
-            items: [
-              {
-                label: 'Hỗ trợ', // Nhãn này sẽ được dịch qua i18n/en.json
-                href: 'https://your-website.com/support',
-              },
-              {
-                label: 'Developer Portal', // Nhãn này sẽ được dịch qua i18n/en.json
-                href: 'https://your-website.com/developer',
-              },
-            ],
+                html: `
+                <div class="social-links">
+                  <a href="https://www.facebook.com/PhanMemFAST" 
+                     class="footer-social-link" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     aria-label="Facebook Page">
+                    <img src="/img/facebook-logo.png" alt="Facebook" width="24" height="24" />
+                  </a>
+                  <a href="https://zalo.me/757826718183431835" 
+                     class="footer-social-link" 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     aria-label="Zalo">
+                    <img src="/img/zalo-icon.svg" alt="Zalo" width="24" height="24" />
+                  </a>
+                </div>
+                `,
+              }
+           ],
           },
         ],
         // Bản quyền sẽ được dịch qua i18n/en.json
-        copyright: `Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Fast software company, Inc.`,
+        
       },
 
       // Cấu hình prism cho syntax highlighting

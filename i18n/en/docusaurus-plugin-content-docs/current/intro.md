@@ -7,7 +7,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 ## What is FastAPI?
 
-FastAPI is an API system developed to receive data from partners and synchronize it into internal systems. The API is built on the .NET platform, providing the ability to receive master data, documents, and transaction data from partner systems.
+FastAPI is an API system developed to receive data from partners and synchronize it into internal systems. The API is built on the .NET platform, providing the ability to receive master data, vouchers, and transaction data from partner systems.
 
 ## Key Features
 
@@ -15,7 +15,6 @@ FastAPI is an API system developed to receive data from partners and synchronize
 - **Master Data Synchronization**: Supports synchronization of category data such as customers, materials, cases...
 - **Complex Document Synchronization**: Supports synchronization of multi-level document data such as purchase invoices, sales invoices...
 - **Data Queries**: Provides the ability to query data from the system.
-- **Smart Caching**: Optimizes performance by caching data and using a deduplicate requests mechanism.
 
 ## Data Processing Flow
 
@@ -82,8 +81,15 @@ sequenceDiagram
 
 ## Getting Started with Integration
 
+# Getting Started with the API
+
 To start using the API, you need to:
 
-1. Register and receive authentication information (username/password).
+1. Register and obtain authentication credentials (username/password).
 2. Learn about [authentication and security](./authentication).
-3. Explore the available API endpoints in the [API List](./api/sync-data) section.
+3. Explore the available API endpoints in the list below:
+
+| API | Format | API Defined by |
+|-----|--------|-------|
+| [Category Data Synchronization](./api/sync-data)| POST /api/SyncData | Fast |
+| [Voucher Data Synchronization](./api/sync-voucher)| POST /api/SyncVoucher | Fast |

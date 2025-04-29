@@ -14,7 +14,7 @@ const markdownVariables = {
   VC_STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Thêm mới<br/>&nbsp;`"0"` : Xóa/Hủy chứng từ<br/> **Default:** `"1"`',
 
   PROMOTION: 'Khuyến mãi <br/>&nbsp;`0` : Hàng bán<br/>&nbsp;`1` : Hàng khuyến mãi<br/> **Default:** `0`',
-  
+
   // === Biến Tiếng Anh (Thêm mới) ===
   CURRENCY_DEFAULT_EN: '**Default:** `"VND"`',
   EXRATE_DEFAULT_EN: '**Default:** `1`',
@@ -100,7 +100,7 @@ const config = {
       }),
     ],
   ],
-  
+
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -218,9 +218,21 @@ const config = {
               }
             ],
           },
+
         ],
-        // Bản quyền với styling
-        copyright: `<div class="footer-copyright">Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.</div>`,
+        copyright: `
+        <div class="footer__copyright-container">
+          <span>Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.</span>
+          <div class="footer__badge-container">
+            <a href="YOUR_DMCA_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="DMCA Protected">
+              <img src="/img/dmca-logo.png" alt="DMCA Protected" class="footer__badge-icon" />
+            </a>
+            <a href="YOUR_ISO_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="ISO Certified">
+              <img src="/img/iso-logo.png" alt="ISO Certified" class="footer__badge-icon" />
+            </a>
+          </div>
+        </div>
+      `,
       },
 
       // Cấu hình prism cho syntax highlighting

@@ -34,8 +34,9 @@
 }
 
 .highlight-key {
-  color: var(--ifm-color-primary); /* Lấy màu từ biến chính */
-  border: none; 
+  color: var(--ifm-color-primary);
+  /* Lấy màu từ biến chính */
+  border: none;
 }
 
 
@@ -93,8 +94,10 @@ h3 {
   font-size: 20px;
 }
 
-pre,code {
-  font-size: 14px; /* 1. Đặt màu chữ thành màu chủ đạo */
+pre,
+code {
+  font-size: 14px;
+  /* 1. Đặt màu chữ thành màu chủ đạo */
 }
 
 /* ===== TABLES ===== */
@@ -300,11 +303,11 @@ html[lang="en"] .navbar__item[data-locale-specific="vi"] {
 }
 
 .footer__links {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .footer__col {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .footer__title {
@@ -365,7 +368,7 @@ html[lang="en"] .navbar__item[data-locale-specific="vi"] {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
 }
 
 .footer-social-link {
@@ -389,16 +392,6 @@ html[lang="en"] .navbar__item[data-locale-specific="vi"] {
   height: 20px;
 }
 
-/* Copyright */
-.footer-copyright {
-  font-size: 14px;
-  color: #95a5a6;
-  padding-top: 1rem;
-  margin-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-
 @media (max-width: 768px) {
   .footer__col {
     flex-basis: 100%;
@@ -406,13 +399,19 @@ html[lang="en"] .navbar__item[data-locale-specific="vi"] {
 }
 
 @keyframes octocat-wave {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0);
   }
-  20%, 60% {
+
+  20%,
+  60% {
     transform: rotate(-25deg);
   }
-  40%, 80% {
+
+  40%,
+  80% {
     transform: rotate(10deg);
   }
 }
@@ -422,6 +421,7 @@ html[lang="en"] .navbar__item[data-locale-specific="vi"] {
   .github-corner:hover .octo-arm {
     animation: none;
   }
+
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
   }
@@ -433,10 +433,118 @@ html[lang="en"] .navbar__item[data-locale-specific="vi"] {
 }
 
 .footer__link-item img {
-  width: 30px; /* Điều chỉnh kích thước logo */
-  margin-right: 5px; /* Thêm khoảng cách giữa logo và chữ */
-  vertical-align: middle; /* Căn chỉnh logo theo chiều dọc */
+  width: 30px;
+  /* Điều chỉnh kích thước logo */
+  margin-right: 5px;
+  /* Thêm khoảng cách giữa logo và chữ */
+  vertical-align: middle;
+  /* Căn chỉnh logo theo chiều dọc */
 }
+
+/* ===== FOOTER COPYRIGHT NÂNG CẤP VỚI ICON ===== */
+
+/* Ghi đè/Điều chỉnh style mặc định của Docusaurus nếu cần */
+.footer__copyright {
+  padding-top: 1rem;
+  /* Giữ lại hoặc điều chỉnh padding */
+  margin-top: 1rem;
+  /* Giữ lại hoặc điều chỉnh margin */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Giữ lại hoặc điều chỉnh border */
+  text-align: initial;
+  /* Bỏ căn giữa mặc định để flexbox hoạt động */
+}
+
+/* Container chính cho copyright và badges */
+.footer__copyright-container {
+  display: flex;
+  justify-content: space-between;
+  /* Đẩy text sang trái, icon sang phải */
+  align-items: center;
+  /* Căn giữa theo chiều dọc */
+  width: 100%;
+  /* Đảm bảo container chiếm đủ chiều rộng */
+  font-size: 14px;
+  /* Giữ lại font-size từ class cũ */
+  color: #95a5a6;
+  /* Giữ lại màu từ class cũ */
+}
+
+/* Container cho các icon (badges) */
+.footer__badge-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Khoảng cách giữa các icon */
+}
+
+.footer__badge-icon {
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+  /* Hoặc block tùy layout */
+  /* Các style chung khác nếu có */
+}
+
+/* Style RIÊNG cho logo DMCA */
+.dmca-badge {
+  height: 25px;
+  /* Ví dụ: Đặt chiều cao riêng cho DMCA */
+}
+
+/* Style RIÊNG cho logo ISO */
+.iso-badge {
+  height: 40px;
+  /* Ví dụ: Đặt chiều cao nhỏ hơn cho ISO */
+  /* Các style riêng khác cho ISO */
+  border: 1px solid #ccc;
+  /* Ví dụ: thêm viền */
+  padding: 1px;
+}
+
+/* Đường kẻ phía trên phần copyright */
+/* Đường kẻ phía trên phần copyright */
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  /* Giữ nguyên hoặc điều chỉnh khoảng cách dưới đường kẻ nếu muốn */
+  margin-top: 0.2rem;
+  /* <--- Giảm giá trị này */
+}
+
+/* Điều chỉnh cho màn hình nhỏ nếu cần */
+@media (max-width: 768px) {
+  .footer__copyright-container {
+    flex-direction: column;
+    /* Xếp chồng lên nhau trên màn hình nhỏ */
+    gap: 10px;
+    /* Thêm khoảng cách khi xếp chồng */
+    text-align: center;
+    /* Căn giữa lại text */
+  }
+
+  .footer__badge-container {
+    justify-content: center;
+    /* Căn giữa các icon */
+  }
+}
+
+/* --- (Giữ nguyên các CSS khác của bạn ở trên) --- */
+/* Ví dụ: CSS cũ của bạn cho .footer__copyright (có thể không cần nữa) */
+/*
+.footer-copyright {
+  font-size: 14px;
+  color: #95a5a6;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+*/
+
+/* Bạn có thể xóa hoặc comment out class .footer-copyright cũ nếu không dùng nữa
+   hoặc điều chỉnh nó nếu class đó vẫn được dùng ở đâu đó khác */
+
 
 /* ===== FONTS ===== */
 @font-face {

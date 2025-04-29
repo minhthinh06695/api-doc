@@ -92,6 +92,18 @@ const config = {
           showLastUpdateTime: true,
           // Đường dẫn cơ bản - thay đổi lại thành 'docs' để sử dụng cùng với trang chuyển hướng
           routeBasePath: 'docs',
+          // Thêm hai dòng này vào đây
+          sidebarCollapsible: true,
+          sidebarItemsGenerator: async function ({
+            defaultSidebarItemsGenerator,
+            ...args
+          }) {
+            const sidebarItems = await defaultSidebarItemsGenerator(args);
+            return sidebarItems.map(item => ({
+              ...item,
+              collapsed: false,
+            }));
+          },
         },
         blog: false, // Tắt tính năng blog nếu không cần
         theme: {
@@ -112,13 +124,13 @@ const config = {
         respectPrefersColorScheme: true,
       },
 
-      // Cấu hình docs
       docs: {
         sidebar: {
           hideable: true,
-          autoCollapseCategories: true,
+          autoCollapseCategories: false, // Đổi từ true thành false
         },
       },
+
 
       // Thay logo
       navbar: {
@@ -153,7 +165,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Về chúng tôi', // Tiêu đề này sẽ được dịch qua i18n/en.json
+            title: 'About Us', // Tiêu đề này sẽ được dịch qua i18n/en.json
             items: [
               {
                 html: `<a href="https://fast.com.vn" target="_blank" rel="noopener noreferrer" class="footer-link-with-icon">
@@ -166,7 +178,7 @@ const config = {
               },
               {
                 html: `<div class="footer-contact-info">
-                  <p><strong>Address:</strong> Số 29, Đường số 18, Khu phố 4, P. Hiệp Bình Chánh, TP. Thủ Đức, TP. HCM</p>
+                  <p><strong>Address:</strong> No. 29, Street No. 18, Ward 4, Hiep Binh Chanh Ward, Thu Duc City, HCM City</p>
                   <p><strong>Email:</strong> info@fast.com.vn</p>
                   <p><strong>Hotline:</strong> (028) 7108-8788</p>
                 </div>`,
@@ -174,20 +186,20 @@ const config = {
             ],
           },
           {
-            title: 'Tài nguyên',
+            title: 'Resources',
             items: [
               {
-                label: 'Tài liệu API',
+                label: 'API Documentation',
                 to: '/docs/intro',
               },
               {
-                label: 'Hỗ trợ kỹ thuật',
+                label: 'Technical Support',
                 href: 'https://fast.com.vn/lien-he',
               },
             ],
           },
           {
-            title: 'Kết nối',
+            title: 'Follow Us',
             items: [
               {
                 html: `
@@ -228,7 +240,7 @@ const config = {
               <img src="/img/dmca-logo.png" alt="DMCA Protected" class="footer__badge-icon" />
             </a>
             <a href="YOUR_ISO_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="ISO Certified">
-              <img src="/img/iso-logo.png" alt="ISO Certified" class="footer__badge-icon" />
+              <img src="/img/iso-badge.png" alt="ISO Certified" class="footer__badge-icon" />
             </a>
           </div>
         </div>

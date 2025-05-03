@@ -51,8 +51,9 @@ const sidebars = {
           link: {
             type: 'doc',
             id: 'api/get-data',
-          }, items: [],
-        }
+          },
+          items: ['api/get-data'],
+        },
       ],
     },
   ],

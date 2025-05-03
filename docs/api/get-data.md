@@ -1,7 +1,3 @@
----
-title: Lấy dữ liệu
----
-
 # Lấy dữ liệu
 
 API `GetData` được sử dụng để đối tác lấy thông tin dữ liệu từ Fast (bao gồm các danh mục, chứng từ, báo cáo...). API này hỗ trợ truy xuất dữ liệu danh mục và chứng từ theo các tiêu chí như mã khóa chính hoặc khoảng thời gian.

@@ -14,5 +14,9 @@
   "sidebar.tutorialSidebar.category.Đồng bộ chứng từ": {
     "message": "Đồng bộ chứng từ",
     "description": "The label for category Đồng bộ chứng từ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Lấy dữ liệu": {
+    "message": "Lấy dữ liệu",
+    "description": "The label for category Lấy dữ liệu in sidebar tutorialSidebar"
   }
 }

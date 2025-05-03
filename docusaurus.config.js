@@ -5,7 +5,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const markdownVariables = {
   CURRENCY_DEFAULT: '**Default:** `"VND"`',
   EXRATE_DEFAULT: '**Default:** `1`',
-  TAX_RATE: '**Thuế suất**. Nhận các giá trị số:<br/>* `0` : Thuế suất 0%<br/>* `5` : Thuế suất 5%<br/>* `8` : Thuế suất 8%<br/>* `10` : Thuế suất 10%<br/>* `-1` : KCT: Không chịu thuế.<br/>* `-2` : Không kê khai tính thuế.<br/>',
+  TAX_RATE: '**Thuế suất**. Nhận các giá trị số:<br/>* `0` : Thuế suất 0%<br/>* `5` : Thuế suất 5%<br/>* `8` : Thuế suất 8%<br/>* `10` : Thuế suất 10%<br/>* `-1` : Không chịu thuế.<br/>* `-2` : Không kê khai tính thuế.<br/>',
   STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Đang hoạt động<br/>&nbsp;`"0"` : Ngưng hoạt động<br/> **Default:** `"1"`',
   IS_SUPPLIER: 'Là nhà cung cấp <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
   IS_EMPLOYEE: 'Là nhân viên <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',

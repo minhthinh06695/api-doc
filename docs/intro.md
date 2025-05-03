@@ -91,3 +91,4 @@ sequenceDiagram
 |-----|--------|-------|
 | [Đồng bộ dữ liệu danh mục](./api/sync-data)| POST /api/SyncData | Fast |
 | [Đồng bộ dữ liệu chứng từ](./api/sync-voucher)| POST /api/SyncVoucher | Fast |
+| [Lấy dữ liệu](./api/get-data)| POST /api/GetData | Fast |

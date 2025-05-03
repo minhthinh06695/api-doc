@@ -45,6 +45,14 @@ const sidebars = {
             'api/sync-voucher/setcashdisbursement',
           ],
         },
+        {
+          type: 'category',
+          label: 'Lấy dữ liệu',
+          link: {
+            type: 'doc',
+            id: 'api/get-data',
+          }, items: [],
+        }
       ],
     },
   ],

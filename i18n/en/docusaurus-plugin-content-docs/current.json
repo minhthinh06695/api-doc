@@ -8,11 +8,15 @@
     "description": "The label for category Danh sách API in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Đồng bộ danh mục": {
-    "message": "Master Data Sync",
+    "message": "Master Data Synchronization",
     "description": "The label for category Đồng bộ danh mục in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Đồng bộ chứng từ": {
-    "message": "Voucher Sync",
+    "message": "Document Synchronization",
     "description": "The label for category Đồng bộ chứng từ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Lấy dữ liệu": {
+    "message": "Get Data",
+    "description": "The label for category Lấy dữ liệu in sidebar tutorialSidebar"
   }
 }

@@ -93,3 +93,4 @@ To start using the API, you need to:
 |-----|--------|-------|
 | [Category Data Synchronization](./api/sync-data)| POST /api/SyncData | Fast |
 | [Voucher Data Synchronization](./api/sync-voucher)| POST /api/SyncVoucher | Fast |
+| [Get Data](./api/get-data)| POST /api/GetData | Fast |

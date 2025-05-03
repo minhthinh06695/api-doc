@@ -1,4 +1,4 @@
-# Retrieving Data
+# Get Data
 
 The `GetData` API is used for partners to retrieve data from Fast (including catalogs, documents, reports, etc.). This API supports querying catalog data and documents based on criteria such as primary key or time range.
 

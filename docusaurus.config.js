@@ -232,19 +232,7 @@ const config = {
           },
 
         ],
-        copyright: `
-        <div class="footer__copyright-container">
-          <span>Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.</span>
-          <div class="footer__badge-container">
-            <a href="YOUR_DMCA_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="DMCA Protected">
-              <img src="/img/dmca-logo.png" alt="DMCA Protected" class="footer__badge-icon" />
-            </a>
-            <a href="YOUR_ISO_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="ISO Certified">
-              <img src="/img/iso-badge.png" alt="ISO Certified" class="footer__badge-icon" />
-            </a>
-          </div>
-        </div>
-      `,
+        copyright: `Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.`,
       },
 
       // Cấu hình prism cho syntax highlighting

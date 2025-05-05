@@ -10,7 +10,7 @@ The `UnitConversion` form is used to synchronize unit conversion information for
 
 | Attribute    | Type           | Required | Description          |
 |--------------|----------------|----------|----------------------|
-| ItemCode     | String(32)     | ✔️       | Material code        |
+| ItemCode     | String(32)     | ✔️       | Item code        |
 | Uom          | String(32)     | ✔️       | Unit of measure      |
 | Coefficient  | Decimal(19,8)  | ✔️       | Conversion factor relative to the base unit |
 | Status       | String(1)      |          | {{STATUS}} |

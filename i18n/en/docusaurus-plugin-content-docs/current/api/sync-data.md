@@ -90,6 +90,7 @@ The `SyncData` API supports the following forms:
 
 - [Customer/Supplier Category (setCustomer)](sync-data/setcustomer)
 - [Item Category (setItem)](sync-data/setitem)
+- [Unit Conversion Category (setUomConversion)](sync-data/setuomconversion)
 - [Warehouse Category (setSite)](sync-data/setsite)
 - [Department Category (setDepartment)](sync-data/setdepartment)
 - [Job Category (setJob)](sync-data/setjob)

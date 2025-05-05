@@ -21,6 +21,7 @@ const sidebars = {
           items: [
             'api/sync-data/setcustomer',
             'api/sync-data/setitem',
+            'api/sync-data/setuomconversion',
             'api/sync-data/setsite',
             'api/sync-data/setdepartment',
             'api/sync-data/setjob',

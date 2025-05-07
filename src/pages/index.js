@@ -9,5 +9,5 @@ export default function Home() {
     const isEnglish = location.pathname.includes('/en/');
 
     // Chuyển hướng đến trang tương ứng với ngôn ngữ
-    return isEnglish ? <Redirect to="/en/docs/intro" /> : <Redirect to="/docs/intro" />;
+    return isEnglish ? <Redirect to="/developers/en/docs/intro" /> : <Redirect to="/developers/docs/intro" />;
 }

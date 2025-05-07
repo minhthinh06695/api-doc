@@ -37,7 +37,7 @@ const config = {
 
   // URL của trang web
   url: 'https://fast-api-doc.vercel.app',
-  baseUrl: '/',
+  baseUrl: '/developers/',
 
   // Thông tin GitHub (nếu triển khai trên GitHub Pages)
   organizationName: 'minhthinh06695',
@@ -190,7 +190,7 @@ const config = {
             items: [
               {
                 label: 'API Documentation',
-                to: '/docs/intro',
+                to: '/developers/docs/intro',
               },
               {
                 label: 'Technical Support',

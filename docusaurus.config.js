@@ -33,7 +33,7 @@ const markdownVariables = {
 const config = {
   title: 'Fast Developers',
   tagline: 'Tài liệu API cho nhà phát triển',
-  favicon: 'img/favicon.ico',
+  favicon: './img/favicon.ico',
 
   // URL của trang web
   url: 'https://fast-api-doc.vercel.app',
@@ -137,8 +137,8 @@ const config = {
         title: 'Fast Developers',
         logo: {
           alt: 'Logo',
-          src: 'img/logo.jpg',
-          srcDark: 'img/logo.jpg',
+          src: './img/logo.jpg',
+          srcDark: './img/logo.jpg',
           // Cấu hình href trỏ về trang chủ
           href: '/',
         },
@@ -169,7 +169,7 @@ const config = {
             items: [
               {
                 html: `<a href="https://fast.com.vn" target="_blank" rel="noopener noreferrer" class="footer-link-with-icon">
-                  <img src="/img/logo.svg" alt="Fast" width="20" height="20" />
+                  <img src="/developers/img/logo.svg" alt="Fast" width="20" height="20" />
                   Fast.com.vn
                   <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="external-link-icon">
                     <path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path>
@@ -190,7 +190,7 @@ const config = {
             items: [
               {
                 label: 'API Documentation',
-                to: '/developers/docs/intro',
+                to: './docs/intro',
               },
               {
                 label: 'Technical Support',
@@ -209,21 +209,21 @@ const config = {
                      target="_blank" 
                      rel="noopener noreferrer" 
                      aria-label="Facebook Page">
-                    <img src="/img/facebook-logo.png" alt="Facebook" width="24" height="24" />
+                    <img src="/developers/img/facebook-logo.png" alt="Facebook" width="24" height="24" />
                   </a>
                   <a href="https://zalo.me/757826718183431835" 
                      class="footer-social-link" 
                      target="_blank" 
                      rel="noopener noreferrer" 
                      aria-label="Zalo">
-                    <img src="/img/zalo-icon.svg" alt="Zalo" width="24" height="24" />
+                    <img src="/developers/img/zalo-icon.svg" alt="Zalo" width="24" height="24" />
                   </a>
                   <a href="https://www.youtube.com/@videophanmemfast/featured" 
                      class="footer-social-link" 
                      target="_blank" 
                      rel="noopener noreferrer" 
                      aria-label="Youtube">
-                    <img src="/img/youtube-logo.png" alt="YouTube" width="24" height="24" />
+                    <img src="/developers/img/youtube-logo.png" alt="YouTube" width="24" height="24" />
                   </a>
                 </div>
                 `,

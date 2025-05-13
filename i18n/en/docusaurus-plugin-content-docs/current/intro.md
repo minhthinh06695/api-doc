@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 ---
+
 import ThemedImage from '@theme/ThemedImage';
 
 # Overview
@@ -34,20 +35,20 @@ sequenceDiagram
     else Authentication failed
         Auth_Server-->>Client: 401 Unauthorized
     end
-    
+
     %% Step 2: Send data processing request
     Client->>API_Server: POST /api/SyncVoucher (data, Authorization: {token})
     API_Server->>Auth_Server: Verify token
-    
+
     alt Valid token
         Auth_Server-->>API_Server: Valid token (user info, permissions)
-        
+
         %% Step 3: Data processing
         Note over API_Server: Check access rights
         API_Server->>API_Server: Validate and transform data
         API_Server->>Database: Save data
         Database-->>API_Server: Confirm successful save
-        
+
         %% Step 4: Response
         API_Server-->>Client: 200 OK (processing results)
     else Invalid or expired token
@@ -56,6 +57,7 @@ sequenceDiagram
         Note over Client: Re-authentication required
     end
 ```
+
 <figure style={{textAlign: 'center'}}>
   <figcaption style={{marginTop: '10px', fontSize: '14px', fontStyle: 'italic'}}>
     Figure 1: API Data Processing Flow Diagram
@@ -63,19 +65,23 @@ sequenceDiagram
 </figure>
 
 ### 1. Authentication and Token Retrieval
+
 - Client sends authentication request with login information (username/password).
 - The system verifies the information and creates a token.
 - The token is returned to the client along with its expiration time.
 
 ### 2. Send Data Processing Request
+
 - Client sends a request with the authentication token in the header.
 - API verifies the token and access rights.
 
 ### 3. Data Processing
+
 - Valid data is transformed and saved to the database.
 - The system processes related business logic.
 
 ### 4. Response
+
 - Processing results are returned to the client.
 - In case of an expired token, the system returns an error code requesting the client to re-authenticate.
 
@@ -89,8 +95,8 @@ To start using the API, you need to:
 2. Learn about [authentication and security](./authentication).
 3. Explore the available API endpoints in the list below:
 
-| API | Format | API Defined by |
-|-----|--------|-------|
-| [Category Data Synchronization](./api/sync-data)| POST /api/SyncData | Fast |
-| [Voucher Data Synchronization](./api/sync-voucher)| POST /api/SyncVoucher | Fast |
-| [Get Data](./api/get-data)| POST /api/GetData | Fast |
+| API                                                | Format                | API Defined by |
+| -------------------------------------------------- | --------------------- | -------------- |
+| [Category Data Synchronization](./api/sync-data)   | POST /api/SyncData    | Fast           |
+| [Voucher Data Synchronization](./api/sync-voucher) | POST /api/SyncVoucher | Fast           |
+| [Get Data](./api/get-data)                         | POST /api/GetData     | Fast           |

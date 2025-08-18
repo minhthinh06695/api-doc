@@ -39,6 +39,9 @@ const config = {
   url: 'https://fast-api-doc.vercel.app',
   baseUrl: '/developers/',
 
+  // Loại bỏ trailing slash
+  trailingSlash: false,
+
   // Thông tin GitHub (nếu triển khai trên GitHub Pages)
   organizationName: 'minhthinh06695',
   projectName: 'api-docs',
@@ -139,8 +142,8 @@ const config = {
           alt: 'Logo',
           src: './img/logo.jpg',
           srcDark: './img/logo.jpg',
-          // Cấu hình href trỏ về trang chủ
-          href: '/',
+          // Cấu hình href trỏ về docs thay vì trang chủ
+          href: '/developers/docs/intro',
         },
         items: [
           {
@@ -178,7 +181,7 @@ const config = {
               },
               {
                 html: `<div class="footer-contact-info">
-                  <p><strong>Address:</strong> No. 29, Street No. 18, Ward 4, Hiep Binh Chanh Ward, Thu Duc City, HCM City</p>
+                  <p><strong>Address:</strong> 29 Street 18, Quarter 4, Hiep Binh Ward, Ho Chi Minh City</p>
                   <p><strong>Email:</strong> info@fast.com.vn</p>
                   <p><strong>Hotline:</strong> (028) 7108-8788</p>
                 </div>`,
@@ -190,7 +193,7 @@ const config = {
             items: [
               {
                 label: 'API Documentation',
-                to: './docs/intro',
+                to: '/developers/docs/intro',
               },
               {
                 label: 'Technical Support',

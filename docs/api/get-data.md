@@ -10,10 +10,10 @@ API `GetData` được sử dụng để đối tác lấy thông tin dữ liệ
 
 ## Headers
 
-| Tên | Giá trị | Mô tả |
-|-----|--------|-------|
-| Content-Type | application/json | Kiểu dữ liệu của request |
-| Authorization | your_token_here | Token xác thực |
+| Tên           | Giá trị          | Mô tả                    |
+| ------------- | ---------------- | ------------------------ |
+| Content-Type  | application/json | Kiểu dữ liệu của request |
+| Authorization | your_token_here  | Token xác thực           |
 
 ## Request Body
 
@@ -29,10 +29,11 @@ Request body có cấu trúc như sau:
 ```
 
 Trong đó:
+
 - **form**: Tên form ứng với từng loại dữ liệu danh mục/chứng từ cần lấy
 - **Id**: Mã khóa chính của danh mục/Chứng từ mà đối tác đã đồng bộ sang Fast. Ví dụ:
   - Danh mục khách hàng: mã khách hàng (CustomerCode)
-  - Danh mục vụ việc: mã vụ việc (JobCode) 
+  - Danh mục vụ việc: mã vụ việc (JobCode)
   - Chứng từ: mã chứng từ của đối tác (VoucherId)
 - **dateFrom**: Ngày bắt đầu của khoảng thời gian cập nhật dữ liệu (Modified) trên hệ thống Fast
 - **dateTo**: Ngày kết thúc của khoảng thời gian cập nhật dữ liệu (Modified) trên hệ thống Fast
@@ -52,6 +53,7 @@ Trong đó:
 ```
 
 Trong đó:
+
 - **success**: `true` nếu truy xuất dữ liệu thành công
 - **messages**: Thông báo kết quả
 - **records**: Số lượng bản ghi trả về
@@ -70,14 +72,14 @@ Trong đó:
 
 ## Mã lỗi
 
-| Mã | Mô tả |
-|----|-------|
-| 200 | Thành công |
-| 201 | Form không tồn tại |
-| 202 | Dữ liệu trống |
+| Mã  | Mô tả                |
+| --- | -------------------- |
+| 200 | Thành công           |
+| 201 | Form không tồn tại   |
+| 202 | Dữ liệu trống        |
 | 400 | Request không hợp lệ |
-| 401 | Lỗi xác thực |
-| 500 | Lỗi server |
+| 401 | Lỗi xác thực         |
+| 500 | Lỗi server           |
 | 601 | Lỗi cấu trúc dữ liệu |
 
 ## Các form hỗ trợ
@@ -85,15 +87,17 @@ Trong đó:
 API GetData hỗ trợ, lấy thông tin các form sau:
 
 **Danh mục**
+
 - Danh mục khách hàng/nhà cung cấp (getCustomer)
 - Danh mục vật tư (getItem)
-- Danh mục kho (setSite)
+- Danh mục kho (getSite)
 - Danh mục bộ phận (getDepartment)
 - Danh mục vụ việc (getJob)
 - Danh mục hợp đồng (getContract)
 - Danh mục phí (getExpense)
 
 **Chứng từ**
+
 - Hóa đơn mua hàng (getPurchaseInvoice)
 - Hóa đơn bán hàng (getSaleInvoice)
 - Phiếu nhập hàng bán trả lại (getSaleReturn)
@@ -102,7 +106,8 @@ API GetData hỗ trợ, lấy thông tin các form sau:
 - Phiếu thu tiền mặt (getCashReceipt)
 - Phiếu chi tiền mặt (getCashDisbursement)
 
-**Ngoài ra API `GetData` Còn hỗ trợ** 
+**Ngoài ra API `GetData` Còn hỗ trợ**
+
 - Lấy tồn kho tức thời của vật tư (getStock)
 - Lấy số dư công nợ khách hàng (getBalance)
 
@@ -141,7 +146,7 @@ public class GetDataExample
     public GetDataExample(string authToken)
     {
         _authToken = authToken;
-        _client.DefaultRequestHeaders.Authorization = 
+        _client.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _authToken);
     }
 
@@ -166,7 +171,7 @@ public class GetDataExample
         return JsonConvert.DeserializeObject<ApiResult>(
             await response.Content.ReadAsStringAsync());
     }
-    
+
     public async Task<ApiResult> GetJobsByDateRange(DateTime fromDate, DateTime toDate)
     {
         // Chuẩn bị request body với khoảng thời gian
@@ -201,7 +206,7 @@ public class ApiResult
 
     [JsonProperty("records")]
     public int Records { get; set; }
-    
+
     [JsonProperty("data")]
     public object Data { get; set; }
 

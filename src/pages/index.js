@@ -8,6 +8,6 @@ export default function Home() {
     // Kiểm tra xem URL hiện tại có chứa '/en/' không
     const isEnglish = location.pathname.includes('/en/');
 
-    // Chuyển hướng đến trang tương ứng với ngôn ngữ
-    return isEnglish ? <Redirect to="./en/docs/intro" /> : <Redirect to="./docs/intro" />;
+    // Chuyển hướng đến trang tương ứng với ngôn ngữ (không có trailing slash)
+    return isEnglish ? <Redirect to="/developers/en/docs/intro" /> : <Redirect to="/developers/docs/intro" />;
 }

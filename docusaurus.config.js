@@ -181,7 +181,7 @@ const config = {
               },
               {
                 html: `<div class="footer-contact-info">
-                  <p><strong>Address:</strong> 29 Street 18, Quarter 4, Hiep Binh Ward, Ho Chi Minh City</p>
+                  <p><strong>Address:</strong> No. 29, Street 18, Quarter 39, Hiep Binh Ward, Ho Chi Minh City</p>
                   <p><strong>Email:</strong> info@fast.com.vn</p>
                   <p><strong>Hotline:</strong> (028) 7108-8788</p>
                 </div>`,

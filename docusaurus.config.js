@@ -143,7 +143,7 @@ const config = {
           src: './img/logo.jpg',
           srcDark: './img/logo.jpg',
           // Cấu hình href trỏ về docs thay vì trang chủ
-          href: '/developers/docs/intro',
+          href: '/docs/intro',
         },
         items: [
           {
@@ -181,7 +181,7 @@ const config = {
               },
               {
                 html: `<div class="footer-contact-info">
-                  <p><strong>Address:</strong> No. 29, Street 18, Quarter 39, Hiep Binh Ward, Ho Chi Minh City</p>
+                  <p><strong>Address:</strong> 29 Street 18, Quarter 39, Hiep Binh Ward, Ho Chi Minh City</p>
                   <p><strong>Email:</strong> info@fast.com.vn</p>
                   <p><strong>Hotline:</strong> (028) 7108-8788</p>
                 </div>`,
@@ -193,7 +193,7 @@ const config = {
             items: [
               {
                 label: 'API Documentation',
-                to: '/developers/docs/intro',
+                to: '/docs/intro',
               },
               {
                 label: 'Technical Support',

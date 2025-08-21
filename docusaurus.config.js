@@ -39,9 +39,6 @@ const config = {
   url: 'https://fast-api-doc.vercel.app',
   baseUrl: '/developers/',
 
-  // Loại bỏ trailing slash
-  trailingSlash: false,
-
   // Thông tin GitHub (nếu triển khai trên GitHub Pages)
   organizationName: 'minhthinh06695',
   projectName: 'api-docs',

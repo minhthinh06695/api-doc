@@ -5,8 +5,16 @@
  */
 const sidebars = {
   tutorialSidebar: [
-    'intro',
-    'authentication',
+    {
+      type: 'doc',
+      id: 'intro',
+      label: '🏠 Tổng quan',
+    },
+    {
+      type: 'doc',
+      id: 'authentication',
+      label: '🔐 Xác thực & Quyền',
+    },
     {
       type: 'category',
       label: 'Danh sách API',

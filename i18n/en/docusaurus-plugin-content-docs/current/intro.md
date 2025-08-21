@@ -4,11 +4,11 @@ sidebar_position: 1
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Overview
+# Fast ERP API Documentation
 
-## What is FastAPI?
+## Introduction
 
-FastAPI is an API system developed to receive data from partners and synchronize it into internal systems. The API is built on the .NET platform, providing the ability to receive master data, vouchers, and transaction data from partner systems.
+Explore our guides to find your suitable solutions by familiarizing yourself with our latest documentation including bussiness models, developer guides, API reference and more...
 
 ## Key Features
 

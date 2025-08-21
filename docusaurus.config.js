@@ -12,20 +12,18 @@ const markdownVariables = {
   IS_SITEAGENT: 'Kho đại lý <br/>&nbsp;`1` : Có<br/>&nbsp;`0` : Không',
   ZERO_DEFAULT: '**Default:** `0`',
   VC_STATUS: 'Trạng thái<br/>&nbsp;`"1"` : Thêm mới<br/>&nbsp;`"0"` : Xóa/Hủy chứng từ<br/> **Default:** `"1"`',
-
   PROMOTION: 'Khuyến mãi <br/>&nbsp;`0` : Hàng bán<br/>&nbsp;`1` : Hàng khuyến mãi<br/> **Default:** `0`',
 
-  // === Biến Tiếng Anh (Thêm mới) ===
+  // === Biến Tiếng Anh ===
   CURRENCY_DEFAULT_EN: '**Default:** `"VND"`',
   EXRATE_DEFAULT_EN: '**Default:** `1`',
   TAX_RATE_EN: '**Tax Rate**. Accepts numeric values:<br/>* `0` : 0% Tax Rate<br/>* `5` : 5% Tax Rate<br/>* `8` : 8% Tax Rate<br/>* `10` : 10% Tax Rate<br/>* `-1` : Non-taxable.<br/>* `-2` : Not declared/calculated.<br/>',
   STATUS_EN: 'Status<br/>&nbsp;`"1"` : Active<br/>&nbsp;`"0"` : Inactive',
   IS_SUPPLIER_EN: 'Is Supplier<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No',
   IS_EMPLOYEE_EN: 'Is Employee<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No',
-  IS_SITEAGENT_EN: 'Site Agent<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No', // "Site Agent" là một cách dịch phổ biến, hoặc có thể là "Agent Warehouse" tùy ngữ cảnh
+  IS_SITEAGENT_EN: 'Site Agent<br/>&nbsp;`1` : Yes<br/>&nbsp;`0` : No',
   ZERO_DEFAULT_EN: '**Default:** `0`',
   VC_STATUS_EN: 'Status<br/>`"1"` : Create new document<br/>`"0"` : Delete/Cancel document<br/> **Default:** `1`',
-
   PROMOTION_EN: 'Promotion <br/>&nbsp;`0` : Selling goods<br/>&nbsp;`1` : Promotional goods<br/> **Default:** `0`',
 };
 
@@ -35,18 +33,15 @@ const config = {
   tagline: 'Tài liệu API cho nhà phát triển',
   favicon: './img/favicon.ico',
 
-  // URL của trang web
-  url: 'https://fast-api-doc.vercel.app',
+  url: 'https://dev.fast.com.vn',
   baseUrl: '/developers/',
 
-  // Thông tin GitHub (nếu triển khai trên GitHub Pages)
   organizationName: 'minhthinh06695',
   projectName: 'api-docs',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  // Ngôn ngữ
   i18n: {
     defaultLocale: 'vi',
     locales: ['vi', 'en'],
@@ -69,15 +64,6 @@ const config = {
 
   themes: ['@docusaurus/theme-mermaid'],
 
-  plugins: [
-    [
-      './plugins/markdown-variables-plugin',
-      {
-        variables: markdownVariables,
-      },
-    ],
-  ],
-
   presets: [
     [
       'classic',
@@ -85,14 +71,10 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Thêm link chỉnh sửa (nếu muốn)
           editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master/docs',
-          // Hiển thị thông tin cập nhật
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          // Đường dẫn cơ bản - thay đổi lại thành 'docs' để sử dụng cùng với trang chuyển hướng
           routeBasePath: 'docs',
-          // Thêm hai dòng này vào đây
           sidebarCollapsible: true,
           sidebarItemsGenerator: async function ({
             defaultSidebarItemsGenerator,
@@ -105,7 +87,7 @@ const config = {
             }));
           },
         },
-        blog: false, // Tắt tính năng blog nếu không cần
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -113,11 +95,42 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      './plugins/markdown-variables-plugin',
+      {
+        variables: markdownVariables,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'hsm',
+        path: 'hsm',
+        routeBasePath: 'hsm',
+        sidebarPath: require.resolve('./sidebars-hsm.js'),
+        editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master/hsm',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+      [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'econtract',
+        path: 'econtract',
+        routeBasePath: 'econtract',
+        sidebarPath: require.resolve('./sidebars-econtract.js'),
+        editUrl: 'https://github.com/minhthinh06695/api-doc/tree/master/econtract',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Chế độ màu
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
@@ -127,27 +140,38 @@ const config = {
       docs: {
         sidebar: {
           hideable: true,
-          autoCollapseCategories: false, // Đổi từ true thành false
+          autoCollapseCategories: false,
         },
       },
 
-
-      // Thay logo
       navbar: {
         title: 'Fast Developers',
         logo: {
           alt: 'Logo',
           src: './img/logo.jpg',
           srcDark: './img/logo.jpg',
-          // Cấu hình href trỏ về docs thay vì trang chủ
-          href: '/docs/intro',
+          href: '/',
         },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tài liệu API', // Nhãn này sẽ được dịch qua i18n/en.json
+            label: 'Fast ERP',
+          },
+          {
+            type: 'docSidebar',
+            docsPluginId: 'hsm',
+            sidebarId: 'hsmSidebar',
+            position: 'left',
+            label: 'Fast HSM',
+          },
+          {
+            type: 'docSidebar',
+            docsPluginId: 'econtract',
+            sidebarId: 'econtractSidebar',
+            position: 'left',
+            label: 'Fast e-Contract',
           },
           {
             type: 'localeDropdown',
@@ -157,15 +181,16 @@ const config = {
             href: 'https://github.com/minhthinh06695/api-doc',
             position: 'right',
             className: 'header-github-link',
-            'aria-label': 'GitHub repository', // Nhãn này sẽ được dịch qua i18n/en.json
+            'aria-label': 'GitHub repository',
           },
         ],
       },
+
       footer: {
         style: 'dark',
         links: [
           {
-            title: 'About Us', // Tiêu đề này sẽ được dịch qua i18n/en.json
+            title: 'About Us',
             items: [
               {
                 html: `<a href="https://fast.com.vn" target="_blank" rel="noopener noreferrer" class="footer-link-with-icon">
@@ -230,25 +255,21 @@ const config = {
               }
             ],
           },
-
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Fast Software Company, Inc.`,
       },
 
-      // Cấu hình prism cho syntax highlighting
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
         additionalLanguages: ['php', 'java', 'csharp', 'http', 'json', 'bash', 'powershell'],
       },
 
-      // Cấu hình bảng mục lục bên phải
       tableOfContents: {
         minHeadingLevel: 2,
         maxHeadingLevel: 4,
       },
 
-      // Metadata cho SEO
       metadata: [
         { name: 'keywords', content: 'api, documentation, fastapi, ecx, sync data, sync voucher, setCustomer, setjob, setitem' },
         { name: 'description', content: 'Tài liệu API chính thức cho FastAPI' },

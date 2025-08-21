@@ -586,3 +586,65 @@ html[lang="en"] .navbar__item[data-locale-specific="vi"] {
   font-style: normal;
   font-display: swap;
 }
+
+/* src/css/custom.css */
+
+/* === Cách 1: Chỉ dùng CSS Variables (Đơn giản nhất) === */
+
+:root {
+  /* Navbar settings */
+  --ifm-navbar-height: 60px;
+  --ifm-navbar-padding-horizontal: 0; /* Reset padding */
+  --ifm-navbar-background-color: #fff;
+  --ifm-navbar-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  /* Sidebar settings */
+  --doc-sidebar-width: 300px; /* Width của sidebar */
+  
+  /* Custom variables */
+  --navbar-brand-width: var(--doc-sidebar-width); /* Logo area width */
+  --navbar-content-offset: 2rem; /* Khoảng cách menu từ đường kẻ dọc */
+}
+
+/* === Cách 2: Minimal CSS cho layout MoMo === */
+
+/* Container chính của navbar */
+.navbar__inner {
+  padding: 0 !important;
+  max-width: none !important;
+}
+
+/* Logo area có width cố định */
+.navbar__brand {
+  width: var(--navbar-brand-width) !important;
+  padding: 0 1rem !important;
+  /* border-right: 1px solid var(--ifm-color-emphasis-200) !important; */
+  justify-content: flex-start !important;
+}
+
+/* Menu items dịch chuyển ra sau đường kẻ dọc */
+.navbar__items--left {
+  margin-left: var(--navbar-content-offset) !important;
+}
+
+/* Responsive */
+@media (max-width: 996px) {
+  .navbar__brand {
+    width: auto !important;
+    /* border-right: none !important; */
+  }
+  
+  .navbar__items--left {
+    margin-left: 1rem !important;
+  }
+}
+
+/* === Cách 3: Dark mode support === */
+
+[data-theme='dark'] {
+  --ifm-navbar-background-color: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .navbar__brand {
+  /* border-right-color: var(--ifm-color-emphasis-300) !important; */
+}

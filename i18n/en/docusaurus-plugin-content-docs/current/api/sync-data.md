@@ -2,7 +2,7 @@
 title: Synchronize Master Data
 ---
 
-# Synchronize Master Data
+# Master Data
 
 The `SyncData` API is used to synchronize master data (categories) from the partner's system into the internal system. This API supports synchronizing simple, non-hierarchical data.
 
@@ -14,10 +14,10 @@ The `SyncData` API is used to synchronize master data (categories) from the part
 
 ## Headers
 
-| Name           | Value               | Description            |
-|----------------|---------------------|------------------------|
-| Content-Type   | application/json    | The data type of the request |
-| Authorization  | your_token_here     | Authentication token   |
+| Name          | Value            | Description                  |
+| ------------- | ---------------- | ---------------------------- |
+| Content-Type  | application/json | The data type of the request |
+| Authorization | your_token_here  | Authentication token         |
 
 ## Request Body
 
@@ -38,6 +38,7 @@ The request body has the following structure:
 ```
 
 Where:
+
 - **form**: The form name defined in the synchronization details of each category.
 - **data**: An array of objects containing the data to be synchronized.
 
@@ -56,6 +57,7 @@ Where:
 ```
 
 Where:
+
 - **success**: `true` if the synchronization is successful.
 - **messages**: Result message.
 - **records**: Number of records synchronized.
@@ -74,15 +76,15 @@ Where:
 
 ## Error Codes
 
-| Code | Description                     |
-|------|---------------------------------|
-| 200  | Success                         |
-| 201  | Form does not exist             |
-| 202  | Data is empty                   |
-| 400  | Invalid request                 |
-| 401  | Authentication error            |
-| 500  | Server error                    |
-| 601  | Data structure error            |
+| Code | Description          |
+| ---- | -------------------- |
+| 200  | Success              |
+| 201  | Form does not exist  |
+| 202  | Data is empty        |
+| 400  | Invalid request      |
+| 401  | Authentication error |
+| 500  | Server error         |
+| 601  | Data structure error |
 
 ## Supported Forms
 
@@ -133,7 +135,7 @@ public class SyncDataExample
     public SyncDataExample(string authToken)
     {
         _authToken = authToken;
-        _client.DefaultRequestHeaders.Authorization = 
+        _client.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _authToken);
     }
 

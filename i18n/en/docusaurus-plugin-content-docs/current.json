@@ -3,16 +3,24 @@
     "message": "Next",
     "description": "The label for version current"
   },
+  "sidebar.tutorialSidebar.doc.🏠 Tổng quan": {
+    "message": "🏠 Overview",
+    "description": "The label for doc Overview in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.doc.🔐 Xác thực & Quyền": {
+    "message": "🔐 Authentication & Permissions",
+    "description": "The label for doc Authentication & Permissions in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.Danh sách API": {
     "message": "API Reference",
     "description": "The label for category Danh sách API in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Đồng bộ danh mục": {
-    "message": "Master Data Synchronization",
+    "message": "Master Data Sync",
     "description": "The label for category Đồng bộ danh mục in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Đồng bộ chứng từ": {
-    "message": "Document Synchronization",
+    "message": "Document Sync",
     "description": "The label for category Đồng bộ chứng từ in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Lấy dữ liệu": {

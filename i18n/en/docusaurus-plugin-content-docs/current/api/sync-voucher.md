@@ -1,4 +1,4 @@
-# Synchronize Vouchers
+# Vouchers
 
 The `SyncVoucher` API is used to synchronize complex hierarchical vouchers (such as invoices or orders with details). This API supports synchronizing data with a hierarchical JSON structure instead of the simpler structure used by the [Sync Data API](./sync-data).
 
@@ -10,10 +10,10 @@ The `SyncVoucher` API is used to synchronize complex hierarchical vouchers (such
 
 ## Headers
 
-| Name           | Value               | Description            |
-|----------------|---------------------|------------------------|
-| Content-Type   | application/json    | The data type of the request |
-| Authorization  | your_token_here     | Authentication token   |
+| Name          | Value            | Description                  |
+| ------------- | ---------------- | ---------------------------- |
+| Content-Type  | application/json | The data type of the request |
+| Authorization | your_token_here  | Authentication token         |
 
 ## Request Body
 
@@ -47,6 +47,7 @@ The request body has the following structure:
 ```
 
 Where:
+
 - **form**: The form name defined in the synchronization details of each voucher.
 - **data**: An array of voucher objects, each of which may contain sub-arrays representing child tables.
 
@@ -65,6 +66,7 @@ Where:
 ```
 
 Where:
+
 - **success**: `true` if the synchronization is successful.
 - **messages**: Result message.
 - **records**: Number of records synchronized.
@@ -83,15 +85,15 @@ Where:
 
 ## Error Codes
 
-| Code | Description                     |
-|------|---------------------------------|
-| 200  | Success                         |
-| 201  | Form does not exist             |
-| 202  | Data is empty                   |
-| 400  | Invalid request                 |
-| 401  | Authentication error            |
-| 500  | Server error                    |
-| 601  | Data structure error            |
+| Code | Description          |
+| ---- | -------------------- |
+| 200  | Success              |
+| 201  | Form does not exist  |
+| 202  | Data is empty        |
+| 400  | Invalid request      |
+| 401  | Authentication error |
+| 500  | Server error         |
+| 601  | Data structure error |
 
 ## Supported Forms
 
@@ -104,6 +106,7 @@ The `SyncVoucher` API supports the following forms:
 - [Issue Voucher (setIssue)](sync-voucher/setissue)
 - [Cash Receipt Voucher (setCashReceipt)](sync-voucher/setcashreceipt)
 - [Cash Disbursement Voucher (setCashDisbursement)](sync-voucher/setcashdisbursement)
+
 ## Handling Hierarchical Data
 
 ### Relationship Between Tables
@@ -155,7 +158,7 @@ public class SyncPurchaseInvoice
     public SyncPurchaseInvoice(string authToken)
     {
         _authToken = authToken;
-        _client.DefaultRequestHeaders.Authorization = 
+        _client.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _authToken);
     }
 

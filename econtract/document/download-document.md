@@ -6,9 +6,9 @@ sidebar_position: 4
 
 ## Endpoint
 
-```
-POST /api/econ/downloadDocument
-```
+> ```http
+> POST /api/econ/downloadDocument
+> ```
 
 ## Mô tả
 
@@ -168,7 +168,7 @@ const downloadFromUrl = (downloadUrl, fileName) => {
 ### cURL
 
 ```bash
-curl -X POST http://domain:port/api/econ/downloadDocument \
+curl -X POST https://domain/api/econ/downloadDocument \
   -H "Content-Type: application/json" \
   -H "Authorization: your_access_token" \
   -d '{
@@ -181,19 +181,16 @@ curl -X POST http://domain:port/api/econ/downloadDocument \
 ```javascript
 const downloadDocument = async (documentId, token) => {
   try {
-    const response = await fetch(
-      "http://domain:port/api/econ/downloadDocument",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          documentId: documentId,
-        }),
-      }
-    );
+    const response = await fetch("https://domain/api/econ/downloadDocument", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        documentId: documentId,
+      }),
+    });
 
     const result = await response.json();
 
@@ -283,7 +280,7 @@ public async Task<byte[]> DownloadDocumentAsync(string documentId, string token)
     var json = JsonSerializer.Serialize(request);
     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-    var response = await client.PostAsync("http://domain:port/api/econ/downloadDocument", content);
+    var response = await client.PostAsync("https://domain/api/econ/downloadDocument", content);
     var responseJson = await response.Content.ReadAsStringAsync();
     var result = JsonSerializer.Deserialize<DownloadDocumentResponse>(responseJson);
 
@@ -302,58 +299,6 @@ public async Task<byte[]> DownloadDocumentAsync(string documentId, string token)
         throw new Exception($"Error {result.code}: {result.message}");
     }
 }
-```
-
-### PHP
-
-```php
-<?php
-function downloadDocument($documentId, $token) {
-    $data = array('documentId' => $documentId);
-
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n" .
-                        "Authorization: $token\r\n",
-            'method'  => 'POST',
-            'content' => json_encode($data)
-        )
-    );
-
-    $context = stream_context_create($options);
-    $result = file_get_contents('http://domain:port/api/econ/downloadDocument', false, $context);
-    $response = json_decode($result, true);
-
-    if ($response['success']) {
-        // Decode base64 content
-        $pdfContent = base64_decode($response['data']['fileContent']);
-
-        // Save to file
-        $fileName = $response['data']['fileName'];
-        file_put_contents($fileName, $pdfContent);
-
-        return $response['data'];
-    } else {
-        throw new Exception("Error {$response['code']}: {$response['message']}");
-    }
-}
-
-// Sử dụng
-try {
-    $token = 'your_access_token';
-    $downloadData = downloadDocument('DOC_12345678', $token);
-
-    echo "Downloaded: {$downloadData['fileName']}\n";
-    echo "File size: {$downloadData['fileSize']} bytes\n";
-    echo "Signatures: " . count($downloadData['signatures']) . "\n";
-
-    foreach ($downloadData['signatures'] as $signature) {
-        echo "- {$signature['signerName']} signed at {$signature['signedAt']}\n";
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-?>
 ```
 
 ## Use Cases
@@ -391,17 +336,14 @@ const downloadMultipleDocuments = async (documentIds, token) => {
 ```javascript
 const previewDocument = async (documentId, token) => {
   try {
-    const response = await fetch(
-      "http://domain:port/api/econ/downloadDocument",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({ documentId }),
-      }
-    );
+    const response = await fetch("https://domain/api/econ/downloadDocument", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify({ documentId }),
+    });
 
     const result = await response.json();
 

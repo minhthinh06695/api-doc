@@ -6,9 +6,9 @@ sidebar_position: 3
 
 ## Endpoint
 
-```
-POST /api/econ/getDocumentHistory
-```
+> ```http
+> POST /api/econ/getDocumentHistory
+> ```
 
 ## Mô tả
 
@@ -197,7 +197,7 @@ API này yêu cầu token xác thực. Vui lòng tham khảo [GetToken API](/eco
 ### cURL
 
 ```bash
-curl -X POST http://domain:port/api/econ/getDocumentHistory \
+curl -X POST https://domain/api/econ/getDocumentHistory \
   -H "Content-Type: application/json" \
   -H "Authorization: your_access_token" \
   -d '{
@@ -210,19 +210,16 @@ curl -X POST http://domain:port/api/econ/getDocumentHistory \
 ```javascript
 const getDocumentHistory = async (documentId, token) => {
   try {
-    const response = await fetch(
-      "http://domain:port/api/econ/getDocumentHistory",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          documentId: documentId,
-        }),
-      }
-    );
+    const response = await fetch("https://domain/api/econ/getDocumentHistory", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        documentId: documentId,
+      }),
+    });
 
     const result = await response.json();
 
@@ -301,7 +298,7 @@ public async Task<DocumentHistoryData> GetDocumentHistoryAsync(string documentId
     var json = JsonSerializer.Serialize(request);
     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-    var response = await client.PostAsync("http://domain:port/api/econ/getDocumentHistory", content);
+    var response = await client.PostAsync("https://domain/api/econ/getDocumentHistory", content);
     var responseJson = await response.Content.ReadAsStringAsync();
     var result = JsonSerializer.Deserialize<GetDocumentHistoryResponse>(responseJson);
 
@@ -314,51 +311,6 @@ public async Task<DocumentHistoryData> GetDocumentHistoryAsync(string documentId
         throw new Exception($"Error {result.code}: {result.message}");
     }
 }
-```
-
-### PHP
-
-```php
-<?php
-function getDocumentHistory($documentId, $token) {
-    $data = array('documentId' => $documentId);
-
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n" .
-                        "Authorization: $token\r\n",
-            'method'  => 'POST',
-            'content' => json_encode($data)
-        )
-    );
-
-    $context = stream_context_create($options);
-    $result = file_get_contents('http://domain:port/api/econ/getDocumentHistory', false, $context);
-    $response = json_decode($result, true);
-
-    if ($response['success']) {
-        return $response['data'];
-    } else {
-        throw new Exception("Error {$response['code']}: {$response['message']}");
-    }
-}
-
-// Sử dụng
-try {
-    $token = 'your_access_token';
-    $history = getDocumentHistory('DOC_12345678', $token);
-
-    echo "Document {$history['documentId']} history:\n";
-
-    foreach ($history['history'] as $entry) {
-        $time = date('Y-m-d H:i:s', strtotime($entry['timestamp']));
-        echo "- {$entry['actionName']} by {$entry['performerName']} at $time\n";
-        echo "  Details: {$entry['details']}\n\n";
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-?>
 ```
 
 ## Use Cases

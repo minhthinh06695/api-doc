@@ -6,9 +6,9 @@ sidebar_position: 1
 
 ## Endpoint
 
-```
-POST /api/econ/createDocument
-```
+> ```http
+> POST /api/econ/createDocument
+> ```
 
 ## Mô tả
 
@@ -180,7 +180,7 @@ API này yêu cầu token xác thực. Vui lòng tham khảo [GetToken API](/eco
 ### cURL
 
 ```bash
-curl -X POST http://domain:port/api/econ/createDocument \
+curl -X POST https://domain/api/econ/createDocument \
   -H "Content-Type: application/json" \
   -H "Authorization: your_access_token" \
   -d '{
@@ -226,7 +226,7 @@ const createDocument = async (
       ...options, // completionEmails, deadline, callbackUrl, metadata
     };
 
-    const response = await fetch("http://domain:port/api/econ/createDocument", {
+    const response = await fetch("https://domain/api/econ/createDocument", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -356,7 +356,7 @@ public async Task<DocumentData> CreateDocumentAsync(
     var json = JsonSerializer.Serialize(request);
     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-    var response = await client.PostAsync("http://domain:port/api/econ/createDocument", content);
+    var response = await client.PostAsync("https://domain/api/econ/createDocument", content);
     var responseJson = await response.Content.ReadAsStringAsync();
     var result = JsonSerializer.Deserialize<CreateDocumentResponse>(responseJson);
 
@@ -369,80 +369,6 @@ public async Task<DocumentData> CreateDocumentAsync(
         throw new Exception($"Error {result.code}: {result.message}");
     }
 }
-```
-
-### PHP
-
-```php
-<?php
-function createDocument($templateCode, $documentData, $signers, $options = [], $token) {
-    $requestData = array(
-        'templateCode' => $templateCode,
-        'documentData' => $documentData,
-        'signers' => $signers
-    );
-
-    // Merge với options
-    $requestData = array_merge($requestData, $options);
-
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n" .
-                        "Authorization: $token\r\n",
-            'method'  => 'POST',
-            'content' => json_encode($requestData)
-        )
-    );
-
-    $context = stream_context_create($options);
-    $result = file_get_contents('http://domain:port/api/econ/createDocument', false, $context);
-    $response = json_decode($result, true);
-
-    if ($response['success']) {
-        return $response['data'];
-    } else {
-        throw new Exception("Error {$response['code']}: {$response['message']}");
-    }
-}
-
-// Sử dụng
-try {
-    $token = 'your_access_token';
-
-    $docData = array(
-        'buyer_name' => 'Công ty ABC',
-        'seller_name' => 'Công ty XYZ',
-        'contract_date' => '2024-08-21',
-        'total_amount' => 1000000000
-    );
-
-    $signers = array(
-        array(
-            'email' => 'signer1@company.com',
-            'fullName' => 'Nguyễn Văn A',
-            'role' => 'BUYER',
-            'order' => 1
-        ),
-        array(
-            'email' => 'signer2@company.com',
-            'fullName' => 'Trần Thị B',
-            'role' => 'SELLER',
-            'order' => 2
-        )
-    );
-
-    $options = array(
-        'deadline' => '2024-08-31',
-        'callbackUrl' => 'https://yourapp.com/webhook/econtract'
-    );
-
-    $document = createDocument('TEMPLATE_001', $docData, $signers, $options, $token);
-    echo "Document created: " . $document['documentId'];
-
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-?>
 ```
 
 ## Validation Examples

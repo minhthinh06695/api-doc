@@ -6,9 +6,9 @@ sidebar_position: 1
 
 ## Endpoint
 
-```
-POST /api/econ/getToken
-```
+> ```http
+> GET /api/econ/getToken?entity={entity}&token={token}
+> ```
 
 ## Mô tả
 
@@ -20,24 +20,15 @@ Lấy accessToken để phục vụ cho việc truy cập các API khác trong h
 Content-Type: application/json
 ```
 
-## Request Body
-
-```json
-{
-  "username": "{user}",
-  "password": "{password}"
-}
-```
-
 ## Tham số
 
-| Attribute  | Type   | Required | Description            |
-| ---------- | ------ | -------- | ---------------------- |
-| `username` | string | ✔️       | Tên đăng nhập được cấp |
-| `password` | string | ✔️       | Mật khẩu được cấp      |
+| Attribute | Type   | Required | Description               |
+| --------- | ------ | -------- | ------------------------- |
+| `entity`  | string | ✔️       | Mã kết nối của khách hàng |
+| `token`   | string | ✔️       | token kết nối             |
 
 :::info Lưu ý
-`username` và `password` sẽ được Fast cung cấp khi đối tác đăng ký thành công dịch vụ Fast e-Contract.
+`entity` và `token` sẽ được Fast cung cấp khi đối tác đăng ký thành công dịch vụ Fast e-Contract.
 :::
 
 ## Response
@@ -94,29 +85,23 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ### cURL
 
 ```bash
-curl -X POST http://domain:port/api/econ/getToken \
-  -H "Content-Type: application/json" \
-  -d '{
-    "username": "your_username",
-    "password": "your_password"
-  }'
+curl --location 'https://{domian}/api/econ/getToken?entity={entity}&token={token}
 ```
 
 ### JavaScript
 
 ```javascript
-const getToken = async (username, password) => {
+const getToken = async (entity, token) => {
   try {
-    const response = await fetch("http://domain:port/api/econ/getToken", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-    });
+    const response = await fetch(
+      `https://{domain}/api/econ/getToken?entity=${entity}&token=${token}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const result = await response.json();
 
@@ -133,8 +118,12 @@ const getToken = async (username, password) => {
 };
 
 // Sử dụng
-const token = await getToken("your_username", "your_password");
-if (token) {
+const accessToken = await getToken(
+  "000004",
+  "6fa7cb23bc8649c2b57445f822d30093"
+);
+
+if (accessToken) {
   console.log("Authentication successful!");
 }
 ```
@@ -143,13 +132,6 @@ if (token) {
 
 ```csharp
 using System.Text.Json;
-using System.Text;
-
-public class AuthRequest
-{
-    public string username { get; set; }
-    public string password { get; set; }
-}
 
 public class AuthResponse
 {
@@ -164,65 +146,36 @@ public class AuthData
     public string accessToken { get; set; }
 }
 
-// Sử dụng
-var client = new HttpClient();
-var request = new AuthRequest
+public async Task<string> GetTokenAsync(string entity, string token)
 {
-    username = "your_username",
-    password = "your_password"
-};
+    var client = new HttpClient();
 
-var json = JsonSerializer.Serialize(request);
-var content = new StringContent(json, Encoding.UTF8, "application/json");
+    var url = $"https://{{domain}}/api/econ/getToken?entity={entity}&token={token}";
 
-var response = await client.PostAsync("http://domain:port/api/econ/getToken", content);
-var responseJson = await response.Content.ReadAsStringAsync();
-var result = JsonSerializer.Deserialize<AuthResponse>(responseJson);
+    var response = await client.GetAsync(url);
+    var responseJson = await response.Content.ReadAsStringAsync();
+    var result = JsonSerializer.Deserialize<AuthResponse>(responseJson);
 
-if (result.success)
-{
-    var token = result.data.accessToken;
-    // Sử dụng token cho các API khác
-}
-```
-
-### PHP
-
-```php
-<?php
-function getToken($username, $password) {
-    $data = array(
-        'username' => $username,
-        'password' => $password
-    );
-
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n",
-            'method'  => 'POST',
-            'content' => json_encode($data)
-        )
-    );
-
-    $context = stream_context_create($options);
-    $result = file_get_contents('http://domain:port/api/econ/getToken', false, $context);
-    $response = json_decode($result, true);
-
-    if ($response['success']) {
-        return $response['data']['accessToken'];
-    } else {
-        throw new Exception($response['message']);
+    if (result.success)
+    {
+        return result.data.accessToken;
+    }
+    else
+    {
+        throw new Exception(result.message);
     }
 }
 
 // Sử dụng
-try {
-    $token = getToken('your_username', 'your_password');
-    echo "Token: " . $token;
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
+try
+{
+    var accessToken = await GetTokenAsync("000004", "6fa7cb23bc8649c2b57445f822d30093");
+    // Sử dụng accessToken cho các API khác
 }
-?>
+catch (Exception ex)
+{
+    Console.WriteLine($"Error: {ex.Message}");
+}
 ```
 
 ## Bảo mật Token

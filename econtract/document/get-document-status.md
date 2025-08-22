@@ -6,9 +6,9 @@ sidebar_position: 2
 
 ## Endpoint
 
-```
-POST /api/econ/getDocumentStatus
-```
+> ```http
+> POST /api/econ/getDocumentStatus
+> ```
 
 ## Mô tả
 
@@ -181,7 +181,7 @@ Tối đa 100 document IDs trong một request để đảm bảo hiệu suất.
 ### cURL
 
 ```bash
-curl -X POST http://domain:port/api/econ/getDocumentStatus \
+curl -X POST https://domain/api/econ/getDocumentStatus \
   -H "Content-Type: application/json" \
   -H "Authorization: your_access_token" \
   -d '{
@@ -194,19 +194,16 @@ curl -X POST http://domain:port/api/econ/getDocumentStatus \
 ```javascript
 const getDocumentStatus = async (documentIds, token) => {
   try {
-    const response = await fetch(
-      "http://domain:port/api/econ/getDocumentStatus",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          documentIds: documentIds,
-        }),
-      }
-    );
+    const response = await fetch("https://domain/api/econ/getDocumentStatus", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        documentIds: documentIds,
+      }),
+    });
 
     const result = await response.json();
 
@@ -299,66 +296,12 @@ public async Task<DocumentStatus[]> GetDocumentStatusAsync(string[] documentIds,
     var json = JsonSerializer.Serialize(request);
     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-    var response = await client.PostAsync("http://domain:port/api/econ/getDocumentStatus", content);
+    var response = await client.PostAsync("https://domain/api/econ/getDocumentStatus", content);
     var responseJson = await response.Content.ReadAsStringAsync();
     var result = JsonSerializer.Deserialize<GetDocumentStatusResponse>(responseJson);
 
     return result.success ? result.data.arr_status : new DocumentStatus[0];
 }
-```
-
-### PHP
-
-```php
-<?php
-function getDocumentStatus($documentIds, $token) {
-    $data = array('documentIds' => $documentIds);
-
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n" .
-                        "Authorization: $token\r\n",
-            'method'  => 'POST',
-            'content' => json_encode($data)
-        )
-    );
-
-    $context = stream_context_create($options);
-    $result = file_get_contents('http://domain:port/api/econ/getDocumentStatus', false, $context);
-    $response = json_decode($result, true);
-
-    if ($response['success']) {
-        return $response['data']['arr_status'];
-    } else {
-        throw new Exception($response['message']);
-    }
-}
-
-// Sử dụng
-try {
-    $token = 'your_access_token';
-    $documentIds = array('DOC_12345678', 'DOC_87654321');
-
-    $statuses = getDocumentStatus($documentIds, $token);
-
-    foreach ($statuses as $doc) {
-        echo "Document {$doc['id']}: {$doc['statusName']}\n";
-
-        $signedCount = 0;
-        $totalSigners = count($doc['sign_process']);
-
-        foreach ($doc['sign_process'] as $signer) {
-            if ($signer['status'] === 'SIGNED') {
-                $signedCount++;
-            }
-        }
-
-        echo "Progress: $signedCount/$totalSigners signed\n\n";
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-?>
 ```
 
 ## Use Cases

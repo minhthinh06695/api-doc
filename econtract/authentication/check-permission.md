@@ -6,9 +6,9 @@ sidebar_position: 3
 
 ## Endpoint
 
-```
-POST /api/econ/checkUserAuthen
-```
+> ```http
+> POST /api/econ/checkUserAuthen?user={userName}&templateCode={templateCode}
+> ```
 
 ## Mô tả
 
@@ -25,15 +25,6 @@ Authorization: {accessToken}
 API này yêu cầu token xác thực. Vui lòng tham khảo [GetToken API](/econtract/authentication/get-token) để lấy token.
 :::
 
-## Request Body
-
-```json
-{
-  "username": "{user}",
-  "templateCode": "{template_code}"
-}
-```
-
 ## Tham số
 
 | Attribute      | Type   | Required | Description                    |
@@ -48,16 +39,11 @@ API này yêu cầu token xác thực. Vui lòng tham khảo [GetToken API](/eco
 ```json
 {
   "success": true,
-  "message": "User has permission",
+  "message": "Successfully",
   "code": 200,
   "data": {
-    "hasPermission": true,
-    "permissions": ["CREATE", "VIEW", "EDIT"],
-    "templateInfo": {
-      "code": "TEMPLATE_001",
-      "name": "Hợp đồng mua bán",
-      "description": "Template hợp đồng mua bán hàng hóa"
-    }
+    "result": "200",
+    "message": "OK"
   }
 }
 ```
@@ -97,100 +83,22 @@ API này yêu cầu token xác thực. Vui lòng tham khảo [GetToken API](/eco
 
 ## Response Fields
 
-| Attribute                       | Type    | Description                       |
-| ------------------------------- | ------- | --------------------------------- |
-| `success`                       | boolean | Trạng thái thành công của request |
-| `message`                       | string  | Thông báo kết quả                 |
-| `code`                          | number  | HTTP status code                  |
-| `data.hasPermission`            | boolean | Có quyền hay không                |
-| `data.permissions`              | array   | Danh sách quyền cụ thể            |
-| `data.templateInfo.code`        | string  | Mã template                       |
-| `data.templateInfo.name`        | string  | Tên template                      |
-| `data.templateInfo.description` | string  | Mô tả template                    |
-
-## Permission Types
-
-| Permission | Description                    |
-| ---------- | ------------------------------ |
-| `CREATE`   | Quyền tạo tài liệu từ template |
-| `VIEW`     | Quyền xem template             |
-| `EDIT`     | Quyền chỉnh sửa template       |
-| `DELETE`   | Quyền xóa tài liệu             |
-| `APPROVE`  | Quyền phê duyệt tài liệu       |
+| Attribute      | Type    | Description                       |
+| -------------- | ------- | --------------------------------- |
+| `success`      | boolean | Trạng thái thành công của request |
+| `message`      | string  | Thông báo kết quả                 |
+| `code`         | number  | HTTP status code                  |
+| `data.reult`   | boolean | 200 --> có quyền                  |
+| `data.message` | string  | Mô tả                             |
 
 ## Code Examples
 
 ### cURL
 
 ```bash
-curl -X POST http://domain:port/api/econ/checkUserAuthen \
+curl -X POST https://domain/api/econ/checkUserAuthen?user={username}&templateCode={templateCode} \
   -H "Content-Type: application/json" \
   -H "Authorization: your_access_token" \
-  -d '{
-    "username": "user123",
-    "templateCode": "TEMPLATE_001"
-  }'
-```
-
-### JavaScript
-
-```javascript
-const checkUserPermission = async (username, templateCode, token) => {
-  try {
-    const response = await fetch(
-      "http://domain:port/api/econ/checkUserAuthen",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          username: username,
-          templateCode: templateCode,
-        }),
-      }
-    );
-
-    const result = await response.json();
-
-    if (result.success) {
-      return {
-        hasPermission: result.data.hasPermission,
-        permissions: result.data.permissions,
-        templateInfo: result.data.templateInfo,
-      };
-    } else {
-      // Xử lý các lỗi khác nhau
-      switch (result.code) {
-        case 663:
-          throw new Error("User does not have permission on this template");
-        case 203:
-          throw new Error("Template not found");
-        case 662:
-          throw new Error("Username not found");
-        default:
-          throw new Error(result.message);
-      }
-    }
-  } catch (error) {
-    console.error("Check permission failed:", error);
-    return null;
-  }
-};
-
-// Sử dụng
-const token = localStorage.getItem("econtract_token");
-const permission = await checkUserPermission("user123", "TEMPLATE_001", token);
-
-if (permission) {
-  if (permission.hasPermission) {
-    console.log("User has permissions:", permission.permissions);
-    console.log("Template info:", permission.templateInfo);
-  } else {
-    console.log("User does not have permission");
-  }
-}
 ```
 
 ### C# (.NET)
@@ -212,9 +120,8 @@ public class CheckPermissionResponse
 
 public class CheckPermissionData
 {
-    public bool hasPermission { get; set; }
-    public string[] permissions { get; set; }
-    public TemplateInfo templateInfo { get; set; }
+    public string result { get; set; }
+    public string message { get; set; }
 }
 
 public class TemplateInfo
@@ -230,16 +137,10 @@ public async Task<CheckPermissionData> CheckUserPermissionAsync(string username,
     var client = new HttpClient();
     client.DefaultRequestHeaders.Add("Authorization", token);
 
-    var request = new CheckPermissionRequest
-    {
-        username = username,
-        templateCode = templateCode
-    };
-
     var json = JsonSerializer.Serialize(request);
-    var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-    var response = await client.PostAsync("http://domain:port/api/econ/checkUserAuthen", content);
+    var response = await client.PostAsync($"https://domain/api/econ/checkUserAuthen?user={username}&templateCode={templateCode}", null);
+
     var responseJson = await response.Content.ReadAsStringAsync();
     var result = JsonSerializer.Deserialize<CheckPermissionResponse>(responseJson);
 
@@ -252,53 +153,6 @@ public async Task<CheckPermissionData> CheckUserPermissionAsync(string username,
         throw new Exception($"Error {result.code}: {result.message}");
     }
 }
-```
-
-### PHP
-
-```php
-<?php
-function checkUserPermission($username, $templateCode, $token) {
-    $data = array(
-        'username' => $username,
-        'templateCode' => $templateCode
-    );
-
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n" .
-                        "Authorization: $token\r\n",
-            'method'  => 'POST',
-            'content' => json_encode($data)
-        )
-    );
-
-    $context = stream_context_create($options);
-    $result = file_get_contents('http://domain:port/api/econ/checkUserAuthen', false, $context);
-    $response = json_decode($result, true);
-
-    if ($response['success']) {
-        return $response['data'];
-    } else {
-        throw new Exception("Error {$response['code']}: {$response['message']}");
-    }
-}
-
-// Sử dụng
-try {
-    $token = 'your_access_token';
-    $permission = checkUserPermission('user123', 'TEMPLATE_001', $token);
-
-    if ($permission['hasPermission']) {
-        echo "User has permissions: " . implode(', ', $permission['permissions']);
-        echo "\nTemplate: " . $permission['templateInfo']['name'];
-    } else {
-        echo "User does not have permission";
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-?>
 ```
 
 ## Use Cases
@@ -332,66 +186,6 @@ const createDocument = async (templateCode, data, token) => {
   await validatePermissionBeforeCreate("current_user", templateCode, token);
 
   // Tiếp tục tạo document...
-};
-```
-
-### 2. Hiển thị UI dựa trên quyền
-
-```javascript
-const buildUIBasedOnPermission = async (username, templateCode, token) => {
-  const permission = await checkUserPermission(username, templateCode, token);
-
-  const ui = {
-    showCreateButton: false,
-    showEditButton: false,
-    showDeleteButton: false,
-    showApproveButton: false,
-  };
-
-  if (permission && permission.hasPermission) {
-    ui.showCreateButton = permission.permissions.includes("CREATE");
-    ui.showEditButton = permission.permissions.includes("EDIT");
-    ui.showDeleteButton = permission.permissions.includes("DELETE");
-    ui.showApproveButton = permission.permissions.includes("APPROVE");
-  }
-
-  return ui;
-};
-```
-
-### 3. Batch permission check
-
-```javascript
-const checkMultipleTemplatePermissions = async (
-  username,
-  templateCodes,
-  token
-) => {
-  const results = [];
-
-  for (const templateCode of templateCodes) {
-    try {
-      const permission = await checkUserPermission(
-        username,
-        templateCode,
-        token
-      );
-      results.push({
-        templateCode,
-        hasPermission: permission?.hasPermission || false,
-        permissions: permission?.permissions || [],
-        templateInfo: permission?.templateInfo,
-      });
-    } catch (error) {
-      results.push({
-        templateCode,
-        hasPermission: false,
-        error: error.message,
-      });
-    }
-  }
-
-  return results;
 };
 ```
 

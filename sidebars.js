@@ -18,10 +18,12 @@ const sidebars = {
     {
       type: 'category',
       label: 'Danh sách API',
+      collapsed: false,
       items: [
         {
           type: 'category',
           label: 'Đồng bộ danh mục',
+          collapsed: false,
           link: {
             type: 'doc',
             id: 'api/sync-data',
@@ -40,6 +42,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Đồng bộ chứng từ',
+          collapsed: false,
           link: {
             type: 'doc',
             id: 'api/sync-voucher',
@@ -57,6 +60,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Lấy dữ liệu',
+          collapsed: false,
           link: {
             type: 'doc',
             id: 'api/get-data',

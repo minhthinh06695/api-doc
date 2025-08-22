@@ -66,7 +66,7 @@ sequenceDiagram
         end
     end
 
-    Note over Partner,Application: Tích hợp thành công!\nHệ thống sẵn sàng sử dụng đầy đủ các tính năng.
+    Note over Partner,Application: Tích hợp thành công! Hệ thống sẵn sàng sử dụng đầy đủ các tính năng.
 ```
 
 ## Lợi ích

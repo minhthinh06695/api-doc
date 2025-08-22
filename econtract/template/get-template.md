@@ -6,9 +6,9 @@ sidebar_position: 1
 
 ## Endpoint
 
-```
-POST /api/econ/getTemplate
-```
+> ```http
+> POST /api/econ/getTemplate
+> ```
 
 ## Mô tả
 
@@ -169,7 +169,7 @@ API này yêu cầu token xác thực. Vui lòng tham khảo [GetToken API](/eco
 ### cURL
 
 ```bash
-curl -X POST http://domain:port/api/econ/getTemplate \
+curl -X POST https://domain/api/econ/getTemplate \
   -H "Content-Type: application/json" \
   -H "Authorization: your_access_token" \
   -d '{}'
@@ -180,7 +180,7 @@ curl -X POST http://domain:port/api/econ/getTemplate \
 ```javascript
 const getTemplates = async (token) => {
   try {
-    const response = await fetch("http://domain:port/api/econ/getTemplate", {
+    const response = await fetch("https://domain/api/econ/getTemplate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -255,53 +255,12 @@ public async Task<TemplateData[]> GetTemplatesAsync(string token)
     client.DefaultRequestHeaders.Add("Authorization", token);
 
     var content = new StringContent("{}", Encoding.UTF8, "application/json");
-    var response = await client.PostAsync("http://domain:port/api/econ/getTemplate", content);
+    var response = await client.PostAsync("https://domain/api/econ/getTemplate", content);
     var responseJson = await response.Content.ReadAsStringAsync();
     var result = JsonSerializer.Deserialize<GetTemplateResponse>(responseJson);
 
     return result.success ? result.data : new TemplateData[0];
 }
-```
-
-### PHP
-
-```php
-<?php
-function getTemplates($token) {
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n" .
-                        "Authorization: $token\r\n",
-            'method'  => 'POST',
-            'content' => '{}'
-        )
-    );
-
-    $context = stream_context_create($options);
-    $result = file_get_contents('http://domain:port/api/econ/getTemplate', false, $context);
-    $response = json_decode($result, true);
-
-    if ($response['success']) {
-        return $response['data'];
-    } else {
-        throw new Exception($response['message']);
-    }
-}
-
-// Sử dụng
-try {
-    $token = 'your_access_token';
-    $templates = getTemplates($token);
-
-    foreach ($templates as $template) {
-        echo "Template: {$template['templateName']} ({$template['templateCode']})\n";
-        echo "Category: {$template['category']}\n";
-        echo "Fields: " . count($template['fields']) . "\n\n";
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-?>
 ```
 
 ## Use Cases

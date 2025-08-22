@@ -6,9 +6,9 @@ sidebar_position: 2
 
 ## Endpoint
 
-```
-POST /api/econ/getStatusList
-```
+> ```http
+> POST /api/econ/getStatusList
+> ```
 
 ## Mô tả
 
@@ -163,7 +163,7 @@ stateDiagram-v2
 ### cURL
 
 ```bash
-curl -X POST http://domain:port/api/econ/getStatusList \
+curl -X POST https://domain/api/econ/getStatusList \
   -H "Content-Type: application/json" \
   -H "Authorization: your_access_token" \
   -d '{}'
@@ -174,7 +174,7 @@ curl -X POST http://domain:port/api/econ/getStatusList \
 ```javascript
 const getStatusList = async (token) => {
   try {
-    const response = await fetch("http://domain:port/api/econ/getStatusList", {
+    const response = await fetch("https://domain/api/econ/getStatusList", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -238,51 +238,12 @@ public async Task<StatusData[]> GetStatusListAsync(string token)
     client.DefaultRequestHeaders.Add("Authorization", token);
 
     var content = new StringContent("{}", Encoding.UTF8, "application/json");
-    var response = await client.PostAsync("http://domain:port/api/econ/getStatusList", content);
+    var response = await client.PostAsync("https://domain/api/econ/getStatusList", content);
     var responseJson = await response.Content.ReadAsStringAsync();
     var result = JsonSerializer.Deserialize<GetStatusListResponse>(responseJson);
 
     return result.success ? result.data : new StatusData[0];
 }
-```
-
-### PHP
-
-```php
-<?php
-function getStatusList($token) {
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n" .
-                        "Authorization: $token\r\n",
-            'method'  => 'POST',
-            'content' => '{}'
-        )
-    );
-
-    $context = stream_context_create($options);
-    $result = file_get_contents('http://domain:port/api/econ/getStatusList', false, $context);
-    $response = json_decode($result, true);
-
-    if ($response['success']) {
-        return $response['data'];
-    } else {
-        throw new Exception($response['message']);
-    }
-}
-
-// Sử dụng
-try {
-    $token = 'your_access_token';
-    $statuses = getStatusList($token);
-
-    foreach ($statuses as $status) {
-        echo "{$status['statusCode']}: {$status['statusName']} - {$status['description']}\n";
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-?>
 ```
 
 ## Use Cases

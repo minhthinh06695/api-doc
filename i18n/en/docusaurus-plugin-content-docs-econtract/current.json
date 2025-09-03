@@ -1,0 +1,21 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.econtractSidebar.doc.🏠 Tổng quan": {
+    "message": "🏠 Overview",
+    "description": "The label for doc Overview in sidebar econtractSidebar"
+  },
+  "sidebar.econtractSidebar.doc.🔐 Xác thực & Quyền": {
+    "message": "🔐 Authentication & Permissions",
+    "description": "The label for doc Authentication & Permissions in sidebar econtractSidebar"
+  },"sidebar.econtractSidebar.doc.📋 Quản lý Template": {
+    "message": "Template Management",
+    "description": "The label for category Danh sách API in sidebar econtractSidebar"
+  },
+  "sidebar.econtractSidebar.doc.📝 Quản lý Tài liệu": {
+    "message": "📝 Document Management",
+    "description": "The label for category Đồng bộ danh mục in sidebar econtractSidebar"
+  }
+}

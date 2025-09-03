@@ -1,0 +1,25 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.hsmSidebar.doc.🏠 Tổng quan": {
+    "message": "🏠 Overview",
+    "description": "The label for doc Overview in sidebar hsmSidebar"
+  },
+  "sidebar.hsmSidebar.doc.🔐 Xác thực & Quyền": {
+    "message": "🔐 Authentication & Permissions",
+    "description": "The label for doc Authentication & Permissions in sidebar hsmSidebar"
+  },
+  "sidebar.hsmSidebar.doc.📋 Quản lý chứng thư số": {
+    "message": "📋 Digital Certificate Management",
+    "description": "The label for category Danh sách API in sidebar hsmSidebar"
+  },
+  "sidebar.hsmSidebar.doc.🛡️ Mã hóa dữ liệu": {
+    "message": "🛡️ Data Encryption",
+    "description": "The label for category Đồng bộ danh mục in sidebar hsmSidebar"
+  },"sidebar.hsmSidebar.doc.✍️ Ký số điện tử": {
+    "message": "✍️ Digital Signing",
+    "description": "The label for category Đồng bộ chứng từ in sidebar hsmSidebar"
+  }
+}

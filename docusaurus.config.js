@@ -150,7 +150,6 @@ const config = {
           alt: 'Logo',
           src: './img/logo.jpg',
           srcDark: './img/logo.jpg',
-          href: '/',
         },
         items: [
           {
